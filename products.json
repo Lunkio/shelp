@@ -8,7 +8,7 @@
         },
         {
             "id": 2,
-            "price": "30",
+            "price": 30,
             "description": "Maksalaatikko 400g",
             "img": "./images/30022.jpg"
         }

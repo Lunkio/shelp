@@ -1,13 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Products from './components/Products'
 import ShopLogin from './components/ShopLogin'
 import Cart from './components/cart/Cart'
+import productsService from './services/productsService'
+import { initializeProducts } from './reducers/productsReducer'
 
-const App = () => {
+const App = (props) => {
+
+    useEffect(() => {
+        productsService.getAll()
+            .then(products => {
+                props.initializeProducts(products)
+            })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
     return (
         <div>
             <Router>
@@ -21,4 +33,4 @@ const App = () => {
     )
 }
 
-export default App
+export default connect(null, { initializeProducts })(App)
