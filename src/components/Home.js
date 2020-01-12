@@ -11,11 +11,13 @@ const Home = (props) => {
                 <h1>Welcome to Shelp!</h1>
                 <p>Here you can find the best offerings</p>
                 <p>Tähän muuta selostusta</p>
+                <h2>Fresh offers!</h2>
                 <div>
                     {props.products.map(product =>
                         <SingleProduct key={product.id} product={product}/>
                     )}
                 </div>
+                <p><strong>To see more, see "All Products"</strong></p>
             </div>
         </div>
     )

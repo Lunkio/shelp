@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Products from './components/Products'
 import ShopLogin from './components/ShopLogin'
 import Cart from './components/cart/Cart'
+import Checkout from './components/cart/Checkout'
 import productsService from './services/productsService'
 import { initializeProducts } from './reducers/productsReducer'
 
@@ -28,6 +29,7 @@ const App = (props) => {
                 <Route path='/products' render={() => <Products />} />
                 <Route path='/login' render={() => <ShopLogin />} />
                 <Route path='/cart' render={() => <Cart />} />
+                <Route path='/checkout' render={() => <Checkout />} />
             </Router>
         </div>
     )
