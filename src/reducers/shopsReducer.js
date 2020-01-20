@@ -1,6 +1,6 @@
 const shopsReducer = (state = [], action) => {
     switch(action.type) {
-        case 'INIT':
+        case 'INIT_SHOPS':
             return action.data
         default: return state
     }
@@ -8,7 +8,7 @@ const shopsReducer = (state = [], action) => {
 
 export const initializeShops = (shops) => {
     return {
-        type: 'INIT',
+        type: 'INIT_SHOPS',
         data: shops
     }
 }
