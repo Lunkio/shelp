@@ -1,0 +1,29 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "price": 25,
+            "description": "Lihamakaronilaatikko 400g",
+            "img": "./images/3052.jpg",
+            "shop": "kaupan id1"
+        },
+        {
+            "id": 2,
+            "price": 30,
+            "description": "Maksalaatikko 400g",
+            "img": "./images/30022.jpg",
+            "shop": "kaupan id2"
+        }
+    ],
+    "shops": [
+        {
+            "id": 1,
+            "name": "K-Kauppa Martti",
+            "address": "Jokikatu 1",
+            "zip": "00100",
+            "city": "Helsinki",
+            "phone": "04012345678",
+            "products": ["product id1", "product id2"]
+        }
+    ]
+}
