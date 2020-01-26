@@ -5,3 +5,4 @@
 | 12.1. |  2   | Ostoskorikomponentin tekoa ja testien aloittamista |
 | 20.1. |  0.5 | Reducer -testin tekoa |
 | 20.1. |  1   | Backendin runko ja 'shop' sekä 'product' modelit |
+| 26.1  |  0.5 | Backend, productsRouterin teko |
