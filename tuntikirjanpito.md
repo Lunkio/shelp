@@ -7,3 +7,4 @@
 | 20.1. |  1   | Backendin runko ja 'shop' sekä 'product' modelit |
 | 26.1  |  0.5 | Backend, productsRouterin teko |
 | 26.1. |  0.5 | Backend, routerit lisätty ja muutama middleware |
+| 27.1. |  1.5 | Rekisteröinti- ja login-lomakkeiden teko, redux-thunk ja reducereiden lisääminen |

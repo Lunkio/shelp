@@ -17,10 +17,12 @@ shopsRouter.post('/', async (req, res, next) => {
 
         const shop = new Shop({
             name: body.name,
+            email: body.email,
             address: body.address,
             zip: body.zip,
             city: body.city,
             phone: body.phone,
+            website: body.website,
 
         })
 
@@ -38,10 +40,12 @@ shopsRouter.put(':/id', async (req, res, next) => {
 
         const shop = {
             name: body.name,
+            email: body.email,
             address: body.address,
             zip: body.zip,
             city: body.city,
-            phone: body.phone
+            phone: body.phone,
+            website: body.website
         }
 
         const modifiedShop = await Shop.findByIdAndUpdate(req.params.id, shop, { new: true })

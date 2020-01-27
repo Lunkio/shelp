@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Products from './components/Products'
 import ShopLogin from './components/ShopLogin'
+import ShopRegister from './components/ShopRegister'
 import Cart from './components/cart/Cart'
 import Checkout from './components/cart/Checkout'
 import productsService from './services/productsService'
@@ -14,7 +15,7 @@ import { initializeProducts } from './reducers/productsReducer'
 const App = (props) => {
 
     useEffect(() => {
-        productsService.getAll()
+        productsService.getAllProducts()
             .then(products => {
                 props.initializeProducts(products)
             })
@@ -28,6 +29,7 @@ const App = (props) => {
                 <Route exact path='/' render={() => <Home />} />
                 <Route path='/products' render={() => <Products />} />
                 <Route path='/login' render={() => <ShopLogin />} />
+                <Route path='/register' render={() => <ShopRegister />} />
                 <Route path='/cart' render={() => <Cart />} />
                 <Route path='/checkout' render={() => <Checkout />} />
             </Router>
