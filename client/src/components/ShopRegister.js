@@ -10,17 +10,16 @@ const ShopRegister = (props) => {
 
     const handleRegistration = async (event) => {
         event.preventDefault()
-        event.persist()
 
-        const name = event.target.name.value
-        const email = event.target.email.value
-        const password = event.target.password.value
-        const passwordAgain = event.target.passwordAgain.value
-        const address = event.target.address.value
-        const zip = event.target.zip.value
-        const city = event.target.city.value
-        const phone = event.target.phone.value
-        const website = event.target.website.value
+        let name = event.target.name.value
+        let email = event.target.email.value
+        let password = event.target.password.value
+        let passwordAgain = event.target.passwordAgain.value
+        let address = event.target.address.value
+        let zip = event.target.zip.value
+        let city = event.target.city.value
+        let phone = event.target.phone.value
+        let website = event.target.website.value
 
         if (password !== passwordAgain || password === '' || passwordAgain === '') {
             props.setAlert('Please check that both passwords are identical and not empty', 5)

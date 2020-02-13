@@ -10,3 +10,4 @@
 | 27.1. |  1.5 | Rekisteröinti- ja login-lomakkeiden teko, redux-thunk ja reducereiden lisääminen |
 | 13.2. |  1   | Muokattu kaikki reducerit hyödyntämään redux-thunk ja reducer -testien lisäys |
 | 13.2. |  2   | Kaupan rekisteröinti ja tietojen tallentaminen tietokantaan, unique-validator lisätty jotta kaupan nimi unique |
+| 13.2. |  2   | Jsonwebtoken lisätty jotta vain kirjautunut kauppa voi lisätä/muokata tuotteitaan, kaupan login ominaisuus lisätty ja siihen liittyvä reducer |

@@ -6,3 +6,8 @@ export const shops = [
         "name": "S-Kauppa"
     }
 ]
+
+export const shop = {
+    "name": "K-Kauppa",
+    "token": "qwerty12345"
+}

@@ -12,12 +12,14 @@ import Cart from './components/cart/Cart'
 import Checkout from './components/cart/Checkout'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
+import { initializeShop } from './reducers/shopLoginReducer'
 
 const App = (props) => {
 
     useEffect(() => {
         props.initializeProducts()
         props.initializeShops()
+        props.initializeShop()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -37,4 +39,4 @@ const App = (props) => {
     )
 }
 
-export default connect(null, { initializeProducts, initializeShops })(App)
+export default connect(null, { initializeProducts, initializeShops, initializeShop })(App)
