@@ -8,6 +8,5 @@
 | 26.1  |  0.5 | Backend, productsRouterin teko |
 | 26.1. |  0.5 | Backend, routerit lisätty ja muutama middleware |
 | 27.1. |  1.5 | Rekisteröinti- ja login-lomakkeiden teko, redux-thunk ja reducereiden lisääminen |
-
-
-1h muokattu kaikki reducerit hyödyntämään redux-thunk ja testien lisäys 
+| 13.2. |  1   | Muokattu kaikki reducerit hyödyntämään redux-thunk ja reducer -testien lisäys |
+| 13.2. |  2   | Kaupan rekisteröinti ja tietojen tallentaminen tietokantaan, unique-validator lisätty jotta kaupan nimi unique |

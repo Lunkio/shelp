@@ -1,9 +1,16 @@
 import React from 'react'
+import { Message } from 'semantic-ui-react'
+import { connect } from 'react-redux'
+import { setAlert } from '../reducers/alertReducer'
+import { setConfirm } from '../reducers/confirmReducer'
+import { initializeShops } from '../reducers/shopsReducer'
+import shopsService from '../services/shopsService'
 
-const ShopRegister = () => {
+const ShopRegister = (props) => {
 
-    const handleRegistration = (event) => {
+    const handleRegistration = async (event) => {
         event.preventDefault()
+        event.persist()
 
         const name = event.target.name.value
         const email = event.target.email.value
@@ -15,8 +22,8 @@ const ShopRegister = () => {
         const phone = event.target.phone.value
         const website = event.target.website.value
 
-        if (password !== passwordAgain) {
-            window.alert('Password doesn\'t match, please check both password fields')
+        if (password !== passwordAgain || password === '' || passwordAgain === '') {
+            props.setAlert('Please check that both passwords are identical and not empty', 5)
             return
         }
 
@@ -30,7 +37,24 @@ const ShopRegister = () => {
             phone: phone,
             website: website
         }
-
+        //console.log(newShop)
+        try {
+            const addedShop = await shopsService.addNewShop(newShop)
+            event.target.name.value = ''
+            event.target.email.value = ''
+            event.target.password.value = ''
+            event.target.passwordAgain.value = ''
+            event.target.address.value = '' 
+            event.target.zip.value = ''
+            event.target.city.value = ''
+            event.target.phone.value = ''
+            event.target.website.value = ''
+            props.initializeShops()
+            props.setConfirm(`Success! ${addedShop.name} is now registered`, 3)
+        } catch (error) {
+            console.log('error', error)
+            props.setAlert('Shop name already in use, please try with another name', 5)
+        }
     }
 
     return (
@@ -72,10 +96,28 @@ const ShopRegister = () => {
                     <label htmlFor='shopWebsite'>Website (optional)</label>
                     <input type='text' name='website' className='form-control' placeholder='Website (optional)' id='shopWebsite' />
                 </div>
-                <button type='submit' className='btn btn-primary'>Submit</button>
+                <button id='submitBtn' type='submit' className='btn btn-primary'>Submit</button>
             </form>
+            <Message success content={props.confirm} />  
+            <Message error content={props.alert} />            
         </div>
     )
 }
 
-export default ShopRegister
+const mapStateToProps = (state) => {
+    return {
+        alert: state.alert,
+        confirm: state.confirm
+    }
+}
+
+const mapDispatchToProps = {
+    setAlert,
+    setConfirm,
+    initializeShops
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ShopRegister)

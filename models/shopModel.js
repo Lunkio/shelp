@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
+const uniqueValidator = require('mongoose-unique-validator')
 
 const shopSchema = new mongoose.Schema({
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
     email: { type: String, required: true },
+    passwordHash: { type: String, required: true },
     address: { type: String, required: true },
     zip: { type: String, required: true },
     city: { type: String, required: true },
@@ -15,6 +17,8 @@ const shopSchema = new mongoose.Schema({
         }
     ]
 })
+
+shopSchema.plugin(uniqueValidator)
 
 shopSchema.set('toJSON', {
     transform: (document, returnedObject) => {

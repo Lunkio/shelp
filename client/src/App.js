@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Admin from './components/Admin'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -30,6 +31,7 @@ const App = (props) => {
                 <Route path='/register' render={() => <ShopRegister />} />
                 <Route path='/cart' render={() => <Cart />} />
                 <Route path='/checkout' render={() => <Checkout />} />
+                <Route path='/admin' render={() => <Admin />} />
             </Router>
         </div>
     )

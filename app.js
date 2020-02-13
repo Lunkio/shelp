@@ -8,7 +8,7 @@ const productsRouter = require('./controllers/products')
 const shopsRouter = require('./controllers/shops')
 const middleware = require('./utils/middleware')
 
-mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => {
         console.log('Connected to MongoDB')
     })

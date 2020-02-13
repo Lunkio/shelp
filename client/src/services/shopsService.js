@@ -7,4 +7,10 @@ const getAllShops = async () => {
     return response.data
 }
 
-export default { getAllShops }
+const addNewShop = async (shop) => {
+    const response = await axios.post(url, shop)
+    console.log('response.data', response.data)
+    return response.data
+}
+
+export default { getAllShops, addNewShop }

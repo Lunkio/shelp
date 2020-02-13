@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import SingleProduct from './SingleProduct'
 
 const Home = (props) => {
-    console.log(props)
+    //console.log(props)
 
     return (
         <div className='container main'>

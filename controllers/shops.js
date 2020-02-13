@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs')
 const shopsRouter = require('express').Router()
 const Shop = require('../models/shopModel')
 //const Product = require('../models/productModel')
@@ -15,6 +16,9 @@ shopsRouter.post('/', async (req, res, next) => {
     try {
         const body = req.body
 
+        const saltRounds = 10
+        const passwordHash = await bcrypt.hash(body.password, saltRounds)
+
         const shop = new Shop({
             name: body.name,
             email: body.email,
@@ -23,7 +27,7 @@ shopsRouter.post('/', async (req, res, next) => {
             city: body.city,
             phone: body.phone,
             website: body.website,
-
+            passwordHash
         })
 
         const savedShop = await shop.save()

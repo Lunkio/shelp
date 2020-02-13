@@ -6,6 +6,11 @@ const Navbar = () => {
         <nav className='navbar fixed-top navbar-expand-sm'>
             <ul className='navbar-nav'>
                 <li>
+                    <Link to='/admin' className='nav-link'>
+                        Admin
+                    </Link>
+                </li>
+                <li>
                     <Link to='/' className='nav-link'>
                         Home
                     </Link>
