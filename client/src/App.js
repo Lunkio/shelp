@@ -9,16 +9,14 @@ import ShopLogin from './components/ShopLogin'
 import ShopRegister from './components/ShopRegister'
 import Cart from './components/cart/Cart'
 import Checkout from './components/cart/Checkout'
-import productsService from './services/productsService'
 import { initializeProducts } from './reducers/productsReducer'
+import { initializeShops } from './reducers/shopsReducer'
 
 const App = (props) => {
 
     useEffect(() => {
-        productsService.getAllProducts()
-            .then(products => {
-                props.initializeProducts(products)
-            })
+        props.initializeProducts()
+        props.initializeShops()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -37,4 +35,4 @@ const App = (props) => {
     )
 }
 
-export default connect(null, { initializeProducts })(App)
+export default connect(null, { initializeProducts, initializeShops })(App)

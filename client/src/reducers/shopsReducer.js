@@ -1,3 +1,5 @@
+import shopsService from '../services/shopsService'
+
 const shopsReducer = (state = [], action) => {
     switch(action.type) {
         case 'INIT_SHOPS':
@@ -6,10 +8,13 @@ const shopsReducer = (state = [], action) => {
     }
 }
 
-export const initializeShops = (shops) => {
-    return {
-        type: 'INIT_SHOPS',
-        data: shops
+export const initializeShops = () => {
+    return async dispatch => {
+        const shops = await shopsService.getAllShops()
+        dispatch({
+            type: 'INIT_SHOPS',
+            data: shops
+        })
     }
 }
 

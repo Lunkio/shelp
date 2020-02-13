@@ -11,23 +11,29 @@ const cartReducer = (state = [], action) => {
 }
 
 export const addToCart = (product) => {
-    return {
-        type: 'ADD',
-        data: product
+    return dispatch => {
+        dispatch({
+            type: 'ADD',
+            data: product
+        })
     }
 }
 
 export const removeFromCart = (id) => {
-    return {
-        type: 'REMOVE',
-        data: id
+    return dispatch => {
+        dispatch({
+            type: 'REMOVE',
+            data: id
+        })
     }
 }
 
 export const emptyCart = () => {
-    return {
-        type: 'EMPTY_CART',
-        data: []
+    return dispatch => {
+        dispatch({
+            type: 'EMPTY_CART',
+            data: []
+        })
     }
 }
 
