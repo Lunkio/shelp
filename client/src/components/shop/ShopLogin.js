@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import ShopLoggedIn from './ShopLoggedIn'
 import { Link } from 'react-router-dom'
 import { Message } from 'semantic-ui-react'
-import loginService from '../services/loginService'
-import productsService from '../services/productsService'
-import { loginShop } from '../reducers/shopLoginReducer'
-import { setAlert } from '../reducers/alertReducer'
+import loginService from '../../services/loginService'
+import productsService from '../../services/productsService'
+import { loginShop } from '../../reducers/shopLoginReducer'
+import { setAlert } from '../../reducers/alertReducer'
 
 const ShopLogin = (props) => {
 
@@ -19,12 +19,9 @@ const ShopLogin = (props) => {
         try {
             const shop = await loginService.login({ name, password })
 
-            window.localStorage.setItem(
-                'loggedInShop', JSON.stringify(shop)
-            )
+            window.localStorage.setItem('loggedInShop', JSON.stringify(shop))
 
             productsService.setToken(shop.token)
-            console.log(shop)
             props.loginShop(shop)
 
         } catch (error) {

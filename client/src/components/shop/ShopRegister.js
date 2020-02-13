@@ -1,10 +1,10 @@
 import React from 'react'
 import { Message } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { setAlert } from '../reducers/alertReducer'
-import { setConfirm } from '../reducers/confirmReducer'
-import { initializeShops } from '../reducers/shopsReducer'
-import shopsService from '../services/shopsService'
+import { setAlert } from '../../reducers/alertReducer'
+import { setConfirm } from '../../reducers/confirmReducer'
+import { initializeShops } from '../../reducers/shopsReducer'
+import shopsService from '../../services/shopsService'
 
 const ShopRegister = (props) => {
 
