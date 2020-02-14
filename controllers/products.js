@@ -6,7 +6,7 @@ const Image = require('../models/imageModel')
 
 productsRouter.get('/', async (req, res, next) => {
     try {
-        const products = await Product.find({})
+        const products = await Product.find({}).populate('img').populate('shop')
         res.json(products.map(p => p.toJSON()))
 
     } catch (exception) {
@@ -65,6 +65,7 @@ productsRouter.put('/:id', async (req, res, next) => {
         }
 
         const modifiedProduct = await Product.findByIdAndUpdate(req.params.id, product, { new: true })
+            .populate('img').populate('shop')
         res.json(modifiedProduct.toJSON())
 
     } catch (exception) {

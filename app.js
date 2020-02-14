@@ -24,7 +24,7 @@ mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology
     .catch((error) => { console.log('Error', error.message) })
 
 // tarvitaan img uploadiin
-const conn = mongoose.createConnection(config.MONGODB_URI)
+const conn = mongoose.createConnection(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 let gfs
 conn.once('open', () => {
     gfs = Grid(conn.db, mongoose.mongo)
@@ -72,6 +72,26 @@ app.delete('/api/products/images/:id', async (req, res, next) => {
     } catch (exception) {
         next (exception)
     }
+})
+
+// näyttää kuvan frontissa
+app.get('/api/products/image/:filename', (req, res, next) => {
+    //console.log(req.params.filename)
+    Image.findOne({ filename: req.params.filename })
+        .then(image => {
+            //console.log(image)
+            if (image) {
+                if (image.contentType === 'image/jpeg' || image.contentType === 'image/png') {
+                    const readstream = gfs.createReadStream(image.filename)
+                    readstream.pipe(res)
+                } else {
+                    res.status(404).json({ err: 'Not an image' })
+                }
+            } else {
+                res.status(404).end()
+            }
+        })
+        .catch(error => next(error))
 })
 
 app.use(cors())

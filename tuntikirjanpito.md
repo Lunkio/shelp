@@ -13,3 +13,4 @@
 | 13.2. |  2   | Jsonwebtoken lisätty jotta vain kirjautunut kauppa voi lisätä/muokata tuotteitaan, kaupan login ominaisuus lisätty ja siihen liittyvä reducer |
 | 13.2. |  1   | Kaupan sisäänkirjautumissivun pohja |
 | 14.2. |  6   | Kuvan lataaminen tietokantaan, tämän tiedon hankintaa sekä kuvan liittäminen tuotteeseen, tuotteen lisäys kaupan admin sivulla |
+| 14.2. |  2   | Kuva näkyy nyt Frontin puolella, kirjautunut kauppa näkee vain omat tuotteensa kun kirjautunut sisälle |

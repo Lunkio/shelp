@@ -1,3 +1,11 @@
 .main {
   margin-top: 4rem;
 }
+
+.img-container {
+  width: 10rem;
+}
+
+.img-container img {
+  max-width: 100%;
+}
