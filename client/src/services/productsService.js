@@ -41,4 +41,14 @@ const removeProduct = async (id) => {
     return response.data
 }
 
-export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct }
+const uploadImg = async (img) => {
+    const response = await axios.post(`${url}/image`, img)
+    return response.data
+}
+
+const deleteImg = async (id) => {
+    const response = await axios.delete(`${url}/images/${id}`)
+    return response.data
+}
+
+export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, uploadImg, deleteImg }

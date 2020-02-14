@@ -2,6 +2,7 @@ const productsRouter = require('express').Router()
 const jwt = require('jsonwebtoken')
 const Product = require('../models/productModel')
 const Shop = require('../models/shopModel')
+const Image = require('../models/imageModel')
 
 productsRouter.get('/', async (req, res, next) => {
     try {
@@ -22,11 +23,13 @@ productsRouter.post('/', async (req, res, next) => {
         }
 
         const shop = await Shop.findById(decodedToken.id)
+        const img = await Image.findById(body.imgId)
 
-        const product = new Products({
-            price: body.price,
+        const product = new Product({
             description: body.description,
+            price: body.price,            
             availability: true,
+            img: img._id,
             shop: shop._id
         })
 
@@ -50,10 +53,15 @@ productsRouter.put('/:id', async (req, res, next) => {
             return res.status(401).json({ error: 'token missing or invalid' })
         }
 
+        const shop = await Shop.findById(decodedToken.id)
+        const img = await Image.findById(body.img)
+
         const product = {
-            price: body.price,
             description: body.description,
-            availability: body.availability
+            price: body.price,            
+            availability: body.availability,
+            img: img._id,
+            shop: shop._id
         }
 
         const modifiedProduct = await Product.findByIdAndUpdate(req.params.id, product, { new: true })

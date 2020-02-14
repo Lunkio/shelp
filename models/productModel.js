@@ -5,8 +5,13 @@ const productSchema = new mongoose.Schema({
     description: { type: String, required: true },
     availability: { type: Boolean, required: true },
     shop: {
+        required: true,
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Shop'
+    },
+    img: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Image'
     }
 })
 

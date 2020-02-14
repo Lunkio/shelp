@@ -5,7 +5,7 @@ const ShopProduct = (props) => {
     return (
         <div>
             {props.product.description}
-            {props.products.price}
+            {props.product.price}
         </div>
     )
 }

@@ -12,3 +12,4 @@
 | 13.2. |  2   | Kaupan rekisteröinti ja tietojen tallentaminen tietokantaan, unique-validator lisätty jotta kaupan nimi unique |
 | 13.2. |  2   | Jsonwebtoken lisätty jotta vain kirjautunut kauppa voi lisätä/muokata tuotteitaan, kaupan login ominaisuus lisätty ja siihen liittyvä reducer |
 | 13.2. |  1   | Kaupan sisäänkirjautumissivun pohja |
+| 14.2. |  6   | Kuvan lataaminen tietokantaan, tämän tiedon hankintaa sekä kuvan liittäminen tuotteeseen, tuotteen lisäys kaupan admin sivulla |
