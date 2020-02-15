@@ -4,23 +4,34 @@ import productsService from '../../services/productsService'
 import { logoutShop } from '../../reducers/shopLoginReducer'
 import ShopProduct from './ShopProduct'
 import ShopAddProduct from './ShopAddProduct'
+import ShopManage from './ShopManage'
 
 const ShopLoggedIn = (props) => {
     //console.log(props)
     const [showProducts, setShowProducts] = useState(true)
     const [showAdd, setShowAdd] = useState(false)
+    const [showManage, setShowManage] = useState(false)
 
     const productsShow = { display: showProducts ? '' : 'none' }
     const addShow = { display: showAdd ? '' : 'none' }
+    const manageShow = { display: showManage ? '' : 'none' }
 
     const handleProductsShow = () => {
         setShowProducts(true)
         setShowAdd(false)
+        setShowManage(false)
     }
 
     const handleAddShow = () => {
         setShowProducts(false)
         setShowAdd(true)
+        setShowManage(false)
+    }
+
+    const handleManage = () => {
+        setShowProducts(false)
+        setShowAdd(false)
+        setShowManage(true)
     }
 
     const handleLogout = () => {
@@ -36,6 +47,7 @@ const ShopLoggedIn = (props) => {
             <h3>{props.shopLogin.name}</h3> <br />
             <button id='products' onClick={handleProductsShow}>Products on sale</button>
             <button id='add' onClick={handleAddShow}>Add products</button>
+            <button id='manage' onClick={handleManage} >Manage Shop</button>
             
             {/* Shows Products on sale */}
             <div style={productsShow}>
@@ -49,6 +61,11 @@ const ShopLoggedIn = (props) => {
             {/* Add Products */}
             <div style={addShow}>
                 <ShopAddProduct />
+            </div>
+
+            {/* Manage Shop */}
+            <div style={manageShow}>
+                <ShopManage />
             </div>
 
         </div>

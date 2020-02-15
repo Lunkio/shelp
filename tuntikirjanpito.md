@@ -15,3 +15,4 @@
 | 14.2. |  6   | Kuvan lataaminen tietokantaan, tämän tiedon hankintaa sekä kuvan liittäminen tuotteeseen, tuotteen lisäys kaupan admin sivulla |
 | 14.2. |  2   | Kuva näkyy nyt Frontin puolella, kirjautunut kauppa näkee vain omat tuotteensa kun kirjautunut sisälle |
 | 15.2. |  2   | Tuotteen poisto lisätty, poistaminen poistaa myös siihen liitetyn kuvan sekä kauppa-objektin product-arraylista päivittyy tietokantaan |
+| 15.2. | 0.5  | Kaupan poisto-ominaisuus tietokannasta |

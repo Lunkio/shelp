@@ -54,7 +54,7 @@ const ShopAddProduct = (props) => {
     }
 
     return (
-        <div className='container main'>
+        <div>
             <Message success content={props.confirm}/>
             <Message error content={props.alert}/>
             <form onSubmit={handleNewProduct}>

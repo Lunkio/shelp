@@ -10,6 +10,7 @@ const ShopRegister = (props) => {
 
     const handleRegistration = async (event) => {
         event.preventDefault()
+        event.persist()
 
         let name = event.target.name.value
         let email = event.target.email.value
