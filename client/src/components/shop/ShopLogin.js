@@ -19,9 +19,6 @@ const ShopLogin = (props) => {
 
         try {
             const shop = await loginService.login({ name, password })
-
-            window.localStorage.setItem('loggedInShop', JSON.stringify(shop))
-
             productsService.setToken(shop.token)
             props.loginShop(shop)
 
@@ -44,7 +41,6 @@ const ShopLogin = (props) => {
                     <button className='btn btn-primary'>Register</button>
                 </Link>
             </div>
-            <Message error content={props.alert}/>
             <form onSubmit={login}>
                 <div className='form-group'>
                     <label htmlFor='shopName'>Shop Name</label>
@@ -56,6 +52,7 @@ const ShopLogin = (props) => {
                 </div>
                 <button id='loginBtn' type='submit' className='btn btn-primary'>Login</button>
             </form>
+            {props.alert && <Message error header={props.alert} />}
         </div>
     )
 }

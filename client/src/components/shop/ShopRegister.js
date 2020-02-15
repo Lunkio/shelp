@@ -98,8 +98,8 @@ const ShopRegister = (props) => {
                 </div>
                 <button id='submitBtn' type='submit' className='btn btn-primary'>Submit</button>
             </form>
-            <Message success content={props.confirm} />  
-            <Message error content={props.alert} />            
+            {props.confirm && <Message success header={props.confirm} />}
+            {props.alert && <Message error header={props.alert} />}
         </div>
     )
 }

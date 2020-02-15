@@ -8,6 +8,7 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 import { initializeShops } from '../../reducers/shopsReducer'
 import { logoutShop } from '../../reducers/shopLoginReducer'
+import { loginShop } from '../../reducers/shopLoginReducer'
 
 const ShopManage = (props) => {
     //console.log(props)    
@@ -56,9 +57,12 @@ const ShopManage = (props) => {
             phone,
             website
         }
+        const newShopLogin = JSON.parse(JSON.stringify(props.shopLogin))
+        newShopLogin.name = editedShop.name
 
         try {
             await shopsService.editShop(editedShop)
+            props.loginShop(newShopLogin)
             props.initializeShops()
             props.setConfirm('Shop details updated successfully!', 5)
         } catch (error) {
@@ -95,8 +99,8 @@ const ShopManage = (props) => {
 
     return (
         <div>
-            <Message positive content={props.confirm} />
-            <Message negative content={props.alert} />
+            {props.confirm && <Message success header={props.confirm} />}
+            {props.alert && <Message error header={props.alert} />}
             <div>
                 <div>
                     <div style={editShow}>
@@ -159,7 +163,8 @@ const mapDispatchToProps = {
     setConfirm,
     initializeProducts,
     initializeShops,
-    logoutShop
+    logoutShop,
+    loginShop
 }
 
 export default connect(

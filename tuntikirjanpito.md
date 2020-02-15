@@ -17,3 +17,4 @@
 | 15.2. |  2   | Tuotteen poisto lisätty, poistaminen poistaa myös siihen liitetyn kuvan sekä kauppa-objektin product-arraylista päivittyy tietokantaan |
 | 15.2. |  0.5 | Kaupan poisto-ominaisuus tietokannasta |
 | 15.2. |  1.5 | Kaupan editointi mahdollisuus lisätty |
+| 15.2. |  3   | Tuotteen editointi mahdollisuus lisätty, kun kuvan vaihtaa, poistuu vanha kuva tietokannasta ja uusi liitetään tilalle |

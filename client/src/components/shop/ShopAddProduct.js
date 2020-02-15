@@ -44,8 +44,8 @@ const ShopAddProduct = (props) => {
             setName('')
             setPrice(1)
             setUploadedImage(null)
-            props.setConfirm(`Product ${addedProduct.description} added successfully!`, 3)
             props.initializeProducts()
+            props.setConfirm(`Product ${addedProduct.description} added successfully!`, 3)            
         } catch (error) {
             console.log('error', error)
             props.setAlert('Product wasn\'t added, please try again', 5)
@@ -55,8 +55,8 @@ const ShopAddProduct = (props) => {
 
     return (
         <div>
-            <Message success content={props.confirm}/>
-            <Message error content={props.alert}/>
+            {props.confirm && <Message success header={props.confirm} />}
+            {props.alert && <Message error header={props.alert} />}
             <form onSubmit={handleNewProduct}>
                 Name/description: <input type='text' id='desc' value={name} onChange={e => setName(e.target.value)} /> <br />
                 Price: <input type='number' id='price' value={price} onChange={e => setPrice(e.target.value)} /> <br />                

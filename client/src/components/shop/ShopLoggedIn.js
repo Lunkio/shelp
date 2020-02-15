@@ -8,7 +8,6 @@ import ShopAddProduct from './ShopAddProduct'
 import ShopManage from './ShopManage'
 
 const ShopLoggedIn = (props) => {
-    //console.log(props)
     const [showProducts, setShowProducts] = useState(true)
     const [showAdd, setShowAdd] = useState(false)
     const [showManage, setShowManage] = useState(false)

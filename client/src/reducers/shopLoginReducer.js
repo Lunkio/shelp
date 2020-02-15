@@ -10,6 +10,7 @@ const shopLoginReducer = (state = null, action) => {
 
 export const loginShop = (shop) => {
     return async dispatch => {
+        window.localStorage.setItem('loggedInShop', JSON.stringify(shop))
         dispatch({
             type: 'LOGIN_SHOP',
             data: shop
