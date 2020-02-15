@@ -19,6 +19,7 @@ export const loginShop = (shop) => {
 
 export const logoutShop = () => {
     return async dispatch => {
+        window.localStorage.removeItem('loggedInShop')
         dispatch({
             type: 'LOGOUT_SHOP'
         })

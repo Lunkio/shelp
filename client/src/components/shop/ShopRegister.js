@@ -62,10 +62,10 @@ const ShopRegister = (props) => {
             <form onSubmit={handleRegistration} className='row'>
                 <div className='col-md-6'>
                     <label htmlFor='shopName'>Shop Name</label>
-                    <input type='text' name='name' className='form-control' placeholder='Shop Name' id='shoName' required />
+                    <input type='text' name='name' className='form-control' placeholder='Shop Name' id='shopName' required />
                 </div>
                 <div className='col-md-6'>
-                    <label htmlFor='shopEmail'>Shop email</label>
+                    <label htmlFor='shopEmail'>Shop Email</label>
                     <input type='text' name='email' className='form-control' placeholder='Email' id='shopEmail' required />
                 </div>
                 <div className='col-md-6'>
@@ -82,7 +82,7 @@ const ShopRegister = (props) => {
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopZip'>Zip Code</label>
-                    <input type='text' name='zip' className='form-control' placeholder='Zip Code' id='shopId' required />
+                    <input type='text' name='zip' className='form-control' placeholder='Zip Code' id='shopZip' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopCity'>City</label>

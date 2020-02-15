@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import productsService from '../../services/productsService'
+import shopsService from '../../services/shopsService'
 import { logoutShop } from '../../reducers/shopLoginReducer'
 import ShopProduct from './ShopProduct'
 import ShopAddProduct from './ShopAddProduct'
@@ -35,8 +36,8 @@ const ShopLoggedIn = (props) => {
     }
 
     const handleLogout = () => {
-        window.localStorage.removeItem('loggedInShop')
         productsService.destroyToken()
+        shopsService.destroyToken()
         props.logoutShop()
     }
 

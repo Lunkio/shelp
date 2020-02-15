@@ -9,6 +9,7 @@ import { loginShop } from '../../reducers/shopLoginReducer'
 import { setAlert } from '../../reducers/alertReducer'
 
 const ShopLogin = (props) => {
+    //console.log(props)
 
     const login = async (event) => {
         event.preventDefault()

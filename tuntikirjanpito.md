@@ -1,5 +1,5 @@
 | päivä | aika | mitä tein |
-| :----:|:----:|:-----:|
+|:-----:|:----:|:-----:|
 | 11.1. |  1   | Sovelluksen suunnittelu ja perusrungon teko, React Routerin ja Bootstrapin lisääminen projektiin |
 | 11.1. |  1   | Reduxin ja json-serverin lisäys |
 | 12.1. |  2   | Ostoskorikomponentin tekoa ja testien aloittamista |
@@ -15,4 +15,5 @@
 | 14.2. |  6   | Kuvan lataaminen tietokantaan, tämän tiedon hankintaa sekä kuvan liittäminen tuotteeseen, tuotteen lisäys kaupan admin sivulla |
 | 14.2. |  2   | Kuva näkyy nyt Frontin puolella, kirjautunut kauppa näkee vain omat tuotteensa kun kirjautunut sisälle |
 | 15.2. |  2   | Tuotteen poisto lisätty, poistaminen poistaa myös siihen liitetyn kuvan sekä kauppa-objektin product-arraylista päivittyy tietokantaan |
-| 15.2. | 0.5  | Kaupan poisto-ominaisuus tietokannasta |
+| 15.2. |  0.5 | Kaupan poisto-ominaisuus tietokannasta |
+| 15.2. |  1.5 | Kaupan editointi mahdollisuus lisätty |

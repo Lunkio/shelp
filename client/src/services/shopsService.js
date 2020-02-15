@@ -23,7 +23,10 @@ const addNewShop = async (shop) => {
 }
 
 const editShop = async (shop) => {
-    const response = await axios.put(`${url}/${shop.id}`, shop)
+    const config = {
+        headers: { Authorization: token }
+    }
+    const response = await axios.put(`${url}/${shop.id}`, shop, config)
     return response.data
 }
 
