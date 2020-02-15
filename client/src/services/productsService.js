@@ -46,9 +46,9 @@ const uploadImg = async (img) => {
     return response.data
 }
 
-const deleteImg = async (id) => {
+const removeImg = async (id) => {
     const response = await axios.delete(`${url}/images/${id}`)
     return response.data
 }
 
-export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, uploadImg, deleteImg }
+export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, uploadImg, removeImg }

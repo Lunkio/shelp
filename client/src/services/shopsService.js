@@ -9,8 +9,12 @@ const getAllShops = async () => {
 
 const addNewShop = async (shop) => {
     const response = await axios.post(url, shop)
-    console.log('response.data', response.data)
     return response.data
 }
 
-export default { getAllShops, addNewShop }
+const editShop = async (shop) => {
+    const response = await axios.put(`${url}/${shop.id}`, shop)
+    return response.data
+}
+
+export default { getAllShops, addNewShop, editShop }

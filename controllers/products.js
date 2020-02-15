@@ -78,10 +78,16 @@ productsRouter.delete('/:id', async (req, res, next) => {
         const product = await Product.findById(req.params.id)
 
         const decodedToken = jwt.verify(req.token, process.env.SECRET)
-
         const shop = await Shop.findById(decodedToken.id)
 
         if (product.shop.toString() === shop.id.toString()) {
+
+            //removes product from shop-object.product array
+            const shopProducts = shop.products
+            const filteredProducts = shopProducts.filter(id => id.toString() !== product._id.toString())
+            shop.products = filteredProducts
+            await shop.save()
+
             await Product.findByIdAndRemove(req.params.id)
             res.status(204).end()
         } else {

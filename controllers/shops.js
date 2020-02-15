@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs')
 const shopsRouter = require('express').Router()
 const Shop = require('../models/shopModel')
-//const Product = require('../models/productModel')
+const Product = require('../models/productModel')
 
 shopsRouter.get('/', async (req, res ,next) => {
     try {
@@ -38,10 +38,9 @@ shopsRouter.post('/', async (req, res, next) => {
     }
 })
 
-shopsRouter.put(':/id', async (req, res, next) => {
+shopsRouter.put('/:id', async (req, res, next) => {
+    const body = req.body
     try {
-        const body = req.body
-
         const shop = {
             name: body.name,
             email: body.email,
