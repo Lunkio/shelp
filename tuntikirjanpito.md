@@ -19,3 +19,5 @@
 | 15.2. |  1.5 | Kaupan editointi mahdollisuus lisätty |
 | 15.2. |  3   | Tuotteen editointi mahdollisuus lisätty, kun kuvan vaihtaa, poistuu vanha kuva tietokannasta ja uusi liitetään tilalle |
 | 16.2. |  2   | Lisätty react-select dependency, jotta tuotteita voi selailla kauppojen mukaan, filtteröinti ei toimi vielä |
+| 16.2. |  2   | Usean kaupan yhtaikainen filtteröinti toimii viimein |
+| 16.2. |  3   | Ostoskoritoimintojen luontia, koko korin voi tyhjentää tai yksittäisiä tuotteita poistaa, backendiin lisätty buyer-model ja controllerit |
