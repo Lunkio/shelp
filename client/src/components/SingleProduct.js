@@ -3,23 +3,32 @@ import { connect } from 'react-redux'
 import { addToCart } from '../reducers/cartReducer'
 
 const SingleProduct = (props) => {
-    //console.log(props.cart)
+    //console.log(props)
 
     const checkIfInCart = (product) => {
-        if (props.cart.find(p => p.id === product.id)) {
-            return true
-        }
-        return false
+        return props.cart.find(p => p.id === product.id)
     }
 
     return (
         <div>
-            {props.product.description}
-            <button 
-                disabled={checkIfInCart(props.product)}
-                onClick={() => props.addToCart(props.product)}>
-                    {checkIfInCart(props.product) ? <p>In cart</p> : <p>Add to Cart</p>}
-            </button>
+            <div>
+                <h4>{props.product.description}</h4>
+            </div>
+            <div className='img-container'>
+                <img src={props.product.img.location} alt='product' id='img' />
+            </div>
+            <div>
+                <div>
+                    <p><b>{props.product.price}</b> €</p>
+                </div>
+                <button
+                    className='ui green basic button'
+                    id='buyBtn'
+                    disabled={checkIfInCart(props.product)}
+                    onClick={() => props.addToCart(props.product)}>
+                        {checkIfInCart(props.product) ? <p>In cart</p> : <p>Add to Cart</p>}
+                </button>
+            </div>
         </div>
     )
 }

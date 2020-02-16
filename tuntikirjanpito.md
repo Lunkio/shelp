@@ -18,3 +18,4 @@
 | 15.2. |  0.5 | Kaupan poisto-ominaisuus tietokannasta |
 | 15.2. |  1.5 | Kaupan editointi mahdollisuus lisätty |
 | 15.2. |  3   | Tuotteen editointi mahdollisuus lisätty, kun kuvan vaihtaa, poistuu vanha kuva tietokannasta ja uusi liitetään tilalle |
+| 16.2. |  2   | Lisätty react-select dependency, jotta tuotteita voi selailla kauppojen mukaan, filtteröinti ei toimi vielä |

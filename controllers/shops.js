@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 const shopsRouter = require('express').Router()
 const Shop = require('../models/shopModel')
-const Product = require('../models/productModel')
 
 shopsRouter.get('/', async (req, res ,next) => {
     try {
