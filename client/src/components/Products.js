@@ -4,15 +4,19 @@ import Select from 'react-select'
 import SingleProduct from './SingleProduct'
 
 const Products = (props) => {
-    //console.log(props)
-    const [selectedShop, setSelectedShop] = useState([])
-    console.log(selectedShop)
+    //console.log('PrOPS', props)
+    const [selectedShops, setSelectedShops] = useState([])
+    //console.log(selectedShop)
+    if (selectedShops === null) {
+        setSelectedShops([])
+        return null
+    }
 
     let allShops = []
     allShops = props.shops.map(s => { return { value: s.name, label: s.name } })
     //console.log(allShops)
 
-    if (selectedShop.length === 0) {
+    if (selectedShops.length === 0) {        
         return (
             <div className='container main'>
                 <div>
@@ -20,7 +24,7 @@ const Products = (props) => {
                     <Select 
                         options={allShops}
                         placeholder='Select shop'
-                        onChange={setSelectedShop}
+                        onChange={setSelectedShops}
                         isMulti
                         isSearchable                    
                     />
@@ -33,6 +37,10 @@ const Products = (props) => {
             </div>
         )
     } else {
+
+        let filteredShops = []
+        let shopNames = selectedShops.map(s => s.label)
+
         return (
             <div className='container main'>
                 <div>
@@ -40,16 +48,18 @@ const Products = (props) => {
                     <Select 
                         options={allShops}
                         placeholder='Select shop'
-                        onChange={setSelectedShop}
+                        onChange={setSelectedShops}
                         isMulti
                         isSearchable                    
                     />
                 </div>
                 <div>
-                    {props.products
-                        // .filter(p => p.shop.name === selectedShop.value)
-                        .map(p => <SingleProduct key={p.id} product={p}/>
+                    {shopNames.forEach(v => {
+                            filteredShops = filteredShops.concat(props.products.filter(p => p.shop.name === v))
+                            //console.log('filtered', filteredShops)
+                        }                            
                     )}
+                    {filteredShops.map(p => <SingleProduct key={p.id} product={p}/>)}
                 </div>
             </div>
         )
