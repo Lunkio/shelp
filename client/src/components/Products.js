@@ -31,6 +31,7 @@ const Products = (props) => {
                 </div>
                 <div>
                     {props.products
+                        .filter(p => p.availability === true)
                         .map(p => <SingleProduct key={p.id} product={p}/>
                     )}
                 </div>
@@ -59,7 +60,9 @@ const Products = (props) => {
                             //console.log('filtered', filteredShops)
                         }                            
                     )}
-                    {filteredShops.map(p => <SingleProduct key={p.id} product={p}/>)}
+                    {filteredShops
+                        .filter(p => p.availability === true)
+                        .map(p => <SingleProduct key={p.id} product={p}/>)}
                 </div>
             </div>
         )

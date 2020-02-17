@@ -99,4 +99,20 @@ productsRouter.delete('/:id', async (req, res, next) => {
     }  
 })
 
+productsRouter.put('/availability/:id', async (req, res, next) => {
+    const body = req.body
+    try {
+        const product = {        
+            availability: body.availability
+        }
+
+        const modifiedProduct = await Product.findByIdAndUpdate(req.params.id, product, { new: true })
+            .populate('img').populate('shop')
+        res.json(modifiedProduct.toJSON())
+
+    } catch (exception) {
+        next(exception)
+    }
+})
+
 module.exports = productsRouter

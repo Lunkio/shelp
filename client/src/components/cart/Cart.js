@@ -5,7 +5,7 @@ import InCartProducts from './InCartProducts'
 import { emptyCart } from '../../reducers/cartReducer'
 
 const Cart = (props) => {
-    console.log(props)
+    //console.log(props)
 
     if (props.cart.length === 0) {
         return (

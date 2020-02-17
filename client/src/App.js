@@ -10,6 +10,8 @@ import ShopLogin from './components/shop/ShopLogin'
 import ShopRegister from './components/shop/ShopRegister'
 import Cart from './components/cart/Cart'
 import Checkout from './components/cart/Checkout'
+import PaymentSuccess from './components/cart/PaymentSuccess'
+import PaymentCancel from './components/cart/PaymentCancel'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
 import { initializeShop } from './reducers/shopLoginReducer'
@@ -34,6 +36,8 @@ const App = (props) => {
                 <Route path='/cart' render={() => <Cart />} />
                 <Route path='/checkout' render={() => <Checkout />} />
                 <Route path='/admin' render={() => <Admin />} />
+                <Route path='/success' render={() => <PaymentSuccess />} />
+                <Route path='/cancel' render={() => <PaymentCancel />} />
             </Router>
         </div>
     )

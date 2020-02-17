@@ -23,7 +23,7 @@ buyersRouter.post('/', async (req, res, next) => {
             zip: body.zip,            
             products: body.products,
             paymentID: body.paymentID,
-            paymentToken: body.paymentToken,            
+            payerID: body.payerID,            
             timeOfPurchase: new Date()
         })
 

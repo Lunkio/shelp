@@ -9,7 +9,7 @@ const buyerSchema = new mongoose.Schema({
     zip: { type: String, required: true },
     products: { type: Array, required: true },
     paymentID: { type: String },
-    paymentToken: { type: String },
+    payerID: { type: String },
     timeOfPurchase: { type: Date, default: Date.now }
 })
 

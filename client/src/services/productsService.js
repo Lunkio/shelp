@@ -41,6 +41,12 @@ const removeProduct = async (id) => {
     return response.data
 }
 
+const productAvailabilityToFalse = async (id, product) => {
+    const productToFalse = { ...product, availability: false }
+    const response = await axios.put(`${url}/availability/${id}`, productToFalse)
+    return response.data
+}
+
 const uploadImg = async (img) => {
     const response = await axios.post(`${url}/image`, img)
     return response.data
@@ -51,4 +57,4 @@ const removeImg = async (id) => {
     return response.data
 }
 
-export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, uploadImg, removeImg }
+export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, productAvailabilityToFalse, uploadImg, removeImg }
