@@ -6,6 +6,7 @@ import cartReducer from './reducers/cartReducer'
 import alertReducer from './reducers/alertReducer'
 import confirmReducer from './reducers/confirmReducer'
 import shopLoginReducer from './reducers/shopLoginReducer'
+import paymentReducer from './reducers/paymentReducer'
 
 const reducers = combineReducers({
     products: productsReducer,
@@ -13,7 +14,8 @@ const reducers = combineReducers({
     cart: cartReducer,
     alert: alertReducer,
     confirm: confirmReducer,
-    shopLogin: shopLoginReducer
+    shopLogin: shopLoginReducer,
+    payment: paymentReducer
 })
 
 const store = createStore(reducers, applyMiddleware(thunk))

@@ -21,4 +21,11 @@
 /* InCartProducts ends */
 
 /* These are Checkout styles */
+.img-container-cart {
+  width: 6rem;
+}
+
+.img-container-cart img {
+  max-width: 100%;
+}
 /* Checkout ends */

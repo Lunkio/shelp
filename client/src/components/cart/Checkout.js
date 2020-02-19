@@ -6,9 +6,10 @@ import PayPalButton from './PayPal'
 import productsService from '../../services/productsService'
 import { setAlert } from '../../reducers/alertReducer'
 import { removeFromCart } from '../../reducers/cartReducer'
+import { initializeProducts } from '../../reducers/productsReducer'
 
 const Checkout = (props) => {
-    console.log('PROPS', props)
+    //console.log('PROPS', props)
     const [buyer, setBuyer] = useState({})
     const [showPayPal, setShowPayPal] = useState(false)
 
@@ -36,6 +37,7 @@ const Checkout = (props) => {
                 window.alert('One or more of the products in your cart are not available, these products are removed from your cart')
                 for (let i = 0; i < alreadySold.length; i++) {
                     props.removeFromCart(alreadySold[i].id)
+                    props.initializeProducts()
                 }
                 return
             }
@@ -94,7 +96,22 @@ const Checkout = (props) => {
                     </form>
                 </div>
                 <div className='col-md-4'>
-                    tänne puolelle tuotteet
+                    {props.cart.map(p => 
+                        <div key={p.id}>
+                            <div className='img-container-cart'>
+                                <img src={p.img.location} alt='product' />
+                            </div>
+                            <div>
+                                <h5>{p.description}</h5>
+                            </div>
+                            <div>
+                                <p><b>{p.price}</b> €</p>
+                            </div>
+                        </div>
+                    )}
+                    <div>
+                        <p>Total <b>{totalPrice}</b> €</p>
+                    </div>
                     <div style={show}>
                         <PayPalButton buyer={buyer} totalPrice={totalPrice} products={props.cart} />
                     </div>
@@ -112,13 +129,15 @@ const Checkout = (props) => {
 const mapStateToProps = (state) => {
     return {
         cart: state.cart,
-        alert: state.alert
+        alert: state.alert,
+        products: state.products
     }
 }
 
 const mapDispatchToProps = {
     setAlert,
-    removeFromCart
+    removeFromCart,
+    initializeProducts
 }
 
 export default connect(
