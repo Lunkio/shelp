@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Message } from 'semantic-ui-react'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
@@ -89,8 +88,6 @@ const ShopProduct = (props) => {
 
     return (
         <div>
-            {props.confirm && <Message success header={props.confirm} />}
-            {props.alert && <Message error header={props.alert} />}
             <div style={productsShow}>
                 <h4>{props.product.description}</h4>
                 <div className='img-container'>
@@ -121,9 +118,7 @@ const ShopProduct = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        shopLogin: state.shopLogin,
-        alert: state.alert,
-        confirm: state.confirm
+        shopLogin: state.shopLogin
     }
 }
 

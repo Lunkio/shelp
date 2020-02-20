@@ -23,3 +23,4 @@
 | 16.2. |  3   | Ostoskoritoimintojen luontia, koko korin voi tyhjentää tai yksittäisiä tuotteita poistaa, backendiin lisätty buyer-model ja controllerit |
 | 17.2. |  10  | PayPal lisätty maksutoiminnaksi, ennen maksua tarkastus että tuotteiden availability=true, maksun jälkeen tuotteen availability=false |
 | 19.2. |  4   | Lisätty komponentit Success ja Cancel riippuen Paypal -maksun onnistumiseen, uusi paymentReducer hallitsemaan ostettuja tuotteita |
+| 20.2. |  3   | Kaupan admin -sivulla näkyy nyt kyseisen kaupan ostetut tuotteet ja kunkin tuotteen ostajan tiedot |
