@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Message } from 'semantic-ui-react'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
@@ -55,8 +54,6 @@ const ShopAddProduct = (props) => {
 
     return (
         <div>
-            {props.confirm && <Message success header={props.confirm} />}
-            {props.alert && <Message error header={props.alert} />}
             <form onSubmit={handleNewProduct}>
                 Name/description: <input type='text' id='desc' value={name} onChange={e => setName(e.target.value)} /> <br />
                 Price: <input type='number' id='price' value={price} onChange={e => setPrice(e.target.value)} /> <br />                
@@ -69,9 +66,7 @@ const ShopAddProduct = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        shopLogin: state.shopLogin,
-        alert: state.alert,
-        confirm: state.confirm
+        shopLogin: state.shopLogin
     }
 }
 

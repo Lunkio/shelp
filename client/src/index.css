@@ -1,5 +1,18 @@
+:root {
+  --mainGreen: #1bcbac;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .main {
-  margin-top: 4rem;
+  margin-top: 7rem;
 }
 
 .img-container {
@@ -9,6 +22,92 @@
 .img-container img {
   max-width: 100%;
 }
+
+/* These are Home styles */
+.home-image {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  margin: auto;
+  position: relative !important;
+  width: 100%;
+}
+
+.home-image img {
+  max-width: 100%;
+  margin-top: -15rem;
+}
+
+.introduction {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  margin-top: -5rem;
+}
+
+.introduction h1 {
+  font-size: 5rem;
+}
+
+.introduction p {
+  font-size: 1.3rem;
+  letter-spacing: 0.06rem;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4rem;
+}
+
+.home-buttons button {
+  background-color: white !important;
+  color: var(--mainGreen) !important;
+  width: 9rem;
+  padding: 1.1rem !important;
+  font-size: 1.2rem !important;
+}
+/* Home ends */
+
+/* These are Navbar styles */
+.navbar {
+  padding: 0;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-home {
+  margin-left: 3rem;
+}
+
+.navbar-nav {
+  margin-right: 3rem;
+}
+
+.navbar-nav li {
+  padding: 1.5rem;
+}
+
+.navbar-nav li:hover {
+  background-color: #1bcbab1f;
+  cursor: pointer;
+}
+
+.nav-link {
+  color: var(--mainGreen);
+  font-size: 1.2rem;
+}
+
+.nav-link:hover {
+  color: var(--mainGreen);
+}
+/* Navbar ends */
 
 /* These are Cart styles */
 /* Cart ends */

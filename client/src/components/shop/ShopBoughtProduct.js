@@ -7,7 +7,7 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 
 const ShopBoughtProduct = (props) => {
-    console.log(props)
+    //console.log(props)
     const [buyers, setBuyers] = useState([])
 
     useEffect(() => {
@@ -19,9 +19,7 @@ const ShopBoughtProduct = (props) => {
     }, [])
 
     if (buyers.length === 0) {
-        return (
-            <div>No buyers</div>
-        )
+        return null
     }
 
     const buyer = buyers.find(b => {
@@ -33,6 +31,7 @@ const ShopBoughtProduct = (props) => {
         }
         return null
     })
+    //console.log(buyer)
 
     const handleRemove = async (product) => {
         productsService.setToken(props.shopLogin.token)

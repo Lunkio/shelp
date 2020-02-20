@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Message } from 'semantic-ui-react'
 import shopsService from '../../services/shopsService'
 import productsService from '../../services/productsService'
 import { setAlert } from '../../reducers/alertReducer'
@@ -99,8 +98,6 @@ const ShopManage = (props) => {
 
     return (
         <div>
-            {props.confirm && <Message success header={props.confirm} />}
-            {props.alert && <Message error header={props.alert} />}
             <div>
                 <div>
                     <div style={editShow}>
@@ -152,8 +149,6 @@ const mapStateToProps = (state) => {
     return {
         shopLogin: state.shopLogin,
         products: state.products,
-        alert: state.alert,
-        confirm: state.confirm,
         shops: state.shops
     }
 }
