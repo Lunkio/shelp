@@ -27,7 +27,7 @@ const SingleProduct = (props) => {
                     <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' id='img' />
                 </div>
                 <div className='col-md-5 product-shop-desc'>
-                    <h3>{props.product.description}</h3>
+                    <h3>{props.product.description}</h3> <hr />
                     <p><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
                     <p><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
                     <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website}</p>

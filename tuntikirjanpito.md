@@ -25,4 +25,5 @@
 | 19.2. |  4   | Lisätty komponentit Success ja Cancel riippuen Paypal -maksun onnistumisesta, uusi paymentReducer hallitsemaan ostettuja tuotteita |
 | 20.2. |  3   | Kaupan admin -sivulla näkyy nyt kyseisen kaupan ostetut tuotteet ja kunkin tuotteen ostajan tiedot |
 | 20.2. |  4   | CSS, sovelluksen ulkonäön suunnittelua ja aloitusta |
-| 21.2. |  3.5 | Footer -komponentti, ulkönäön tekoa/CSS |
+| 21.2. |  3.5 | Footer -komponentti, ulkonäön tekoa/CSS |
+| 21.2. |  3   | CSS, ulkonäön tekoa/suunnittelua |

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Message } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
@@ -50,7 +51,7 @@ const ShopRegister = (props) => {
             event.target.phone.value = ''
             event.target.website.value = ''
             props.initializeShops()
-            props.setConfirm(`Success! ${addedShop.name} is now registered`, 3)
+            props.setConfirm(`Success! ${addedShop.name} is now registered`, 5)
         } catch (error) {
             console.log('error', error)
             props.setAlert('Shop name already in use, please try with another name', 5)
@@ -59,44 +60,62 @@ const ShopRegister = (props) => {
 
     return (
         <div className='container main'>
+            <div className='goback-login-button'>
+                <Link to='/login'>
+                    <button className='ui teal basic button'>Go back</button>
+                </Link>
+            </div>
+            <div className='register-header'>
+                <h1>Increase your revenue and reduce food waste.</h1>
+                <p>
+                    Throwing food products away is bad business.
+                    Let us help you sell your surplus products
+                    and turn it into good business.
+                </p>
+                <p><b>Set up your Shelp account in just minutes
+                    by filling the form below!
+                </b></p> <hr />
+            </div>
             <form onSubmit={handleRegistration} className='row'>
                 <div className='col-md-6'>
                     <label htmlFor='shopName'>Shop Name</label>
-                    <input type='text' name='name' className='form-control' placeholder='Shop Name' id='shopName' required />
+                    <input type='text' name='name' className='form-control register-field' placeholder='Shop Name' id='shopName' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopEmail'>Shop Email</label>
-                    <input type='text' name='email' className='form-control' placeholder='Email' id='shopEmail' required />
+                    <input type='text' name='email' className='form-control register-field' placeholder='Email' id='shopEmail' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopPsw'>Password</label>
-                    <input type='password' name='password' className='form-control' placeholder='Password' id='shopPsw' required />
+                    <input type='password' name='password' className='form-control register-field' placeholder='Password' id='shopPsw' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopPswAgain'>Password Again</label>
-                    <input type='password' name='passwordAgain' className='form-control' placeholder='Password Again' id='shopPswAgain' required />
+                    <input type='password' name='passwordAgain' className='form-control register-field' placeholder='Password Again' id='shopPswAgain' required />
                 </div>
                 <div className='col-md-12'>
                     <label htmlFor='shopAddress'>Address</label>
-                    <input type='text' name='address' className='form-control' placeholder='Address' id='shopAddress' required />
+                    <input type='text' name='address' className='form-control register-field' placeholder='Address' id='shopAddress' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopZip'>Zip Code</label>
-                    <input type='text' name='zip' className='form-control' placeholder='Zip Code' id='shopZip' required />
+                    <input type='text' name='zip' className='form-control register-field' placeholder='Zip Code' id='shopZip' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopCity'>City</label>
-                    <input type='text' name='city' className='form-control' placeholder='City' id='shopCity' required />
+                    <input type='text' name='city' className='form-control register-field' placeholder='City' id='shopCity' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopPhone'>Phone number</label>
-                    <input type='text' name='phone' className='form-control' placeholder='Phone number' id='shopPhone' required />
+                    <input type='text' name='phone' className='form-control register-field' placeholder='Phone number' id='shopPhone' required />
                 </div>
                 <div className='col-md-6'>
                     <label htmlFor='shopWebsite'>Website (optional)</label>
-                    <input type='text' name='website' className='form-control' placeholder='Website (optional)' id='shopWebsite' />
+                    <input type='text' name='website' className='form-control register-field' placeholder='Website (optional)' id='shopWebsite' />
                 </div>
-                <button id='submitBtn' type='submit' className='btn btn-primary'>Submit</button>
+                <div className='register-submit-button'>
+                    <button id='submitBtn' type='submit' className='ui button'>Submit</button>
+                </div>
             </form>
             {props.confirm && <Message success header={props.confirm} />}
             {props.alert && <Message error header={props.alert} />}

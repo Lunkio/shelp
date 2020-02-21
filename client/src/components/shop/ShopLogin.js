@@ -34,12 +34,9 @@ const ShopLogin = (props) => {
     } 
 
     return (
-        <div className='container main'>
-            <div>
-                <h3>Not yet registered?</h3>
-                <Link to='register'>
-                    <button className='btn btn-primary'>Register</button>
-                </Link>
+        <div className='container main login-form'>
+            <div className='login-header'>
+                <h2>Login as Shelp Partner</h2>
             </div>
             <form onSubmit={login}>
                 <div className='form-group'>
@@ -50,9 +47,18 @@ const ShopLogin = (props) => {
                     <label htmlFor='shopPassword'>Password</label>
                     <input name='password' type='password' className='form-control' id='shopPassword' />
                 </div>
-                <button id='loginBtn' type='submit' className='btn btn-primary'>Login</button>
+                <div className='login-button'>
+                    <button id='loginBtn' type='submit' className='ui button'>Login</button>
+                </div>
             </form>
             {props.alert && <Message error header={props.alert} />}
+            <div className='register-container'>
+                <p>Not yet a partner?</p>
+                <Link to='register'>
+                    <button className='ui grey basic button'>Sign up</button>
+                </Link>
+            </div>
+            
         </div>
     )
 }
