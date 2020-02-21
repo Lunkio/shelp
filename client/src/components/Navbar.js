@@ -7,7 +7,7 @@ const Navbar = (props) => {
         <nav className='navbar fixed-top navbar-expand-sm'>
             <div className='navbar-home'>
                 <Link to='/' className='nav-link'>
-                    <h4 className='nav-link-text'>Shelp</h4>
+                    <h2 className='nav-link-text'>Shelp</h2>
                 </Link>
             </div>
             <ul className='navbar-nav'>

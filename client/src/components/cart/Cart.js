@@ -9,8 +9,11 @@ const Cart = (props) => {
 
     if (props.cart.length === 0) {
         return (
-            <div className='container main'>
-                <h2>Cart is empty</h2>
+            <div className='container main empty-cart'>
+                <h1>Cart is empty</h1>
+                <Link to='/products'>
+                    <button className='ui button'>Discover offers</button>
+                </Link>
             </div>
         )
     }

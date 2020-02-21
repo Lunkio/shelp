@@ -12,6 +12,7 @@ import Cart from './components/cart/Cart'
 import Checkout from './components/cart/Checkout'
 import PaymentSuccess from './components/cart/PaymentSuccess'
 import PaymentCancel from './components/cart/PaymentCancel'
+import Footer from './components/Footer'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
 import { initializeShop } from './reducers/shopLoginReducer'
@@ -38,6 +39,7 @@ const App = (props) => {
                 <Route path='/admin' render={() => <Admin />} />
                 <Route path='/success' render={() => <PaymentSuccess />} />
                 <Route path='/cancel' render={() => <PaymentCancel />} />
+                {/* <Footer /> */}
             </Router>
         </div>
     )
