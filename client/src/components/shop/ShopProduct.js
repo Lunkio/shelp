@@ -88,17 +88,23 @@ const ShopProduct = (props) => {
 
     return (
         <div>
-            <div style={productsShow}>
-                <h4>{props.product.description}</h4>
-                <div className='img-container'>
-                    <img src={props.product.img.location} alt='product' id='img' />
+            <div style={productsShow} className='row'>
+                <div className='col-md-2'>
+                    <div className='img-container'>
+                        <img src={props.product.img.location} alt='product' id='img' />
+                    </div>
                 </div>
-                <div>
-                    <p>{props.product.price}<b> €</b></p>
+                <div className='col-md-6'>
+                    <h4>{props.product.description}</h4>
                 </div>
-                <div>
-                    <button id='editBtn' className='btn btn-info' onClick={() => edit(props.product)}>Edit</button>
-                    <button id='deleteBtn' className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
+                <div className='col-md-2'>
+                    <p>{props.product.price} €</p>
+                </div>
+                <div className='col-md-2'>
+                    <div className='shop-product-buttons'>
+                        <button id='editBtn' className='btn btn-info' onClick={() => edit(props.product)}>Edit</button>
+                        <button id='deleteBtn' className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
+                    </div>
                 </div>
             </div>
 

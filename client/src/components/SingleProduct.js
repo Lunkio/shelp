@@ -23,19 +23,21 @@ const SingleProduct = (props) => {
         <div>
             {modalOpen && <Modal img={props.product.img.location} modalSwitch={modalSwitch}/>}
             <div className='row product-container'>
-                <div className='img-container col-md-3'>
-                    <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' id='img' />
+                <div className='col-md-2'>
+                    <div className='img-container'>
+                        <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' id='img' />
+                    </div>
                 </div>
-                <div className='col-md-5 product-shop-desc'>
+                <div className='col-md-6 product-shop-desc'>
                     <h3>{props.product.description}</h3> <hr />
                     <p><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
                     <p><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
                     <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website}</p>
                 </div>
-                <div className='col-md-1'>
+                <div className='col-md-2'>
                     <h3>{props.product.price} €</h3>
                 </div>
-                <div className='col-md-3'>
+                <div className='col-md-2'>
                     <button
                         className='ui button cart-button'
                         // className='ui green basic button cart-button'

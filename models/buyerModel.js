@@ -7,6 +7,7 @@ const buyerSchema = new mongoose.Schema({
     address: { type: String, required: true },
     city: { type: String, required: true },
     zip: { type: String, required: true },
+    phone: { type: String },
     products: { type: Array, required: true },
     paymentID: { type: String },
     payerID: { type: String },

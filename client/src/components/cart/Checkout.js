@@ -13,6 +13,10 @@ const Checkout = (props) => {
     const [buyer, setBuyer] = useState({})
     const [showPayPal, setShowPayPal] = useState(false)
 
+    const checkPayPal = () => {
+        return showPayPal
+    }
+
     const show = { display: showPayPal ? '' : 'none' }
     const totalPrice = props.cart.reduce((a,p) => a + p.price, 0)
 
@@ -47,6 +51,7 @@ const Checkout = (props) => {
             const email = event.target.buyerEmail.value
             const address = event.target.buyerAddress.value
             const zip = event.target.buyerPostcode.value
+            const phone = event.target.buyerPhone.value
             const city = event.target.buyerCity.value
             const products = props.cart
 
@@ -56,6 +61,7 @@ const Checkout = (props) => {
                 email: email,
                 address: address,
                 zip: zip,
+                phone: phone,
                 city: city,
                 products
             }
@@ -73,6 +79,9 @@ const Checkout = (props) => {
             {props.alert && <Message error header={props.alert} />}
             <div className='row'>
                 <div className='col-md-8'>
+                    <div className='checkout-header'>
+                        <h4>Shipping address</h4>
+                    </div>
                     <form onSubmit={handleCustomer}>
                         <div className='form-row'>
                             <div className='form-group col-md-6'>
@@ -82,45 +91,67 @@ const Checkout = (props) => {
                                 <input id='lastName' type='text' name='buyerLastName' placeholder='Lastname' required className='form-control' />
                             </div>
                         </div>
-                        <input id='email' type='email' name='buyerEmail' placeholder='Email' required className='form-control' /><br />
-                        <input id='street' type='street' name='buyerAddress' placeholder='Street' required className='form-control' /><br />
+                        <div className='form-row'>
+                            <div className='form-group col-md-12'>
+                                <input id='email' type='email' name='buyerEmail' placeholder='Email' required className='form-control' />
+                            </div>
+                            <div className='form-group col-md-12'>
+                                <input id='street' type='street' name='buyerAddress' placeholder='Street' required className='form-control' />
+                            </div>
+                        </div>
                         <div className='form-row'>
                             <div className='form-group col-md-8'>
                                 <input id='city' type='city' name='buyerCity' placeholder='City' required className='form-control' />
                             </div>
                             <div className='form-group col-md-4'>
-                                <input id='zip' type='zip' name='buyerPostcode' placeholder='Postal code' required className='form-control' /><br />
+                                <input id='zip' type='zip' name='buyerPostcode' placeholder='Postal code' required className='form-control' />
                             </div>
                         </div>
-                        <button className='btn btn-primary' id='checkBtn' type='submit'>Apply</button>
+                        <div className='form-row'>
+                            <div className='form-group col-md-12'>
+                                <input id='phone' type='text' name='buyerPhone' placeholder='Phone (optional)' className='form-control' />
+                            </div>
+                        </div>
+                        <div className='checkout-apply-button'>
+                            <Link to='/cart' className='back-cart-link'>
+                                <div className='text'>{`< Back to cart`}</div>
+                            </Link>
+                            <button
+                                className='ui button'
+                                id='checkBtn'
+                                type='submit'
+                                disabled={checkPayPal()}>
+                                    Continue to payment
+                            </button>
+                        </div>
                     </form>
                 </div>
                 <div className='col-md-4'>
                     {props.cart.map(p => 
                         <div key={p.id}>
-                            <div className='img-container-cart'>
-                                <img src={p.img.location} alt='product' />
-                            </div>
-                            <div>
-                                <h5>{p.description}</h5>
-                            </div>
-                            <div>
-                                <p><b>{p.price}</b> €</p>
+                            <div className='checkout-product-container'>
+                                <div className='checkout-img'>
+                                    <div className='img-container-checkout'>
+                                        <img src={p.img.location} alt='product' />
+                                    </div>
+                                </div>
+                                <div className='checkout-desc'>
+                                    <h6>{p.description}</h6>
+                                </div>
+                                <div className='checkout-price'>
+                                    <p>{p.price} €</p>
+                                </div>
                             </div>
                         </div>
                     )}
-                    <div>
-                        <p>Total <b>{totalPrice}</b> €</p>
+                    <hr />
+                    <div className='checkout-total'>
+                        <p>Total: <b>{totalPrice}</b> €</p>
                     </div>
                     <div style={show}>
                         <PayPalButton buyer={buyer} totalPrice={totalPrice} products={props.cart} />
                     </div>
                 </div>
-            </div>
-            <div>
-                <Link to='/cart'>
-                    <button>Back to Cart</button>
-                </Link>
             </div>
         </div>
     )

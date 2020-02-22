@@ -11,7 +11,7 @@ const InCartProducts = (props) => {
 
     return (
         <div className='row cart-product-container'>
-            <div className='col-md-3'>
+            <div className='col-md-2'>
                 <div className='cart-img-container'>
                     <img src={props.product.img.location} alt='cart product' id='cartProduct' />
                 </div>
@@ -25,7 +25,7 @@ const InCartProducts = (props) => {
             <div className='col-md-1'>
                 <p><b>{props.product.price}</b> €</p>
             </div>
-            <div className='col-md-1'>
+            <div className='col-md-2'>
                 <div id='cartRemoveBtn' className='cart-remove-button' onClick={() => remove(props.product)}><Icon name='remove circle' size='large' /></div>
             </div>
         </div>

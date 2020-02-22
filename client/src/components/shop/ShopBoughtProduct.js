@@ -7,7 +7,7 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 
 const ShopBoughtProduct = (props) => {
-    //console.log(props)
+    console.log(props)
     const [buyers, setBuyers] = useState([])
 
     useEffect(() => {

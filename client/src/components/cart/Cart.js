@@ -26,25 +26,44 @@ const Cart = (props) => {
 
     return (
         <div className='container main'>
-            <div>
-                <Link to='/products'>
-                    <button>Continue shopping</button>
-                </Link>                
+            <div className='cart-header'>
+                <h1>Shopping Cart</h1> <hr />
+            </div>
+            <div className='row cart-descriptions'>
+                <div className='col-md-9'>
+                    <p><b>Product</b></p> <hr />
+                </div>
+                <div className='col-md-1'>
+                    <p><b>Price</b></p> <hr />
+                </div>
+                <div className='col-md-2'>
+                    <p><b>Remove</b></p> <hr />
+                </div>
             </div>
             <div>
                 {props.cart.map(product =>
                     <InCartProducts key={product.id} product={product} />    
                 )}
             </div>
-            <div>
-                <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
+            <div className='row cart-buttons'>
+                <div className='col-md-8'>
+                    <Link to='/products'>
+                        <button className='ui teal basic button'>Continue shopping</button>
+                    </Link>                
+                </div>
+                <div className='col-md-2 cart-total-price'>
+                    <h5>Total: <b>{totalPrice}</b> €</h5>
+                </div>
+                <div className='col-md-2'>
+                    <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
+                </div>
             </div>
-            <div>
-                <h5>Total: <b>{totalPrice}</b> €</h5>
+            <div style={{'width': '80%', 'margin': '0 auto'}}>
+                <hr />
             </div>
-            <div>
+            <div className='cart-checkout-button'>
                 <Link to='/checkout'>
-                    <button>Checkout</button>
+                    <button className='ui button checkout-button'>Checkout</button>
                 </Link>
             </div>
         </div>

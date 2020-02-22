@@ -54,7 +54,11 @@ const Home = (props) => {
                             .map(p => <SingleProduct key={p.id} product={p}/>
                         )}
                     </div> <br />
-                    <p><strong>To discover more, see "All Products"</strong></p>
+                    <p><strong>To discover more, see 
+                        <span>
+                            <Link to='/products' className='home-span-link'> "All Products"</Link>
+                        </span>
+                    </strong></p>
                 </div>
             </div>
         </div>
