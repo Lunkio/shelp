@@ -7,7 +7,7 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 
 const ShopBoughtProduct = (props) => {
-    console.log(props)
+    //console.log(props)
     const [buyers, setBuyers] = useState([])
 
     useEffect(() => {
@@ -22,6 +22,7 @@ const ShopBoughtProduct = (props) => {
         return null
     }
 
+    // finds the buyer of the product
     const buyer = buyers.find(b => {
         let ids = b.products.map(p => p.id)
         for (let i = 0; i < ids.length; i++) {
@@ -47,20 +48,26 @@ const ShopBoughtProduct = (props) => {
     }
 
     return (
-        <div>
-            <h4>{props.product.description}</h4>
-            <div className='img-container'>
-                <img src={props.product.img.location} alt='product' id='img' />
+        <div className='row bought-product-container'>
+            <div className='col-md-2'>
+                <div className='img-container'>
+                    <img src={props.product.img.location} alt='product' id='img' />
+                </div>
             </div>
-            <div>
-                <p>{props.product.price}<b> €</b></p>
+            <div className='col-md-6 bought-product-desc'>
+                <h4>{props.product.description}</h4> <hr />
+                <p><b>Buyer:</b> {buyer.firstName} {buyer.lastName}, {buyer.email} {buyer.phone}</p>
+                <p><b>Payment ID:</b> {buyer.paymentID}</p>
+                <p><b>Purchase time:</b> {buyer.timeOfPurchase}</p>
             </div>
-            <div>
-                {buyer.firstName} {buyer.lastName}
+            <div className='col-md-2'>
+                <p>{props.product.price} €</p>
             </div>
-            <div>
+            <div className='col-md-2'>
+                <div>
                 {/* <button id='editBtn' className='btn btn-info' onClick={() => edit(props.product)}>Edit</button> */}
                 <button id='deleteBoughtBtn' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
+                </div>
             </div>
         </div>
     )

@@ -99,46 +99,49 @@ const ShopManage = (props) => {
     return (
         <div>
             <div>
-                <div>
-                    <div style={editShow}>
-                        <h3>Edit shop details</h3>
-                        <form onSubmit={handleEdit} className='row'>
-                            <div className='col-md-6'>
-                                <label htmlFor='newName'>Shop Name</label>
-                                <input type='text' value={name} onChange={e => setName(e.target.value)} className='form-control' id='newName' required />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor='editEmail'>Shop email</label>
-                                <input type='text' value={email} onChange={e => setEmail(e.target.value)} className='form-control' id='editEmail' required />
-                            </div>
-                            <div className='col-md-12'>
-                                <label htmlFor='editAddress'>Address</label>
-                                <input type='text' value={address} onChange={e => setAddress(e.target.value)} className='form-control' id='editAddress' required />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor='shopZip'>Zip Code</label>
-                                <input type='text' value={zip} onChange={e => setZip(e.target.value)} className='form-control' id='editZip' required />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor='editCity'>City</label>
-                                <input type='text' value={city} onChange={e => setCity(e.target.value)} className='form-control' id='editCity' required />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor='editPhone'>Phone number</label>
-                                <input type='text' value={phone} onChange={e => setPhone(e.target.value)} className='form-control' id='editPhone' required />
-                            </div>
-                            <div className='col-md-6'>
-                                <label htmlFor='editWebsite'>Website (optional)</label>
-                                <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control' id='editWebsite' />
-                            </div>
-                            <button id='submitEditBtn' type='submit' className='btn btn-primary'>Submit changes</button>
-                        </form>
-                        <div className='btn btn-info' onClick={close}>Close</div>
-                    </div>
+                <div style={editShow}>
+                    <h3>Edit shop details</h3>
+                    <form onSubmit={handleEdit} className='row'>
+                        <div className='col-md-6'>
+                            <label htmlFor='newName'>Shop Name</label>
+                            <input type='text' value={name} onChange={e => setName(e.target.value)} className='form-control' id='newName' required />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='editEmail'>Shop email</label>
+                            <input type='text' value={email} onChange={e => setEmail(e.target.value)} className='form-control' id='editEmail' required />
+                        </div>
+                        <div className='col-md-12'>
+                            <label htmlFor='editAddress'>Address</label>
+                            <input type='text' value={address} onChange={e => setAddress(e.target.value)} className='form-control' id='editAddress' required />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='shopZip'>Zip Code</label>
+                            <input type='text' value={zip} onChange={e => setZip(e.target.value)} className='form-control' id='editZip' required />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='editCity'>City</label>
+                            <input type='text' value={city} onChange={e => setCity(e.target.value)} className='form-control' id='editCity' required />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='editPhone'>Phone number</label>
+                            <input type='text' value={phone} onChange={e => setPhone(e.target.value)} className='form-control' id='editPhone' required />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='editWebsite'>Website (optional)</label>
+                            <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control' id='editWebsite' />
+                        </div>
+                        <button id='submitEditBtn' type='submit' className='btn btn-primary'>Submit changes</button>
+                    </form>
+                    <div className='btn btn-info' onClick={close}>Close</div>
                 </div>
-                <div style={buttonsShow}>
-                    <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
-                    <button id='deleteShop' className='btn btn-danger' onClick={remove}>Delete Everything</button>
+            </div>
+            <div style={buttonsShow}>
+                <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
+                <div>
+                    <h3>Danger Zone</h3>
+                    <div className='danger-zone'>
+                        <button id='deleteShop' className='btn btn-danger' onClick={remove}>Delete Everything</button>
+                    </div>
                 </div>
             </div>
         </div>

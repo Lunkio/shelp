@@ -13,7 +13,7 @@ import ShopBoughtProduct from './ShopBoughtProduct'
 const ShopLoggedIn = (props) => {
     //console.log(props)
     const [selectedProducts, setSelectedProducts] = useState([])
-    console.log(selectedProducts)
+    //console.log(selectedProducts)
 
     const [showProducts, setShowProducts] = useState(true)
     const [showAdd, setShowAdd] = useState(false)
@@ -108,7 +108,7 @@ const ShopLoggedIn = (props) => {
 
             {/* Shows bought Products */}
             <div style={boughtShow}>
-            <div>
+                <div>
                     <h3>Bought products:</h3>
                 </div><hr />
                 {props.products
@@ -128,6 +128,9 @@ const ShopLoggedIn = (props) => {
 
             {/* Manage Shop */}
             <div style={manageShow}>
+                <div>
+                    <h3>Manage Shop</h3>
+                </div><hr />
                 <ShopManage />
             </div>
 

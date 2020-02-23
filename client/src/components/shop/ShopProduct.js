@@ -102,8 +102,8 @@ const ShopProduct = (props) => {
                 </div>
                 <div className='col-md-2'>
                     <div className='shop-product-buttons'>
-                        <button id='editBtn' className='btn btn-info' onClick={() => edit(props.product)}>Edit</button>
-                        <button id='deleteBtn' className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
+                        <button className='ui button edit-button' onClick={() => edit(props.product)}>Edit</button>
+                        <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
                     </div>
                 </div>
             </div>
@@ -111,12 +111,31 @@ const ShopProduct = (props) => {
             {/* Edit Product */}
             <div style={editShow}>
                 <form onSubmit={handleProductEdit}>
-                    Name/description: <input type='text' id='editDesc' value={name} onChange={e => setName(e.target.value)} /> <br />
-                    Price: <input type='number' id='editPrice' value={price} onChange={e => setPrice(e.target.value)} /> <br />                
-                    Select image <input type='file' id='editImg' onChange={editUploadHandler} /> <br />
-                    <button id='submitEditBtn' className='btn btn-info' type='submit'>Edit Product</button>
+                    <hr />
+                    <div className='form-group row product-edit-form'>
+                        <label className='col-md-2 col-form-label'>Name/description:</label>
+                        <div className='col-md-5'>
+                            <input type='text' className='form-control' value={name} onChange={e => setName(e.target.value)} />
+                        </div>
+                    </div>
+                    <div className='form-group row product-edit-form'>
+                        <label className='col-md-2 col-form-label'>Price:</label>
+                        <div className='col-md-5'>
+                            <input type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
+                        </div>
+                    </div>
+                    <div className='form-group row'>
+                        <label className='col-md-2 col-form-label'>Select image:</label>
+                        <div className='col-md-3'>
+                            <input type='file' onChange={editUploadHandler} />
+                        </div>
+                    </div>
+                    <div className='edit-product-buttons'>
+                        <div className='ui basic red button' onClick={close}>Cancel</div>
+                        <button className='ui button' type='submit'>Edit Product</button>
+                    </div>
+                    <hr />
                 </form>
-                <div id='closeEditBtn' className='btn btn-info' onClick={close}>Close</div>
             </div>
         </div>
     )

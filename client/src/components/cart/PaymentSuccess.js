@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import { initializeProducts } from '../../reducers/productsReducer'
 
 const PaymentSuccess = (props) => {
+    console.log('SUCCESS PROPS', props)
 
     if (props.payment.length === 0) {
         return <Redirect to='/' />

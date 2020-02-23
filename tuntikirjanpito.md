@@ -28,3 +28,4 @@
 | 21.2. |  3.5 | Footer -komponentti, ulkonäön tekoa/CSS |
 | 21.2. |  3   | CSS, ulkonäön tekoa/suunnittelua |
 | 22.2. |  6   | CSS, ulkonäön tekoa/suunnittelua, kaupan admin -sivujen tuotevalikoiman hakutoiminnon tekoa/yritystä |
+| 23.2. |  3   | CSS, ulkonäön tekoa/suunnittelua |

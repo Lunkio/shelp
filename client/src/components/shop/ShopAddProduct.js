@@ -55,10 +55,27 @@ const ShopAddProduct = (props) => {
     return (
         <div>
             <form onSubmit={handleNewProduct}>
-                Name/description: <input type='text' id='desc' value={name} onChange={e => setName(e.target.value)} /> <br />
-                Price: <input type='number' id='price' value={price} onChange={e => setPrice(e.target.value)} /> <br />                
-                Select image <input type='file' id='img' onChange={uploadHandler} /> <br />
-                <button id='submitBtn' className='btn btn-info' type='submit'>Upload</button>
+                <div className='form-group row product-edit-form'>
+                    <label className='col-md-2 col-form-label'>Name/description:</label>
+                    <div className='col-md-5'>
+                        <input type='text' className='form-control' id='desc' value={name} onChange={e => setName(e.target.value)} />
+                    </div>
+                </div>
+                <div className='form-group row product-edit-form'>
+                    <label className='col-md-2 col-form-label'>Price:</label>
+                    <div className='col-md-5'>
+                        <input type='number' className='form-control' id='price' value={price} onChange={e => setPrice(e.target.value)} />
+                    </div>
+                </div>
+                <div className='form-group row'>
+                    <label className='col-md-2 col-form-label'>Select image:</label>
+                    <div className='col-md-3'>
+                        <input type='file' id='img' onChange={uploadHandler} />
+                    </div>
+                </div>
+                <div className='add-product-button'>
+                    <button id='submitBtn' className='ui button' type='submit'>Upload</button>
+                </div>
             </form>
         </div>
     )

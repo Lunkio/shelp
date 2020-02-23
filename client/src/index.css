@@ -201,6 +201,63 @@ body {
 }
 /* ShopLoggedIn ends */
 
+/* These are ShopProduct/ShopAddProduct styles */
+.product-edit-form {
+  margin-bottom: 0rem;
+}
+
+.shop-product-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shop-product-buttons .edit-button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+  width: 6rem;
+}
+
+.edit-product-buttons {
+  margin-top: -1rem;
+  margin-bottom: -0.5rem;
+}
+
+.edit-product-buttons button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+
+.add-product-button button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+/* ShopProduct/ShopAddProduct ends */
+
+/* These are ShopBoughtProduct styles */
+.bought-product-container {
+  margin-bottom: 1.2rem;
+}
+
+.bought-product-desc {
+  font-size: 0.9rem;
+}
+
+.bought-product-desc h4 {
+  margin-bottom: -1rem;
+}
+
+.bought-product-desc p {
+  line-height: 0.6rem;
+}
+
+/* ShopBoughtProduct ends */
+
+/* These are ShopManage styles */
+.danger-zone {
+  border: 1px solid rgb(158, 0, 0);
+}
+/* ShopManage ends */
+
 /* These are ShopRegister styles */
 .goback-login-button {
   margin-bottom: 1rem;
