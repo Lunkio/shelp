@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <nav className='font-small footer'>
+        <footer className='page-footer font-small footer'>
             <div className='footer-copyright'>© Shelp 2020</div>
-        </nav>
+        </footer>
     )
 }
 

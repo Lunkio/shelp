@@ -100,46 +100,62 @@ const ShopManage = (props) => {
         <div>
             <div>
                 <div style={editShow}>
-                    <h3>Edit shop details</h3>
+                    <div className='edit-shop-header'>
+                        <h3>Edit shop details</h3>
+                        <div className='ui basic teal button' onClick={close}>Close</div>
+                    </div>
                     <form onSubmit={handleEdit} className='row'>
                         <div className='col-md-6'>
                             <label htmlFor='newName'>Shop Name</label>
-                            <input type='text' value={name} onChange={e => setName(e.target.value)} className='form-control' id='newName' required />
+                            <input type='text' value={name} onChange={e => setName(e.target.value)} className='form-control edit-field' id='newName' required />
                         </div>
                         <div className='col-md-6'>
                             <label htmlFor='editEmail'>Shop email</label>
-                            <input type='text' value={email} onChange={e => setEmail(e.target.value)} className='form-control' id='editEmail' required />
+                            <input type='text' value={email} onChange={e => setEmail(e.target.value)} className='form-control edit-field' id='editEmail' required />
                         </div>
                         <div className='col-md-12'>
                             <label htmlFor='editAddress'>Address</label>
-                            <input type='text' value={address} onChange={e => setAddress(e.target.value)} className='form-control' id='editAddress' required />
+                            <input type='text' value={address} onChange={e => setAddress(e.target.value)} className='form-control edit-field' id='editAddress' required />
                         </div>
                         <div className='col-md-6'>
                             <label htmlFor='shopZip'>Zip Code</label>
-                            <input type='text' value={zip} onChange={e => setZip(e.target.value)} className='form-control' id='editZip' required />
+                            <input type='text' value={zip} onChange={e => setZip(e.target.value)} className='form-control edit-field' id='editZip' required />
                         </div>
                         <div className='col-md-6'>
                             <label htmlFor='editCity'>City</label>
-                            <input type='text' value={city} onChange={e => setCity(e.target.value)} className='form-control' id='editCity' required />
+                            <input type='text' value={city} onChange={e => setCity(e.target.value)} className='form-control edit-field' id='editCity' required />
                         </div>
                         <div className='col-md-6'>
                             <label htmlFor='editPhone'>Phone number</label>
-                            <input type='text' value={phone} onChange={e => setPhone(e.target.value)} className='form-control' id='editPhone' required />
+                            <input type='text' value={phone} onChange={e => setPhone(e.target.value)} className='form-control edit-field' id='editPhone' required />
                         </div>
                         <div className='col-md-6'>
                             <label htmlFor='editWebsite'>Website (optional)</label>
-                            <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control' id='editWebsite' />
+                            <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control edit-field' id='editWebsite' />
                         </div>
-                        <button id='submitEditBtn' type='submit' className='btn btn-primary'>Submit changes</button>
+                        <div className='edit-submit-button'>
+                            <button id='submitEditBtn' type='submit' className='ui button'>Submit changes</button>
+                        </div>
                     </form>
-                    <div className='btn btn-info' onClick={close}>Close</div>
                 </div>
             </div>
-            <div style={buttonsShow}>
-                <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
-                <div>
+            <div style={buttonsShow} className='zones-container'>
+                <div className='edit-zone'>
+                    <div>
+                        <p><b>Edit shop details</b></p>
+                        <p>Change and update your shop details</p>
+                    </div>
+                    <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
+                </div> <hr />
+                <div >
                     <h3>Danger Zone</h3>
                     <div className='danger-zone'>
+                        <div>
+                            <p><b>Delete everything</b></p>
+                            <p>Once you delete this shop, everything including 
+                                its products will be deleted forever.
+                            </p>
+                        </div>
                         <button id='deleteShop' className='btn btn-danger' onClick={remove}>Delete Everything</button>
                     </div>
                 </div>

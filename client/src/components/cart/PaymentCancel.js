@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 const PaymentCancel = (props) => {
 
@@ -10,9 +10,14 @@ const PaymentCancel = (props) => {
 
     return (
         <div className='container main'>
-            <h1>Oops! Something went wrong</h1>
-            <h3>Payment was cancelled/interrupted</h3>
-            <h3>Please try again</h3>
+            <div className='cancel-container'>
+                <h1>Oops! Something went wrong</h1>
+                <h3>Payment was cancelled/interrupted</h3>
+                <h3>Please try again</h3>
+                <Link to='/cart'>
+                    <button className='ui button cancel-button'>Back to cart</button>
+                </Link>
+            </div>
         </div>
     )
 }

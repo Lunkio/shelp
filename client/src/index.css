@@ -10,12 +10,12 @@ html {
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;
+  height: 100%;
 }
 
 .main {
   position: relative;
   top: 7rem;
-
   /* Footer helpers?? */
   /* position: relative; */
   /* margin-bottom: 5rem; */
@@ -253,8 +253,47 @@ body {
 /* ShopBoughtProduct ends */
 
 /* These are ShopManage styles */
+.edit-shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  width: 25%;
+  margin-bottom: 1rem;
+}
+
+.edit-field {
+  margin-bottom: 0.7rem;
+}
+
+.edit-submit-button {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.edit-submit-button button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+
+.zones-container {
+  width: 50%;
+  margin-top: 2rem;
+}
+
+.edit-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .danger-zone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid rgb(158, 0, 0);
+  padding: 1rem;
 }
 /* ShopManage ends */
 
@@ -315,6 +354,8 @@ body {
 }
 
 .cart-buttons {
+  display: flex;
+  align-items: center;
   width: 80%;
   margin: 0 auto;
 }
@@ -463,10 +504,43 @@ body {
 }
 /* Modal ends here */
 
+/* These are PaymentSuccess styles */
+.success-header {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.success-product-container {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.success-product-desc {
+  margin-left: 1rem;
+}
+
+.success-product-desc p {
+  font-size: 0.9rem;
+  line-height: 0.7rem;
+}
+/* PaymentSuccess ends */
+
+/* These are PaymentCancel styles */
+.cancel-container {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cancel-button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+/* PaymentCancel ends */
+
 /* These are Footer styles */
 .footer {
   background: #AD887F;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
