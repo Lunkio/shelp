@@ -30,3 +30,4 @@
 | 22.2. |  6   | CSS, ulkonäön tekoa/suunnittelua, kaupan admin -sivujen tuotevalikoiman hakutoiminnon tekoa/yritystä |
 | 23.2. |  3   | CSS, ulkonäön tekoa/suunnittelua |
 | 24.2. |  2   | CSS, ulkonäön tekoa |
+| 24.2. |  5   | Backendin testailun alkua, token liittäminen post-pyyntöjen testailuun |
