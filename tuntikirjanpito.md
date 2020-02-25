@@ -32,3 +32,4 @@
 | 24.2. |  2   | CSS, ulkonäön tekoa |
 | 24.2. |  5   | Backendin testailun alkua, token liittäminen post-pyyntöjen testailuun |
 | 25.2. |  3   | Backendin api-testailua, backendin korjailua |
+| 25.2. |  2   | Backendin api.testailua, backendin korjausta |

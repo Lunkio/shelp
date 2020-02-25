@@ -1,4 +1,5 @@
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const shopsRouter = require('express').Router()
 const Shop = require('../models/shopModel')
 
@@ -40,19 +41,26 @@ shopsRouter.post('/', async (req, res, next) => {
 shopsRouter.put('/:id', async (req, res, next) => {
     const body = req.body
     try {
-        const shop = {
-            name: body.name,
-            email: body.email,
-            address: body.address,
-            zip: body.zip,
-            city: body.city,
-            phone: body.phone,
-            website: body.website
+        const decodedToken = jwt.verify(req.token, process.env.SECRET)
+        const shop = await Shop.findById(decodedToken.id)
+
+        if (shop) {
+            const shop = {
+                name: body.name,
+                email: body.email,
+                address: body.address,
+                zip: body.zip,
+                city: body.city,
+                phone: body.phone,
+                website: body.website
+            }
+    
+            const modifiedShop = await Shop.findByIdAndUpdate(req.params.id, shop, { new: true })
+            res.json(modifiedShop.toJSON())
+
+        } else {
+            return res.status(401).json({ error: 'only registered shop can edit its details' })
         }
-
-        const modifiedShop = await Shop.findByIdAndUpdate(req.params.id, shop, { new: true })
-        res.json(modifiedShop.toJSON())
-
     } catch (exception) {
         next(exception)
     }
@@ -60,9 +68,15 @@ shopsRouter.put('/:id', async (req, res, next) => {
 
 shopsRouter.delete('/:id', async (req, res, next) => {
     try {
-        await Shop.findByIdAndRemove(req.params.id)
-        res.status(204).end()
+        const decodedToken = jwt.verify(req.token, process.env.SECRET)
+        const shop = await Shop.findById(decodedToken.id)
 
+        if (shop) {
+            await Shop.findByIdAndRemove(req.params.id)
+            res.status(204).end()
+        } else {
+            return res.status(401).json({ error: 'only registered shop can edit its details' })
+        }
     } catch (exception) {
         next(exception)
     }

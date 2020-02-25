@@ -26,6 +26,13 @@ describe('when some products are saved in db', () => {
     beforeEach(async () => {
         await Product.deleteMany({})
         await Image.deleteMany({})
+        await Shop.deleteMany({})
+
+        //lisää kaupat db
+        for (let i = 0; i < helper.testShops.length; i++) {
+            let newShop = helper.testShops[i]
+            await api.post('/api/shops').send(newShop)
+        }
 
         //lisää kuvat db
         for (let i = 0; i < helper.testImages.length; i++) {
@@ -146,6 +153,10 @@ describe('when some products are saved in db', () => {
                 .put(`/api/products/${productToEdit.id}`)
                 .send(productToEdit)
                 .expect(401)
+
+            const productsAfter = await helper.productsInDb()
+            const descriptions = productsAfter.map(p => p.description)
+            expect(descriptions).not.toContain('New description')
         })
 
         it('product can be edited', async () => {
