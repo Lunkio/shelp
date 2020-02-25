@@ -49,8 +49,7 @@ const testBuyers = [
         phone: '0501234567',
         products: [],
         paymentID: '1q2w3e4r5t',
-        payerID: '6y7u8i9o0p',
-        timeOfPurchase: '2019-11-14T18:09:49.573+00:00'
+        payerID: '6y7u8i9o0p'
     },
     {
         firstName: 'Toka',
@@ -62,8 +61,7 @@ const testBuyers = [
         phone: '0507654321',
         products: [],
         paymentID: 'q1w2e3r4t5',
-        payerID: 'y6u7i8o9p0',
-        timeOfPurchase: '2020-01-15T18:09:49.573+00:00'
+        payerID: 'y6u7i8o9p0'
     }
 ]
 

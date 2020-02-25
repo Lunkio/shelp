@@ -1,4 +1,5 @@
 const buyersRouter = require('express').Router()
+const jwt = require('jsonwebtoken')
 const Buyer = require('../models/buyerModel')
 const Shop = require('../models/shopModel')
 

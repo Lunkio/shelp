@@ -16,8 +16,8 @@ beforeAll((done) => {
             name: 'K-Kauppa',
             password: 'secret1'
         })
-        .end((err, response) => {
-            token = response.body.token
+        .end((err, res) => {
+            token = res.body.token
             done()
         })
 })
@@ -70,6 +70,25 @@ describe('when some products are saved in db', () => {
     })
 
     describe('post-method', () => {
+        it('product cannot be added without proper token', async () => {
+            const newImage = new Image(helper.testImages[0])
+            await newImage.save()
+            const image = await Image.findOne({ filename: '123456789.jpg' })
+            const shop = await Shop.findOne({ name: 'K-Kauppa' })
+
+            const newProduct = helper.testProducts[0]
+            newProduct.imgId = image._id
+            newProduct.shop = shop._id
+
+            await api
+                .post('/api/products')
+                .send(newProduct)
+                .expect(401)
+
+            const res = await api.get('/api/products')
+            expect(res.body.length).toBe(helper.testProducts.length)
+        })
+
         it('product with correct info can be added', async () => {
             const newImage = new Image(helper.testImages[0])
             await newImage.save()
@@ -112,6 +131,90 @@ describe('when some products are saved in db', () => {
 
             const productsAfterPost = await helper.productsInDb()
             expect(productsAfterPost.length).toBe(helper.testProducts.length)
+        })
+    })
+
+    describe('put-method', () => {
+        it('product cannot be edited without proper token', async () => {
+            const productsBefore = await helper.productsInDb()
+            const productToEdit = productsBefore[0]
+            productToEdit.description = 'New description'
+            const image = await Image.findById(productToEdit.img.id)
+            productToEdit.img = image.id
+
+            await api
+                .put(`/api/products/${productToEdit.id}`)
+                .send(productToEdit)
+                .expect(401)
+        })
+
+        it('product can be edited', async () => {
+            const productsBefore = await helper.productsInDb()
+            const productToEdit = productsBefore[0]
+            productToEdit.description = 'New description'
+            const image = await Image.findById(productToEdit.img.id)
+            productToEdit.img = image.id
+
+            await api
+                .put(`/api/products/${productToEdit.id}`)
+                .set('Authorization', `bearer ${token}`)
+                .send(productToEdit)
+                .expect(200)
+
+            const productsAfter = await helper.productsInDb()
+            const descriptions = productsAfter.map(p => p.description)
+            expect(descriptions).toContain('New description')
+        })
+    })
+
+    describe('delete-method', () => {
+        it('product can be deleted', async () => {
+            const productsBefore = await helper.productsInDb()
+            const productToDelete = productsBefore[0]
+            const id = productToDelete.id
+
+            await api
+                .delete(`/api/products/${productToDelete.id}`)
+                .set('Authorization', `bearer ${token}`)
+                .expect(204)
+
+            const productsAfter = await helper.productsInDb()
+            expect(productsAfter.length).toBe(helper.testProducts.length -1)
+
+            const ids = productsAfter.map(p => p.id)
+            expect(ids).not.toContain(id)
+        })
+
+        it('product cannot be deleted without proper token', async () => {
+            const productsBefore = await helper.productsInDb()
+            const productToDelete = productsBefore[0]
+
+            await api
+                .delete(`/api/products/${productToDelete.id}`)
+                .expect(401)
+
+            const productsAfter = await helper.productsInDb()
+            expect(productsAfter.length).toBe(helper.testProducts.length)
+        })
+    })
+
+    describe('availability-method', () => {
+        it('bought product availability changes to false', async () => {
+            const productsBefore = await helper.productsInDb()
+            const product = productsBefore[0]
+            product.availability = false
+
+            await api
+                .put(`/api/products/availability/${product.id}`)
+                .send(product)
+                .expect(200)
+
+            const productsAfter = await helper.productsInDb()
+            const availabilites = productsAfter.map(p => p.availability)
+            expect(availabilites).toContain(false)
+
+            const editedProduct = await Product.findById(product.id)
+            expect(editedProduct.availability).toBe(false)
         })
     })
 })
