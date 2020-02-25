@@ -23,6 +23,7 @@ const ShopLogin = (props) => {
             props.loginShop(shop)
 
         } catch (error) {
+            console.log('error', error)
             props.setAlert('Wrong username or password', 3)
         }
     }

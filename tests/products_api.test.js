@@ -9,7 +9,13 @@ const api = supertest(app)
 
 //asettaa tokenin
 let token
-beforeAll((done) => {
+beforeAll(async (done) => {
+    await Shop.deleteMany({})
+    //lisää kaupat db
+    for (let i = 0; i < helper.testShops.length; i++) {
+        let newShop = helper.testShops[i]
+        await api.post('/api/shops').send(newShop)
+    }
     supertest(app)
         .post('/api/login')
         .send({
@@ -26,13 +32,6 @@ describe('when some products are saved in db', () => {
     beforeEach(async () => {
         await Product.deleteMany({})
         await Image.deleteMany({})
-        await Shop.deleteMany({})
-
-        //lisää kaupat db
-        for (let i = 0; i < helper.testShops.length; i++) {
-            let newShop = helper.testShops[i]
-            await api.post('/api/shops').send(newShop)
-        }
 
         //lisää kuvat db
         for (let i = 0; i < helper.testImages.length; i++) {

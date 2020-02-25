@@ -2,12 +2,18 @@ const mongoose = require('mongoose')
 const helper = require('./test_helper')
 const app = require('../app')
 const Buyer = require('../models/buyerModel')
+const Shop = require('../models/shopModel')
 const supertest = require('supertest')
 const api = supertest(app)
 
 //asettaa tokenin
 let token
-beforeAll((done) => {
+beforeAll(async (done) => {
+    await Shop.deleteMany({})
+    for (let i = 0; i < helper.testShops.length; i++) {
+        let newShop = helper.testShops[i]
+        await api.post('/api/shops').send(newShop)
+    }
     supertest(app)
         .post('/api/login')
         .send({
