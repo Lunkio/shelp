@@ -27,7 +27,9 @@ productsRouter.post('/', async (req, res, next) => {
 
         const product = new Product({
             description: body.description,
-            price: body.price,            
+            price: body.price,
+            discount: body.discount,
+            originalPrice: body.originalPrice,
             availability: true,
             img: img._id,
             shop: shop._id
@@ -58,7 +60,9 @@ productsRouter.put('/:id', async (req, res, next) => {
 
         const product = {
             description: body.description,
-            price: body.price,            
+            price: body.price,
+            discount: body.discount,
+            originalPrice: body.originalPrice,
             availability: body.availability,
             img: img._id,
             shop: shop._id

@@ -36,3 +36,4 @@
 | 25.2. |  2   | Backendin testien refaktorointia |
 | 26.2. |  1.5 | Kaupan login-sivun myynnissä olevien tuotteiden hakutoiminto |
 | 26.2. |  1.5 | Alennus-% lisäystä tuotteisiin, jotta alennus lasketaan automaattisesti |
+| 26.2. |  3   | Alennus-% korjailua, jotta pyöristää oikein, CSS, alennusprosenttien lisääminen tuotteen tietoihin |

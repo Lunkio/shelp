@@ -35,7 +35,11 @@ const SingleProduct = (props) => {
                     <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website}</p>
                 </div>
                 <div className='col-md-2'>
-                    <h3>{props.product.price} €</h3>
+                    <div className='price-container'>
+                        <h3>{props.product.price} €</h3>
+                        <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                        <h5 className='discount'>-{props.product.discount}%</h5>
+                    </div>
                 </div>
                 <div className='col-md-2'>
                     <button

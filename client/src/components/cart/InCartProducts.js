@@ -16,14 +16,16 @@ const InCartProducts = (props) => {
                     <img src={props.product.img.location} alt='cart product' id='cartProduct' />
                 </div>
             </div>
-            <div className='col-md-7 cart-product-desc'>
+            <div className='col-md-6 cart-product-desc'>
                 <h4>{props.product.description}</h4> <hr className='divider' />
                 <p><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
                 <p><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
                 <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website}</p>
             </div>            
-            <div className='col-md-1'>
-                <p><b>{props.product.price}</b> €</p>
+            <div className='col-md-2 price-container'>
+                <h4>{props.product.price} €</h4>
+                <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                <h5 className='discount'>-{props.product.discount}%</h5>
             </div>
             <div className='col-md-2'>
                 <div id='cartRemoveBtn' className='cart-remove-button' onClick={() => remove(props.product)}><Icon name='remove circle' size='large' /></div>

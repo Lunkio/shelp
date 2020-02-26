@@ -19,6 +19,8 @@ const Cart = (props) => {
     }
 
     const totalPrice = props.cart.reduce((a,p) => a + p.price, 0)
+    const priceWithoutDiscount = props.cart.reduce((a,p) => a + p.originalPrice, 0)
+    const savedPrice = priceWithoutDiscount - totalPrice
 
     const handleEmptyCart = () => {
         props.emptyCart()
@@ -30,10 +32,10 @@ const Cart = (props) => {
                 <h1>Shopping Cart</h1> <hr />
             </div>
             <div className='row cart-descriptions'>
-                <div className='col-md-9'>
+                <div className='col-md-8'>
                     <p><b>Product</b></p> <hr />
                 </div>
-                <div className='col-md-1'>
+                <div className='col-md-2'>
                     <p><b>Price</b></p> <hr />
                 </div>
                 <div className='col-md-2'>
@@ -46,26 +48,35 @@ const Cart = (props) => {
                 )}
             </div>
             <div className='row cart-buttons'>
-                <div className='col-md-8'>
+                <div className='col-md-5 cart-continue-empty-buttons'>
                     <Link to='/products'>
                         <button className='ui teal basic button'>Continue shopping</button>
-                    </Link>                
-                </div>
-                <div className='col-md-2 cart-total-price'>
-                    <h5>Total: <b>{totalPrice}</b> €</h5>
-                </div>
-                <div className='col-md-2'>
+                    </Link>
                     <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
                 </div>
+                <div className='col-md-5 cart-price-container'>
+                    <div className='cart-prices'>
+                        <h4>Total: <b>{Math.round((totalPrice + Number.EPSILON) * 100) / 100}</b> €</h4>
+                        <h6>You save {Math.round((savedPrice + Number.EPSILON) * 100) / 100} €</h6>
+                    </div>
+                </div>
+                <div className='col-md-2 checkout-button'>
+                    <Link to='/checkout'>
+                        <button className='ui button'>Checkout</button>
+                    </Link>
+                </div>
+                {/* <div className='col-md-2'>
+                    <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
+                </div> */}
             </div>
             <div style={{'width': '80%', 'margin': '0 auto'}}>
                 <hr />
             </div>
-            <div className='cart-checkout-button'>
+            {/* <div className='cart-checkout-button'>
                 <Link to='/checkout'>
                     <button className='ui button checkout-button'>Checkout</button>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
 }
