@@ -35,3 +35,4 @@
 | 25.2. |  2   | Backendin api-testailua, backendin korjausta |
 | 25.2. |  2   | Backendin testien refaktorointia |
 | 26.2. |  1.5 | Kaupan login-sivun myynnissä olevien tuotteiden hakutoiminto |
+| 26.2. |  1.5 | Alennus-% lisäystä tuotteisiin, jotta alennus lasketaan automaattisesti |

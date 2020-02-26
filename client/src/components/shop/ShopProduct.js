@@ -7,8 +7,10 @@ import productsService from '../../services/productsService'
 
 const ShopProduct = (props) => {
     //console.log(props)
+    let productDiscount = 0
     const [name, setName] = useState('')
     const [price, setPrice] = useState(1)
+    const [discount, setDiscount] = useState(productDiscount)
     const [uploadedImage, setUploadedImage] = useState(null)
     const [currentProduct, setCurrentProduct] = useState(null)
 
@@ -39,6 +41,10 @@ const ShopProduct = (props) => {
         const productForm = new FormData()
         productForm.append('img', uploadedImage)
 
+        //laskee alennus-%
+        const result = price * discount
+        const discountedPrice = Math.round((result + Number.EPSILON) * 100) / 100
+
         const editedProduct = {
             description: name,
             price: price,
@@ -48,6 +54,10 @@ const ShopProduct = (props) => {
 
         if (name === '') {
             props.setAlert('Product needs a name or a short description', 5)
+            return
+        }
+        if (discount === 0) {
+            props.setAlert('Please set discount %', 5)
             return
         }
 
@@ -86,6 +96,16 @@ const ShopProduct = (props) => {
         }
     }
 
+    const buttonStyle1 = discount === 0.9 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle2 = discount === 0.8 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle3 = discount === 0.7 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle4 = discount === 0.6 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle5 = discount === 0.5 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle6 = discount === 0.4 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle7 = discount === 0.3 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle8 = discount === 0.2 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+    const buttonStyle9 = discount === 0.1 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
+
     return (
         <div>
             <div style={productsShow} className='row'>
@@ -122,6 +142,22 @@ const ShopProduct = (props) => {
                         <label className='col-md-2 col-form-label'>Price:</label>
                         <div className='col-md-5'>
                             <input type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
+                        </div>
+                    </div>
+                    <div className='form-group row product-edit-form'>
+                        <label className='col-md-2 col form-label'>Discount %:</label>
+                        <div className='col-md-5'>
+                            <div className='discount-buttons'>
+                                <div onClick={() => setDiscount(0.9)} className={buttonStyle1}>10 %</div>
+                                <div onClick={() => setDiscount(0.8)} className={buttonStyle2}>20 %</div>
+                                <div onClick={() => setDiscount(0.7)} className={buttonStyle3}>30 %</div>
+                                <div onClick={() => setDiscount(0.6)} className={buttonStyle4}>40 %</div>
+                                <div onClick={() => setDiscount(0.5)} className={buttonStyle5}>50 %</div>
+                                <div onClick={() => setDiscount(0.4)} className={buttonStyle6}>60 %</div>
+                                <div onClick={() => setDiscount(0.3)} className={buttonStyle7}>70 %</div>
+                                <div onClick={() => setDiscount(0.2)} className={buttonStyle8}>80 %</div>
+                                <div onClick={() => setDiscount(0.1)} className={buttonStyle9}>90 %</div>
+                            </div>
                         </div>
                     </div>
                     <div className='form-group row'>

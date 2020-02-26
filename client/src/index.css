@@ -227,6 +227,22 @@ body {
   color: white !important;
 }
 
+.discount-buttons {
+  display: flex;
+}
+
+.not-selected-btn {
+  padding: 0.5rem !important;
+  margin-bottom: 0.4rem !important;
+}
+
+.selected-btn {
+  padding: 0.5rem !important;
+  margin-bottom: 0.4rem !important;
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+
 .add-product-button button {
   background-color: var(--mainGreen) !important;
   color: white !important;
