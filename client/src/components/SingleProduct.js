@@ -44,7 +44,6 @@ const SingleProduct = (props) => {
                 <div className='col-md-2'>
                     <button
                         className='ui button cart-button'
-                        // className='ui green basic button cart-button'
                         id='buyBtn'
                         disabled={checkIfInCart(props.product)}
                         onClick={() => props.addToCart(props.product)}>

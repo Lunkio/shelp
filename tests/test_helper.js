@@ -5,16 +5,22 @@ const Shop = require('../models/shopModel')
 const testProducts = [
     {
         price: 5,
+        discount: 50,
+        originalPrice: 10,
         description: "Lasagne",
         availability: true
     },
     {
         price: 10,
+        discount: 50,
+        originalPrice: 20,
         description: "Maksalaatikko",
         availability: true
     },
     {
         price: 15,
+        discount: 50,
+        originalPrice: 30,
         description: "Makaronilaatikko",
         availability: true
     }

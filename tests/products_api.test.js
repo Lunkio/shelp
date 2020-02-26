@@ -124,6 +124,8 @@ describe('when some products are saved in db', () => {
 
             const falsyProduct = {
                 price: 7,
+                discount: 50,
+                originalPrice: 14,
                 availability: true,
                 imgId: image._id,
                 shop: shop._id
