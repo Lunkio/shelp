@@ -13,12 +13,17 @@ import ShopBoughtProduct from './ShopBoughtProduct'
 const ShopLoggedIn = (props) => {
     //console.log(props)
     const [selectedProducts, setSelectedProducts] = useState([])
-    //console.log(selectedProducts)
+    //console.log('selectedProducts', selectedProducts)
 
     const [showProducts, setShowProducts] = useState(true)
     const [showAdd, setShowAdd] = useState(false)
     const [showManage, setShowManage] = useState(false)
     const [showBought, setShowBought] = useState(false)
+
+    if (selectedProducts === null) {
+        setSelectedProducts([])
+        return null
+    }
 
     const productsShow = { display: showProducts ? '' : 'none' }
     const addShow = { display: showAdd ? '' : 'none' }
@@ -59,8 +64,14 @@ const ShopLoggedIn = (props) => {
         props.logoutShop()
     }
 
-    let allProducts = []
-    allProducts = props.products.filter(p => p.shop.name === props.shopLogin.name).map(p => { return { value: p.description, label: p.description } })
+    //for Show Products Select
+    let allProductsLabel = []
+    allProductsLabel = props.products
+        .filter(p => p.shop.id === props.shopLogin.id)
+        .filter(p => p.availability === true)
+        .map(p => { return { value: p.id, label: p.description } })
+    let productIds = selectedProducts.map(p => p.value)
+    let filteredProducts = []
 
     return (
         <div className='container main'>
@@ -86,25 +97,34 @@ const ShopLoggedIn = (props) => {
                     <h3>Products on sale:</h3>
                 </div><hr />
                 <Select 
-                    options={allProducts}
+                    options={allProductsLabel}
                     placeholder='Search products...'
                     onChange={setSelectedProducts}
                     isMulti
                     isSearchable
                 /> <br />
-                {props.products
-                    .filter(p => p.shop.id === props.shopLogin.id)
-                    .filter(p => p.availability === true)
-                    .map(p => <ShopProduct key={p.id} product={p} />
-                )}
+                {selectedProducts.length === 0 &&
+                    <div>
+                        {props.products
+                            .filter(p => p.shop.id === props.shopLogin.id)
+                            .filter(p => p.availability === true)
+                            .map(p => <ShopProduct key={p.id} product={p} />
+                        )}
+                    </div>
+                }
+                {selectedProducts.length > 0 && 
+                    <div>
+                        {productIds.forEach(v => {
+                                filteredProducts = filteredProducts.concat(props.products.filter(p => p.id === v))
+                            }
+                        )}
+                        {filteredProducts
+                            .map(p => <ShopProduct key={p.id} product={p} />
+                        )}
+                    </div>
+                }
             </div>
-            {/* {selectedProducts && 
-                <div>
-                    {props.products
-                        .filter(p => p.description === )
-                        .map(p => <ShopProduct key={p.id} product={p} />)}
-                </div>
-            } */}
+            
 
             {/* Shows bought Products */}
             <div style={boughtShow}>
@@ -129,7 +149,7 @@ const ShopLoggedIn = (props) => {
             {/* Manage Shop */}
             <div style={manageShow}>
                 <div>
-                    <h3>Manage Shop</h3>
+                    <h3>Manage Shop:</h3>
                 </div><hr />
                 <ShopManage />
             </div>

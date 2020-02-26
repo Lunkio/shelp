@@ -62,7 +62,8 @@ const Products = (props) => {
                     )}
                     {filteredShops
                         .filter(p => p.availability === true)
-                        .map(p => <SingleProduct key={p.id} product={p}/>)}
+                        .map(p => <SingleProduct key={p.id} product={p}/>
+                    )}
                 </div>
             </div>
         )

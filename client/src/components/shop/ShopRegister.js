@@ -78,7 +78,7 @@ const ShopRegister = (props) => {
             </div>
             <form onSubmit={handleRegistration} className='row'>
                 <div className='col-md-6'>
-                    <label htmlFor='shopName'>Shop Name</label>
+                    <label htmlFor='shopName'>Shop Name (You will login with this name once registered)</label>
                     <input type='text' name='name' className='form-control register-field' placeholder='Shop Name' id='shopName' required />
                 </div>
                 <div className='col-md-6'>
