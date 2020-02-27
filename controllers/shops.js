@@ -26,6 +26,8 @@ shopsRouter.post('/', async (req, res, next) => {
             zip: body.zip,
             city: body.city,
             phone: body.phone,
+            latitude: body.latitude,
+            longitude: body.longitude,
             website: body.website,
             passwordHash
         })
@@ -52,6 +54,8 @@ shopsRouter.put('/:id', async (req, res, next) => {
                 zip: body.zip,
                 city: body.city,
                 phone: body.phone,
+                latitude: body.latitude,
+                longitude: body.longitude,
                 website: body.website
             }
     

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
+import { initializeShops } from '../../reducers/shopsReducer'
 import productsService from '../../services/productsService'
 
 const ShopAddProduct = (props) => {
@@ -59,6 +60,7 @@ const ShopAddProduct = (props) => {
             //setUploadedImage(null)
             setDiscount(0)
             props.initializeProducts()
+            props.initializeShops()
             props.setConfirm(`Product ${addedProduct.description} added successfully!`, 3)            
         } catch (error) {
             console.log('error', error)
@@ -133,7 +135,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     setAlert,
     setConfirm,
-    initializeProducts
+    initializeProducts,
+    initializeShops
 }
 
 export default connect(

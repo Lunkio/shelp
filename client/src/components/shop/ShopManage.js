@@ -17,6 +17,8 @@ const ShopManage = (props) => {
     const [zip, setZip] = useState('')
     const [city, setCity] = useState('')
     const [phone, setPhone] = useState('')
+    const [latitude, setLatitude] = useState('')
+    const [longitude, setLongitude] = useState('')
     const [website, setWebsite] = useState('')
 
     const [showButtons, setShowButtons] = useState(true)
@@ -35,6 +37,12 @@ const ShopManage = (props) => {
         setCity(shop.city)
         setPhone(shop.phone)
         setWebsite(shop.website)
+        if (shop.latitude === null) {
+            setLatitude('')
+        } else { setLatitude(shop.latitude) }
+        if (shop.longitude === null) {
+            setLongitude('')
+        } else { setLongitude(shop.longitude) }
     }
 
     const close = () => {
@@ -54,6 +62,8 @@ const ShopManage = (props) => {
             zip,
             city,
             phone,
+            latitude,
+            longitude,
             website
         }
         const newShopLogin = JSON.parse(JSON.stringify(props.shopLogin))
@@ -133,6 +143,19 @@ const ShopManage = (props) => {
                             <label htmlFor='editWebsite'>Website (optional)</label>
                             <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control edit-field' id='editWebsite' />
                         </div>
+                        <div className='col-md-12 coordinates-info'>
+                            <h6>If you want your shop to be shown on the map, you need to give latitude and longitude values.</h6>
+                        </div>
+                        <div className='col-md-12 coordinates-zone'>
+                            <div className='col-md-6'>
+                                <label htmlFor='editLatitude'>Latitude (optional)</label>
+                                <input value={latitude} onChange={e => setLatitude(e.target.value)} className='form-control edit-field' id='editLatitude' />
+                            </div>
+                            <div className='col-md-6'>
+                                <label htmlFor='editLongitude'>Longitude (optional)</label>
+                                <input value={longitude} onChange={e => setLongitude(e.target.value)} className='form-control edit-field' id='editLongitude' />
+                            </div>
+                        </div>
                         <div className='edit-submit-button'>
                             <button id='submitEditBtn' type='submit' className='ui button'>Submit changes</button>
                         </div>
@@ -147,7 +170,7 @@ const ShopManage = (props) => {
                     </div>
                     <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
                 </div> <hr />
-                <div >
+                <div>
                     <h3>Danger Zone</h3>
                     <div className='danger-zone'>
                         <div>

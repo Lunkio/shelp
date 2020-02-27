@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
+import { initializeShops } from '../../reducers/shopsReducer'
 import productsService from '../../services/productsService'
 
 const ShopProduct = (props) => {
@@ -76,6 +77,7 @@ const ShopProduct = (props) => {
             editedProduct.img = imageId
             await productsService.updateProduct(currentProduct.id, editedProduct)
             props.initializeProducts()
+            props.initializeShops()
             props.setConfirm('Product edited successfully!', 5)
             setShowProducts(true)
             setShowEdit(false)
@@ -93,6 +95,7 @@ const ShopProduct = (props) => {
             await productsService.removeImg(product.img.id)
             props.setConfirm('Product was removed!', 5)
             props.initializeProducts()
+            props.initializeShops()
         } catch (error) {
             console.log('error', error)
             props.setAlert('Product was not removed, please try again', 5)
@@ -191,7 +194,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     setAlert,
     setConfirm,
-    initializeProducts
+    initializeProducts,
+    initializeShops
 }
 
 export default connect(

@@ -22,6 +22,11 @@ const Navbar = (props) => {
                     </Link>
                 </li>
                 <li>
+                    <Link to='/map' className='nav-link'>
+                        <div className='nav-link-text'><b>See Map</b></div>
+                    </Link>
+                </li>
+                <li>
                     <Link to='/cart' className='nav-link'>
                         <div className='nav-link-text'>
                             <span>

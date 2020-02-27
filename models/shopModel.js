@@ -9,6 +9,8 @@ const shopSchema = new mongoose.Schema({
     zip: { type: String, required: true },
     city: { type: String, required: true },
     phone: { type: String, required: true },
+    latitude: Number,
+    longitude: Number,
     website: String,
     products: [
         {

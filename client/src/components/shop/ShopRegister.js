@@ -21,6 +21,8 @@ const ShopRegister = (props) => {
         let zip = event.target.zip.value
         let city = event.target.city.value
         let phone = event.target.phone.value
+        let latitude = event.target.latitude.value
+        let longitude = event.target.longitude.value
         let website = event.target.website.value
 
         if (password !== passwordAgain || password === '' || passwordAgain === '') {
@@ -36,6 +38,8 @@ const ShopRegister = (props) => {
             zip: zip,
             city: city,
             phone: phone,
+            latitude: latitude,
+            longitude: longitude,
             website: website
         }
         //console.log(newShop)
@@ -49,6 +53,8 @@ const ShopRegister = (props) => {
             event.target.zip.value = ''
             event.target.city.value = ''
             event.target.phone.value = ''
+            event.target.latitude.value = null
+            event.target.longitude.value = null
             event.target.website.value = ''
             props.initializeShops()
             props.setConfirm(`Success! ${addedShop.name} is now registered`, 5)
@@ -113,12 +119,27 @@ const ShopRegister = (props) => {
                     <label htmlFor='shopWebsite'>Website (optional)</label>
                     <input type='text' name='website' className='form-control register-field' placeholder='Website (optional)' id='shopWebsite' />
                 </div>
+                <div className='col-md-12 coordinates-info'>
+                    <h6>If you want your shop to be shown on the map, you need to give latitude and longitude values.</h6>
+                </div>
+                <div className='col-md-12 coordinates-zone'>
+                    <div className='col-md-6'>
+                        <label htmlFor='shopLatitude'>Latitude (optional)</label>
+                        <input type='text' name='latitude' className='form-control register-field' placeholder='Latitude (optional)' id='shopLatitude' />
+                    </div>
+                    <div className='col-md-6'>
+                        <label htmlFor='shopLongitude'>Longitude (optional)</label>
+                        <input type='text' name='longitude' className='form-control register-field' placeholder='Longitude (optional)' id='shopLongitude' />
+                    </div>
+                </div>
+                <div className='col-md-12 register-messages'>
+                    {props.confirm && <Message success header={props.confirm} />}
+                    {props.alert && <Message error header={props.alert} />}
+                </div>
                 <div className='register-submit-button'>
                     <button id='submitBtn' type='submit' className='ui button'>Submit</button>
                 </div>
             </form>
-            {props.confirm && <Message success header={props.confirm} />}
-            {props.alert && <Message error header={props.alert} />}
         </div>
     )
 }

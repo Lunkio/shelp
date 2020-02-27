@@ -1,29 +1,1160 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "price": 25,
-            "description": "Lihamakaronilaatikko 400g",
-            "img": "./images/3052.jpg",
-            "shop": "kaupan id1"
+    "meta": {
+      "count": "11"
+    },
+    "data": [
+      {
+        "id": "4004",
+        "name": {
+          "fi": "Alanya Market",
+          "en": "Alanya Market",
+          "sv": null,
+          "zh": null
         },
-        {
-            "id": 2,
-            "price": 30,
-            "description": "Maksalaatikko 400g",
-            "img": "./images/30022.jpg",
-            "shop": "kaupan id2"
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.alanyamarket.fi",
+        "modified_at": "2020-02-17T13:13:33.000Z",
+        "location": {
+          "lat": 60.2138557434082,
+          "lon": 25.08250617980957,
+          "address": {
+            "street_address": "Kastelholmantie 2",
+            "postal_code": "00900",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Alanya Market on Lähi-idän tuotteisiin erikoistunut päivittäistavarakauppa Itiksen Puhoksessa.",
+          "images": []
+        },
+        "tags": [
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "09:00:00",
+              "closes": "20:30:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "09:00:00",
+              "closes": "20:30:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "09:00:00",
+              "closes": "20:30:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "09:00:00",
+              "closes": "20:30:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "09:00:00",
+              "closes": "20:30:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "12:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
         }
+      },
+      {
+        "id": "3758",
+        "name": {
+          "fi": "Alepa Kulosaari",
+          "en": "Alepa Kulosaari",
+          "sv": "Alepa Kulosaari",
+          "zh": null
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "https://www.alepa.fi",
+        "modified_at": "2019-06-17T09:00:21.000Z",
+        "location": {
+          "lat": 60.186256408691406,
+          "lon": 25.008176803588867,
+          "address": {
+            "street_address": "Kyösti Kallion tie 2",
+            "postal_code": "00570",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Alepa on pääkaupunkiseudulla palveleva lähikauppa, jonka löytää useimmiten ihan naapurista. Valinnanvaraa on tuotteiden lisäksi runsaasti jo Alepoissa itsessään - pääkaupunkiseudun vatsan kurinaa vaimentaa nykyään yli 100 Alepaa.",
+          "images": []
+        },
+        "tags": [
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "09:00:00",
+              "closes": "23:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2785",
+        "name": {
+          "fi": "Alepa Ullanlinna",
+          "en": "Alepa Ullanlinna",
+          "sv": null,
+          "zh": null
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.alepa.fi",
+        "modified_at": "2019-08-22T09:11:35.000Z",
+        "location": {
+          "lat": 60.15938949584961,
+          "lon": 24.9455623626709,
+          "address": {
+            "street_address": "Vuorimiehenkatu 29",
+            "postal_code": "00140",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Alepa on pääkaupunkiseudulla palveleva lähikauppa, jonka löytää useimmiten ihan naapurista. Valinnanvaraa on tuotteiden lisäksi runsaasti jo Alepoissa itsessään - pääkaupunkiseudun vatsan kurinaa vaimentaa nykyään yli 100 Alepaa.",
+          "images": []
+        },
+        "tags": [
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "06:30:00",
+              "closes": "23:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "09:00:00",
+              "closes": "23:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2718",
+        "name": {
+          "fi": "Anton & Anton Kruununhaka",
+          "en": "Anton & Anton Kruununhaka",
+          "sv": "Anton & Anton Kronohagen",
+          "zh": "安东&安东 - 格鲁努哈卡店"
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.antonanton.fi",
+        "modified_at": "2019-11-18T11:52:15.000Z",
+        "location": {
+          "lat": 60.1722412109375,
+          "lon": 24.956281661987305,
+          "address": {
+            "street_address": "Mariankatu 18",
+            "postal_code": "00170",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Anton & Antonista löydät kattavan valikoiman sesongin mukaisia tuoreita lihoja, leipiä, juustoja, hedelmiä ja vihanneksia sekä pientuottajien herkkuja. \r\n\r\nPalvelutiski on jokaisen Anton & Anton -ruokakaupan sielu ja sydän. Toinen Anton & Anton -ruokakauppa sijaitsee Ullanlinnassa. Anton & Anton kioskit löytyvät Kalliosta Karhupuistosta sekä Mall of Triplasta.",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-08/AetAKruna-10_0a5d70ab-c8cb-44ea-ac0a-85d4e9b6ffda.jpg?h=44d875f0&itok=KYAA_qRM",
+              "copyright_holder": "Anton & Anton",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:145",
+            "name": "Organic"
+          },
+          {
+            "id": "matko2:a-:Curated",
+            "name": "Curated"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2719",
+        "name": {
+          "fi": "Anton & Anton Ullanlinna",
+          "en": "Anton & Anton Ullanlinna",
+          "sv": "Anton & Anton Ulrikasborg",
+          "zh": null
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.antonanton.fi",
+        "modified_at": "2019-11-18T11:52:36.000Z",
+        "location": {
+          "lat": 60.15921401977539,
+          "lon": 24.946313858032227,
+          "address": {
+            "street_address": "Kapteeninkatu 26",
+            "postal_code": "00140",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Anton & Antonista löytyy kattava valikoima sesongin mukaisia tuoreita lihoja, leipiä, juustoja, hedelmiä ja vihanneksia sekä pientuottajien herkkuja. Palvelutiski on Anton & Anton -ruokakaupan sielu ja sydän. Ullanlinnan kaupassa voi myös nauttia aamupalasta sekä lounaasta .\r\n\r\nToinen Anton & Anton -ruokakauppa sijaitsee Kruununhaassa. Anton & Anton kioskit löytyvät Kalliosta Karhupuistosta sekä Mall of Triplasta.",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-08/AetAKorkkari-43_b90cc2ca-4482-44c6-b34e-0872818be7e9.jpg?h=aab98da7&itok=TJ_Zg__t",
+              "copyright_holder": "Anton & Anton",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:145",
+            "name": "Organic"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2720",
+        "name": {
+          "fi": "Food Market Herkku, Helsinki keskusta",
+          "en": "Food Market Herkku, Helsinki city center",
+          "sv": "Food Market Delikatessen, Helsingfors centrum",
+          "zh": "斯道克曼美食超市，市中心"
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "https://www.foodmarketherkku.fi",
+        "modified_at": "2019-11-06T13:50:31.000Z",
+        "location": {
+          "lat": 60.16801834106445,
+          "lon": 24.942312240600586,
+          "address": {
+            "street_address": "Aleksanterinkatu 52",
+            "postal_code": "00100",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Stockmannin tavaratalossa sijaitseva Food Market Herkku on Suomen ensimmäinen Food Market, ruokakeidas, jossa hyvää ruokaa ja puhtaita raaka-aineita rakastetaan. Herkun inspiraationa toimi suurkaupunkien kauppahallit, katuruoka ja uusimmat ruokatrendit. \r\n\r\nKansainvälisesti arvostettu tutkimuslaitos IGD nosti Herkun ainoana pohjoismaisena ruokakauppana maailman 16 kiinnostavimman ruokakaupan joukkoon vuonna 2019.\r\n\r\nFood Market Herkusta löytyy myös pieni mutta suurenmoinen bistro joka tarjoilee mm. herkullista kalakeittoa!\r\n\r\n\r\n",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2019-11/food_market_herkku_helsinki_1_c_sok_media_location_only.jpg?h=e958b219&itok=PFOzGzuz",
+              "copyright_holder": "SOK MEDIA",
+              "license_type": {
+                "id": 2,
+                "name": "MyHelsinki license type A"
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2019-11/food_market_herkku_helsinki_2_c_sok_media_location_only.jpg?h=0c246c56&itok=rRdeNnuV",
+              "copyright_holder": "SOK MEDIA",
+              "license_type": {
+                "id": 2,
+                "name": "MyHelsinki license type A"
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2019-11/food_market_herkku_helsinki_3_c_sok_media_location_only.jpg?h=e37b8040&itok=9vwHmBgo",
+              "copyright_holder": "SOK MEDIA",
+              "license_type": {
+                "id": 2,
+                "name": "MyHelsinki license type A"
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:60",
+            "name": "DepartmentStore"
+          },
+          {
+            "id": "matko2:145",
+            "name": "Organic"
+          },
+          {
+            "id": "matko2:188",
+            "name": "Food"
+          },
+          {
+            "id": "matko2:a-:Curated",
+            "name": "Curated"
+          },
+          {
+            "id": "matko2:a-:AliPay",
+            "name": "AliPay"
+          },
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "19:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "11:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2722",
+        "name": {
+          "fi": "Food Market Herkku, Itis",
+          "en": "Food Market Herkku, Itis",
+          "sv": "Food Market Delikatessen, Itis",
+          "zh": "斯道克曼百货公司美食超市艺迪斯店"
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.foodmarketherkku.fi",
+        "modified_at": "2019-08-29T10:45:57.000Z",
+        "location": {
+          "lat": 60.213077545166016,
+          "lon": 25.085081100463867,
+          "address": {
+            "street_address": "Itäkatu 1",
+            "postal_code": "00930",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Stockmannin tavaratalossa Itiksessä sijaitseva Food Market Herkku on Suomen ensimmäinen Food Market, ruokakeidas, jossa hyvää ruokaa ja puhtaita raaka-aineita rakastetaan. Herkun inspiraationa toimi suurkaupunkien kauppahallit, katuruoka ja uusimmat ruokatrendit.",
+          "images": []
+        },
+        "tags": [
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:60",
+            "name": "DepartmentStore"
+          },
+          {
+            "id": "matko2:145",
+            "name": "Organic"
+          },
+          {
+            "id": "matko2:188",
+            "name": "Food"
+          },
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "09:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "12:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "1308",
+        "name": {
+          "fi": "Hakaniemen Kauppahalli",
+          "en": "Hakaniemi Market Hall",
+          "sv": "Hagnäs Saluhall",
+          "zh": "哈卡涅米农贸市场"
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://www.hakaniemenkauppahalli.fi",
+        "modified_at": "2019-08-29T14:47:31.000Z",
+        "location": {
+          "lat": 60.179893493652344,
+          "lon": 24.950992584228516,
+          "address": {
+            "street_address": "Hämeentie 1a",
+            "postal_code": "00530",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Hakaniemen Kauppahalli on suomen ainoa 2-kerroksinen kauppahalli. Ensimmäisessä kerroksessa herkullisia tuoreita elintarvikkeita ja ruokapaikkoja. Toisessa kerroksessa suomalaisia matkamuistoja, designtuotteita, käsitöitä ja kahviloita. Arkkitehti Karl Hård af Segerstadin suunnittelema Hakaniemen Kauppahalli avattiin vuonna 1914.\r\n\r\nTällä hetkellä Hakaniemen Kauppahalli on suljettu peruskorjauksen vuoksi. Kauppahallin toiminta jatkuu viereisessä, tilapäisessä lasihallissa kunnes hallin remontti valmistuu.",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-07/hakaniemen%20halli%20lauri%20rotko.jpg?h=26e5e76c&itok=qOWtOwwC",
+              "copyright_holder": "Lauri Rotko",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-07/Helsinki_HakaniemiMarketHall_Elina%20Sirparanta%20VF.jpg?h=6f8e8448&itok=TBF0UmR3",
+              "copyright_holder": "Elina Sirparanta",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-11/Hakaniemen%20kauppahalli_Jussi%20Hellsten.jpg?h=1a5480a8&itok=_vVlWCZP",
+              "copyright_holder": "Jussi Hellsten",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:188",
+            "name": "Food"
+          },
+          {
+            "id": "matko2:62",
+            "name": "MarketHall"
+          },
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:71",
+            "name": "Souvenirs"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "3277",
+        "name": {
+          "fi": "Hakaniemen Kauppahalli, väliaikainen lasihalli",
+          "en": "Hakaniemi Market Hall, temporary glass hall",
+          "sv": "Hagnäs Saluhall, temporära glashallen",
+          "zh": null
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "https://fi-fi.facebook.com/hakaniemenhalli/",
+        "modified_at": "2019-08-29T14:58:38.000Z",
+        "location": {
+          "lat": 60.179386138916016,
+          "lon": 24.951581954956055,
+          "address": {
+            "street_address": "Hakaniemen torikatu 1",
+            "postal_code": "00530",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Hakaniemen kauppahallin peruskorjaus alkoi vuoden 2018 alussa ja valmistuu näillä näkymin vuonna 2020. Peruskorjauksen aikana hallin toiminta jatkuu keskeytymättä väliaikaisissa tiloissa, Lasihallissa, Hakaniemen torilla.",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-07/hakaniemi_temporary_market_hall_meet_vendor_2_c_kaari_artemjeff.jpg?h=0944b959&itok=u6M3oB6j",
+              "copyright_holder": "Kaari Artemjeff / Helsinki Marketing",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-07/hakaniemi_temporary_market_hall_vegetable_vendor_c_kaari_artemjeff.jpg?h=b0505f30&itok=rJWjJBMj",
+              "copyright_holder": "Kaari Artemjeff / Helsinki Marketing",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            },
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-07/hakaniemi_temporary_market_hall_percelain_vendor_horizontal_c_kaari_artemjeff.jpg?h=aba44f8e&itok=XJEfl3Cw",
+              "copyright_holder": "Kaari Artemjeff / Helsinki Marketing",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:188",
+            "name": "Food"
+          },
+          {
+            "id": "matko2:259",
+            "name": "Craft"
+          },
+          {
+            "id": "matko2:62",
+            "name": "MarketHall"
+          },
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:71",
+            "name": "Souvenirs"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "08:00:00",
+              "closes": "20:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "08:00:00",
+              "closes": "18:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": null,
+              "closes": null,
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2670",
+        "name": {
+          "fi": "Pien Shop & Bar",
+          "en": "Pien Shop & Bar",
+          "sv": "Pien Shop & Bar",
+          "zh": null
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "http://pien.fi",
+        "modified_at": "2019-09-18T14:54:51.000Z",
+        "location": {
+          "lat": 60.16962432861328,
+          "lon": 24.944297790527344,
+          "address": {
+            "street_address": "Ateneuminkuja 2",
+            "postal_code": "00100",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Pien myy kotimaisia pienpanimotuotteita. Valikoimista löytyy myös tarkkaan valittuja laadukkaita ja erikoisia ulkomaalaisia pienpanimotuotteita asiantuntevalla asiakaspalvelulla. Kattavan olutvalikoiman lisäksi liikkeessä on myynnissä pientuottajien limuja, siidereitä ja muita laadukkaita elintarvikkeita. Myymälällä on myös Spiegelau-olutlasien edustus.",
+          "images": []
+        },
+        "tags": [
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          },
+          {
+            "id": "matko2:244",
+            "name": "Beer"
+          },
+          {
+            "id": "matko2:116",
+            "name": "EcoShop"
+          },
+          {
+            "id": "matko1:9",
+            "name": "SHOPPING"
+          },
+          {
+            "id": "matko2:52",
+            "name": "Bar"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "12:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "12:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "12:00:00",
+              "closes": "00:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "12:00:00",
+              "closes": "00:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "12:00:00",
+              "closes": "02:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "12:00:00",
+              "closes": "02:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "12:00:00",
+              "closes": "21:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": ""
+        }
+      },
+      {
+        "id": "2778",
+        "name": {
+          "fi": "Signora Delizia",
+          "en": "Signora Delizia",
+          "sv": "Signora Delizia",
+          "zh": "愉快女士"
+        },
+        "source_type": {
+          "id": 2,
+          "name": "Matko"
+        },
+        "info_url": "https://fi-fi.facebook.com/signoradeliziaoy/",
+        "modified_at": "2019-02-19T13:39:10.000Z",
+        "location": {
+          "lat": 60.16769027709961,
+          "lon": 24.962482452392578,
+          "address": {
+            "street_address": "Satamakatu 5",
+            "postal_code": "00160",
+            "locality": "Helsinki"
+          }
+        },
+        "description": {
+          "intro": null,
+          "body": "Signora Delizia on italialaisten laatuelintarvikkeiden maahantuontiyritys, herkkupuoti ja kahvila Katajanokalla-\r\n\r\nSignora Delizian filosofiaan kuuluu tarjota asiakkailleen laadukkaita tuotteita järkevään hintaan paljolti suoraan tarkoin valikoiduilta tuottajilta.",
+          "images": [
+            {
+              "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-06/signora.jpg?h=a6146b05&itok=x7fmv4Qv",
+              "copyright_holder": "Signora Delizia",
+              "license_type": {
+                "id": 1,
+                "name": "All rights reserved."
+              }
+            }
+          ]
+        },
+        "tags": [
+          {
+            "id": "matko1:10",
+            "name": "RESTAURANTS & CAFES"
+          },
+          {
+            "id": "matko2:48",
+            "name": "Cafe"
+          },
+          {
+            "id": "matko2:103",
+            "name": "Grocery"
+          }
+        ],
+        "opening_hours": {
+          "hours": [
+            {
+              "weekday_id": 1,
+              "opens": "10:00:00",
+              "closes": "17:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 2,
+              "opens": "10:00:00",
+              "closes": "17:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 3,
+              "opens": "10:00:00",
+              "closes": "17:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 4,
+              "opens": "10:00:00",
+              "closes": "17:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 5,
+              "opens": "10:00:00",
+              "closes": "16:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 6,
+              "opens": "10:00:00",
+              "closes": "16:00:00",
+              "open24h": false
+            },
+            {
+              "weekday_id": 7,
+              "opens": "10:00:00",
+              "closes": "16:00:00",
+              "open24h": false
+            }
+          ],
+          "openinghours_exception": "Aukioloajat saattavat vaihdella, tarkista kotisivuilta."
+        }
+      }
     ],
-    "shops": [
-        {
-            "id": 1,
-            "name": "K-Kauppa Martti",
-            "address": "Jokikatu 1",
-            "zip": "00100",
-            "city": "Helsinki",
-            "phone": "04012345678",
-            "products": ["product id1", "product id2"]
-        }
-    ]
-}
+    "tags": {
+      "matko1:10": "RESTAURANTS & CAFES",
+      "matko1:9": "SHOPPING",
+      "matko2:103": "Grocery",
+      "matko2:116": "EcoShop",
+      "matko2:145": "Organic",
+      "matko2:188": "Food",
+      "matko2:244": "Beer",
+      "matko2:259": "Craft",
+      "matko2:48": "Cafe",
+      "matko2:52": "Bar",
+      "matko2:60": "DepartmentStore",
+      "matko2:62": "MarketHall",
+      "matko2:71": "Souvenirs",
+      "matko2:a-:AliPay": "AliPay",
+      "matko2:a-:Curated": "Curated"
+    }
+  }

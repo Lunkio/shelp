@@ -38,3 +38,4 @@
 | 26.2. |  1.5 | Alennus-% lisäystä tuotteisiin, jotta alennus lasketaan automaattisesti |
 | 26.2. |  3   | Alennus-% korjailua, jotta pyöristää oikein, CSS, alennusprosenttien lisääminen tuotteen tietoihin |
 | 26.2. |  0.5 | Testien fixaus |
+| 27.2. |  10  | Kartan lisääminen (MapBox), jos kaupalle lisätty koordinaatit, näkyvät ne kartalla. CSS:ää karttanäkymälle |
