@@ -1,11 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 import { addToCart } from '../reducers/cartReducer'
 
 const MapBox = (props) => {
     //console.log(props)
-    const [clickedShop, setClickedShop] = useState(null)
+    const [sideHeader, setSideHeader] = useState('Fresh offers')
+    const [showBack, setShowBack] = useState(false)
+    const [showShop, setShowShop] = useState(false)
+    const [showProducts, setShowProducts] = useState([])
+    const [clickedShop, setClickedShop] = useState({
+        address: 'none',
+        zip: 'none',
+        city: 'none',
+        phone: 'none',
+        website: 'none'
+    })
     const [view, setView] = useState({
         latitude: 60.169857,
         longitude: 24.938379,
@@ -14,31 +24,68 @@ const MapBox = (props) => {
         zoom: 12
     })
 
+    useEffect(() => {
+        setShowProducts(props.products.filter(p => p.availability === true))
+    }, [props.products])
+
+    const shopsWithProducts = props.shops.filter(s => s.latitude !== null || s.longitude !== null).filter(s => s.products.length > 0)
+    const shopsWithoutProducts = props.shops.filter(s => s.latitude !== null || s.longitude !== null).filter(s => s.products.length === 0)
+
+    const handleShow = () => {
+        setSideHeader('Fresh offers')
+        setShowBack(false)
+        setShowShop(false)
+        setShowProducts(props.products.filter(p => p.availability === true))
+    }
+    
+    const showShopProducts = (shop) => {
+        setShowProducts(props.products.filter(p => p.shop.id === shop.id))
+        setSideHeader(shop.name)
+        setShowBack(true)
+    }
+
+    const showShopDetails = (shop) => {
+        setSideHeader(shop.name)
+        setShowShop(true)
+        setClickedShop(shop)
+        setShowBack(true)
+    }
+
     const checkIfInCart = (product) => {
         return props.cart.find(p => p.id === product.id)
     }
 
-    const shopsWithProducts = props.shops.filter(s => s.latitude !== null || s.longitude !== null).filter(s => s.products.length > 0)
-    const shopsWithoutProducts = props.shops.filter(s => s.latitude !== null || s.longitude !== null).filter(s => s.products.length === 0)
+    let backShow = { visibility: showBack ? '' : 'hidden' }
+    let shopShow = { display: showShop ? '' : 'none' }
 
     return (
         <div className='main map-container'>
             <div className='map-side-window'>
                 <div className='map-side-header'>
-                    <h3>Fresh offers</h3>
+                    <div style={backShow} className='map-back-button' onClick={handleShow}>{`< Show all`}</div>
+                    <h3>{sideHeader}</h3>
                 </div>
-                {props.products.map(p =>
+                <div style={shopShow} className='map-shop-details'>
+                    <div className='map-shop-address'>{clickedShop.address}, {clickedShop.zip} {clickedShop.city}</div>
+                    <div className='map-shop-phone'><i className='fas fa-phone' /> {clickedShop.phone}</div>
+                    <div className='map-shop-website'>{clickedShop.website !== '' && <span><i className='fas fa-globe' /> {clickedShop.website}</span>}</div>
+                </div>
+                {showProducts.map(p =>
                     <div key={p.id}>
                         <div className='map-product-container'>
                             <div className='map-product-details'>
-                                <h5><b>{p.description}</b></h5>
+                                <div className='map-name-discount'>
+                                    <h5><b>{p.description}</b></h5>
+                                    <h5 className='map-discount'>-{p.discount}%</h5>
+                                </div>
                                 <p><i className='fas fa-store'/> {p.shop.name}</p>
                             </div>
                             <div className='map-price-cart-button'>
-                                <div className='price-container'>
-                                    <p><b>{p.price}</b> €</p>
-                                    <h6 className='original-price'>{p.originalPrice} €</h6>
-                                    <h5 className='discount'>-{p.discount}%</h5>
+                                <div className='map-price-container'>
+                                    <div className='map-prices'>
+                                        <h5>{p.price} €</h5>
+                                        <h6 className='map-original-price'>{p.originalPrice} €</h6>
+                                    </div>
                                 </div>
                                 <button
                                     className='ui button map-cart-button'
@@ -70,7 +117,9 @@ const MapBox = (props) => {
                                     className='fas fa-map-marker-alt map-marker-products'
                                     onClick={e => {
                                         e.preventDefault()
-                                        setClickedShop(shop)
+                                        // setClickedShop(shop)
+                                        showShopProducts(shop)
+                                        showShopDetails(shop)
                                     }}
                                 >
                                     <div className='marker-product-amount'><p>{shop.products.length}</p></div>
@@ -88,13 +137,14 @@ const MapBox = (props) => {
                                 className='fas fa-map-marker-alt map-marker-noProducts'
                                 onClick={e => {
                                     e.preventDefault()
-                                    setClickedShop(shop)
+                                    // setClickedShop(shop)
+                                    showShopDetails(shop)
                                 }}
                             />
                         </Marker>
                     )}
 
-                    {clickedShop &&
+                    {/* {clickedShop &&
                         <Popup 
                             latitude={clickedShop.latitude}
                             longitude={clickedShop.longitude}
@@ -104,7 +154,7 @@ const MapBox = (props) => {
                                 {clickedShop.name}
                             </div>
                         </Popup>
-                    }
+                    } */}
                 </ReactMapGL>
             {/* </div> */}
         </div>

@@ -627,6 +627,7 @@ body {
 
 .map-side-window {
   width: 30vw;
+  overflow: scroll;
 }
 
 .map {
@@ -639,6 +640,39 @@ body {
   background-color: var(--mainGreen);
   color: white;
   padding: 1.2rem;
+  box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.8)
+}
+
+.map-back-button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  margin-top: -1.0rem;
+  margin-bottom: -0.5rem;
+}
+
+.map-back-button:hover {
+  color: lightblue;
+}
+
+.map-shop-details {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  box-shadow: 0px 1px 1px -1px rgba(0,0,0,0.8)
+}
+
+.map-shop-address {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.map-shop-phone {
+  font-size: 1rem;
+}
+
+.map-shop-website {
+  font-size: 1rem;
 }
 
 .map-product-container {
@@ -656,8 +690,17 @@ body {
 .map-product-details {
   display: flex;
   flex-direction: column;
-  width: 75%;
-  /* background-color: yellowgreen; */
+  width: 70%;
+}
+
+.map-name-discount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.map-discount {
+  color: red;
+  align-self: flex-start;
 }
 
 .map-product-details h5 {
@@ -665,16 +708,37 @@ body {
 }
 
 .map-price-cart-button {
-  text-align: center;
   align-self: center;
-  width: 25%;
-  /* background-color: yellow; */
+  width: 27%;
+  margin-top: -0.5rem;
+}
+
+.map-price-container {
+  margin-bottom: 1.5rem;
+}
+
+.map-prices {
+  display: flex;
+  justify-content: space-around;
+}
+
+.map-prices h5 {
+  margin-bottom: 0;
+}
+
+.map-original-price {
+  color: grey;
+  margin-bottom: 0;
+  text-decoration: line-through;
+  font-size: 0.8rem;
+  align-self: center;
 }
 
 .map-cart-button {
   background-color: var(--mainGreen) !important;
   color: white !important;
   padding: 0.3rem !important;
+  width: 100% !important;
 }
 
 .map-product-divider {

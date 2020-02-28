@@ -20,7 +20,7 @@ const InCartProducts = (props) => {
                 <h4>{props.product.description}</h4> <hr className='divider' />
                 <p><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
                 <p><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
-                <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website}</p>
+                <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
             </div>            
             <div className='col-md-2 price-container'>
                 <h4>{props.product.price} €</h4>
