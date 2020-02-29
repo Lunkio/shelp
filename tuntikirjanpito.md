@@ -40,3 +40,4 @@
 | 26.2. |  0.5 | Testien fixaus |
 | 27.2. |  10  | Kartan lisääminen (MapBox), jos kaupalle lisätty koordinaatit, näkyvät ne kartalla. CSS:ää karttanäkymälle |
 | 28.2. |  5   | Karttanäkymän ehostamista, kauppaa klikatessa näkyy kartan viereisessä sivuikkunassa kaupan tuotteet |
+| 29.2. |  2   | CSS, ulkonäön pientä korjailua ja karttanäkymän parantelua |

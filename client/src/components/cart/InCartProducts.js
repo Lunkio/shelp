@@ -23,8 +23,10 @@ const InCartProducts = (props) => {
                 <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
             </div>            
             <div className='col-md-2 price-container'>
-                <h4>{props.product.price} €</h4>
-                <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                <div className='prices'>
+                    <h4>{props.product.price} €</h4>
+                    <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                </div>
                 <h5 className='discount'>-{props.product.discount}%</h5>
             </div>
             <div className='col-md-2'>
