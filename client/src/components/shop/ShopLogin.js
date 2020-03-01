@@ -53,13 +53,12 @@ const ShopLogin = (props) => {
                 </div>
             </form>
             {props.alert && <Message error header={props.alert} />}
-            <div className='register-container'>
+            <div className='signup-container'>
                 <p>Not yet a partner?</p>
                 <Link to='register'>
                     <button className='ui grey basic button'>Sign up</button>
                 </Link>
             </div>
-            
         </div>
     )
 }

@@ -42,3 +42,4 @@
 | 28.2. |  5   | Karttanäkymän ehostamista, kauppaa klikatessa näkyy kartan viereisessä sivuikkunassa kaupan tuotteet |
 | 29.2. |  2   | CSS, ulkonäön pientä korjailua ja karttanäkymän parantelua |
 | 1.3.  |  2,5 | Rekisteröintilomakkeen ja komponentin uudistuksen aloitus |
+| 1.3.  |  3   | Rekisteröintilomakkeen ulkonäön parantamista |
