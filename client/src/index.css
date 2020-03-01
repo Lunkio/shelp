@@ -351,6 +351,12 @@ body {
 /* ShopManage ends */
 
 /* These are ShopRegister styles */
+.register-form {
+  width: 70%;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
 .goback-login-button {
   margin-bottom: 1rem;
 }
