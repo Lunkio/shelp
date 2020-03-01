@@ -29,6 +29,8 @@ const ShopRegister = (props) => {
     const [showOverview, setShowOverview] = useState(false)
     const [showProgress, setShowProgress] = useState(true)
 
+    const [passwordReveal, setPasswordReveal] = useState(true)
+
     const handleRegistration = async (event) => {
         event.preventDefault()
 
@@ -150,6 +152,16 @@ const ShopRegister = (props) => {
     const secondProgress = showLoginBtn ? 'progress-ball-active' : 'progress-ball-nonactive'
     const thirdProgress = showDetailsBtn ? 'progress-ball-active' : 'progress-ball-nonactive'
     const fourthProgress = showOverview ? 'progress-ball-active' : 'progress-ball-nonactive'
+
+    const handlePasswordReveal = () => {
+        if (passwordReveal) {
+            setPasswordReveal(false)
+        } else {
+            setPasswordReveal(true)
+        }
+    }
+
+    const passwordType = passwordReveal ? 'password' : 'text'
     
     return (
         <div className='container main register-container'>
@@ -216,11 +228,14 @@ const ShopRegister = (props) => {
                     </div>
                     <div className='col-md-6'>
                         <label htmlFor='shopPsw'>Password</label>
-                        <input type='password' onChange={e => setPassword(e.target.value)} className='form-control register-field' placeholder='Password' id='shopPsw' required />
+                        <input type={passwordType} onChange={e => setPassword(e.target.value)} className='form-control register-field' placeholder='Password' id='shopPsw' required />
                     </div>
                     <div className='col-md-6'>
                         <label htmlFor='shopPswAgain'>Password Again</label>
-                        <input type='password' onChange={e => setPasswordAgain(e.target.value)} className='form-control register-field' placeholder='Password Again' id='shopPswAgain' required />
+                        <input type={passwordType} onChange={e => setPasswordAgain(e.target.value)} className='form-control register-field' placeholder='Password Again' id='shopPswAgain' required />
+                    </div>
+                    <div className='col-md-12'>
+                        <input type='checkbox' onClick={handlePasswordReveal} />Show password
                     </div>
                     <div style={loginDetailsBtnShow} className='register-continue-button col-md-12'>
                         <div onClick={goBackToAddress} className='ui basic grey button'>Back</div>

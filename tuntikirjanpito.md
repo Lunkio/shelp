@@ -43,3 +43,4 @@
 | 29.2. |  2   | CSS, ulkonäön pientä korjailua ja karttanäkymän parantelua |
 | 1.3.  |  2,5 | Rekisteröintilomakkeen ja komponentin uudistuksen aloitus |
 | 1.3.  |  3   | Rekisteröintilomakkeen ulkonäön parantamista |
+| 1.3.  |  0.5 | Toggle salasanan näkyvyyden asettamiseksi |
