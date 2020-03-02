@@ -192,6 +192,9 @@ const ShopRegister = (props) => {
 
     // hakee koordinaatit osoitteen perusteella
     const getCoordinates = async () => {
+        setShowMap(false)
+        setLatitude('')
+        setLongitude('')
         if (address === '' || zip === '' || city === '') {
             props.setAlert('To get the coordinates, please type shop\'s address, zip code and city', 5)
             return
@@ -202,7 +205,7 @@ const ShopRegister = (props) => {
             //console.log('RESULT', result)
             // tarkistaa että kyseinen osoite on olemassa, jos ei niin return
             if (result.data.features[0].relevance !== 1) {
-                props.setAlert('Couldn\'t get the coordinates, please check that given address is correct. If this doesn\'t help, leave coordinates blank, they can be added also after registration', 10)
+                props.setAlert('Couldn\'t get the coordinates, please check that given address is correct. If this doesn\'t help, leave coordinate fields empty, they can be added also after registration', 10)
                 return
             }
             setLatitude(result.data.features[0].center[1])
@@ -210,7 +213,7 @@ const ShopRegister = (props) => {
             setShowMap(true)
         } catch(error) {
             console.log('error', error)
-            props.setAlert('Couldn\'t get the coordinates, please check that given address is correct. If this doesn\'t help, leave coordinates blank, they can be added also after registration', 10)
+            props.setAlert('Couldn\'t get the coordinates, please check that given address is correct. If this doesn\'t help, leave coordinate fields empty, they can be added also after registration', 10)
         }
     }
 
@@ -309,8 +312,8 @@ const ShopRegister = (props) => {
                                 >
                                     {showMap && 
                                         <Marker
-                                        latitude={latitude}
-                                        longitude={longitude}
+                                            latitude={latitude}
+                                            longitude={longitude}
                                         >
                                             <i className='fas fa-map-marker-alt map-marker-register'/>
                                         </Marker>

@@ -46,3 +46,4 @@
 | 1.3.  |  0.5 | Toggle salasanan näkyvyyden asettamiseksi |
 | 2.3.  |  1.5 | Rekisteröintilomakkeessa mahdollisuus etsiä kaupan koordinaatit osoitteen perusteella |
 | 2.3.  |  3.5 | Kaupan koordinaatit näkyvät vain, jos osoite on olemassa, muuten tulee virheilmoitus, rekisteröintilomakkeen bugi-korjauksia |
+| 2.3.  |  1   | Kaupan koordinaatit voi nyt vaihtaa myös kaupan admin-sivujen kautta, rekisteröitymisen jälkeen |
