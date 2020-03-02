@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import { Message } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -16,6 +17,8 @@ const ShopRegister = (props) => {
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
     const [website, setWebsite] = useState('')
+    const [latitude, setLatitude] = useState('')
+    const [longitude, setLongitude] = useState('')
     
     const [showIntroduction, setShowIntroduction] = useState(true)
     const [showAddress, setShowAddress] = useState(true)
@@ -47,8 +50,8 @@ const ShopRegister = (props) => {
             zip: zip,
             city: city,
             phone: phone,
-            // latitude: latitude,
-            // longitude: longitude,
+            latitude: latitude,
+            longitude: longitude,
             website: website
         }
         //console.log(newShop)
@@ -160,8 +163,24 @@ const ShopRegister = (props) => {
             setPasswordReveal(true)
         }
     }
-
     const passwordType = passwordReveal ? 'password' : 'text'
+
+    const getCoordinates = async () => {
+        if (address === '' || zip === '' || city === '') {
+            props.setAlert('To get the coordinates, please type shop\'s address, zip code and city', 5)
+            return
+        }
+        const encodedAddress = encodeURI(`${address}, ${zip}, ${city}, Finland`)
+        try {
+            const result = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodedAddress}.json?types=address&access_token=${process.env.REACT_APP_MAPBOX}`)
+            //console.log('RESULT', result)
+            setLatitude(result.data.features[0].center[1])
+            setLongitude(result.data.features[0].center[0])
+        } catch(error) {
+            console.log('error', error)
+            props.setAlert('Couldn\'t get the coordinates, please check that given address is correct. If this doesn\'t help, leave coordinates blank, they can be added also after registration', 10)
+        }
+    }
     
     return (
         <div className='container main register-container'>
@@ -212,6 +231,22 @@ const ShopRegister = (props) => {
                     <div className='col-md-6'>
                         <label htmlFor='shopCity'>City</label>
                         <input type='text' onChange={e => setCity(e.target.value)} className='form-control register-field' placeholder='City' id='shopCity' required />
+                    </div>
+                    <div className='col-md-12 coordinates-info'>
+                        <h6>If you want your shop to be shown on the map, you need to give latitude and longitude values.</h6>
+                    </div>
+                    <div className='coordinates-zone col-md-12'>
+                        <div className='col-md-6'>
+                            <label htmlFor='shopLatitude'>Latitude (optional)</label>
+                            <input type='text' value={latitude} onChange={e => setLatitude(e.target.value)} className='form-control register-field' placeholder='Latitude (optional)' id='shopLatitude' />
+                        </div>
+                        <div className='col-md-6'>
+                            <label htmlFor='shopLongitude'>Longitude (optional)</label>
+                            <input type='text' value={longitude} onChange={e => setLongitude(e.target.value)} className='form-control register-field' placeholder='Longitude (optional)' id='shopLongitude' />
+                        </div>
+                        <div className='col-md-12'>
+                            <div onClick={getCoordinates} className='ui teal button'>Get Coordinates</div>
+                        </div>
                     </div>
                     <div style={addressBtnShow} className='register-continue-button col-md-12'>
                         <div onClick={handleAddressCheck} className='ui basic teal button'>Continue</div>
