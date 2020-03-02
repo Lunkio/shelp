@@ -437,6 +437,11 @@ body {
   margin-top: 1rem;
 }
 
+.show-password {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
 .register-success {
   width: 80%;
   margin: 0 auto;
@@ -448,10 +453,43 @@ body {
 }
 
 .coordinates-zone {
-  display: flex;
-  justify-content: space-between;
   border: 1px solid grey;
   padding: 0.5rem;
+}
+
+.coordinates-fields {
+  display: flex;
+}
+
+.get-coordinates-map-container {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.left-of-register-map {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.clear-coordinates-container {
+  margin-bottom: 2rem;
+}
+
+.coordinates-text {
+  font-size: 0.9rem;
+}
+
+.register-map {
+  width: 50%;
+}
+
+.map-marker-register {
+  color: black;
 }
 /* ShopRegister ends */
 
