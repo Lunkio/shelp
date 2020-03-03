@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { initializeProducts } from '../../reducers/productsReducer'
+import { initializeShops } from '../../reducers/shopsReducer'
 
 const PaymentSuccess = (props) => {
     console.log('SUCCESS PROPS', props)
@@ -11,6 +12,7 @@ const PaymentSuccess = (props) => {
     }
 
     props.initializeProducts()
+    props.initializeShops()
 
     return (
         <div className='container main'>
@@ -48,7 +50,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDistatchToProps = {
-    initializeProducts
+    initializeProducts,
+    initializeShops
 }
 
 export default connect(

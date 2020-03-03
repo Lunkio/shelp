@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { Loader } from 'semantic-ui-react'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
@@ -11,8 +12,11 @@ const ShopAddProduct = (props) => {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(1)
     const [discount, setDiscount] = useState(0)
+    const [amount, setAmount] = useState(1)
     const [uploadedImage, setUploadedImage] = useState(null)
     //console.log('uploadedimage', uploadedImage)
+    const [showLoader, setShowLoader] = useState(false)
+    const [showForm, setShowForm] = useState(true)
 
     const uploadHandler = (event) => { setUploadedImage(event.target.files[0]) }
 
@@ -50,22 +54,31 @@ const ShopAddProduct = (props) => {
         productsService.setToken(props.shopLogin.token)
 
         try {
-            const addedImg = await productsService.uploadImg(productForm)
-            //console.log('addedImg', addedImg)
-            imageId = addedImg.id
-            newProduct.imgId = addedImg.id
-            const addedProduct = await productsService.addNewProduct(newProduct)
+            setShowForm(false)
+            setShowLoader(true)
+            for (let i = 0; i < amount; i++) {
+                let addedImg = await productsService.uploadImg(productForm)
+                //console.log('addedImg', addedImg)
+                imageId = addedImg.id
+                newProduct.imgId = addedImg.id
+                await productsService.addNewProduct(newProduct)
+            }
             setName('')
             setPrice(1)
             //setUploadedImage(null)
             setDiscount(0)
+            setAmount(1)
+            setShowLoader(false)
+            setShowForm(true)
             props.initializeProducts()
             props.initializeShops()
-            props.setConfirm(`Product ${addedProduct.description} added successfully!`, 3)            
+            props.setConfirm(`Product(s) added successfully!`, 5)            
         } catch (error) {
+            setShowLoader(false)
+            setShowForm(true)
             console.log('error', error)
             props.setAlert('Product wasn\'t added, please try again', 5)
-            await productsService.deleteImg(imageId)
+            await productsService.removeImg(imageId)
         }
     }
 
@@ -80,9 +93,15 @@ const ShopAddProduct = (props) => {
     const buttonStyle8 = discount === 0.8 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
     const buttonStyle9 = discount === 0.9 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
 
+    const loaderShow = { display: showLoader ? '' : 'none' }
+    const formShow = { display: showForm ? '' : 'none' }
+
     return (
         <div>
-            <form onSubmit={handleNewProduct}>
+            <div style={loaderShow}>
+                <Loader active size='big' content='Please wait' />
+            </div>
+            <form onSubmit={handleNewProduct} style={formShow}>
                 <div className='form-group row product-edit-form'>
                     <label className='col-md-2 col-form-label'>Name/description:</label>
                     <div className='col-md-5'>
@@ -112,10 +131,16 @@ const ShopAddProduct = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='form-group row'>
+                <div className='form-group row product-edit-form'>
                     <label className='col-md-2 col-form-label'>Select image:</label>
                     <div className='col-md-3'>
                         <input type='file' id='img' onChange={uploadHandler} />
+                    </div>
+                </div>
+                <div className='form-group row'>
+                    <label className='col-md-2 col-form-label'>How many?</label>
+                    <div className='col-md-1'>
+                        <input type='number' className='form-control' id='amount' value={amount} onChange={e => setAmount(e.target.value)} />
                     </div>
                 </div>
                 <div className='add-product-button'>

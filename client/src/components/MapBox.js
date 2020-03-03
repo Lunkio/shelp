@@ -43,7 +43,7 @@ const MapBox = (props) => {
     }
     
     const showShopProducts = (shop) => {
-        setShowProducts(props.products.filter(p => p.shop.id === shop.id))
+        setShowProducts(props.products.filter(p => p.shop.id === shop.id).filter(p => p.availability === true))
         setSideHeader(shop.name)
         setShowBack(true)
         setShowList(true)
@@ -138,7 +138,7 @@ const MapBox = (props) => {
                                     showShopDetails(shop)
                                 }}
                             >
-                                <div className='marker-product-amount'><p>{shop.products.length}</p></div>
+                                <div className='marker-product-amount'><p>{props.products.filter(p => p.shop.id === shop.id).filter(p => p.availability === true).length}</p></div>
                             </i>
                         </Marker>
                     </div>
