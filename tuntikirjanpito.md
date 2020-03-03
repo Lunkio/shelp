@@ -48,3 +48,4 @@
 | 2.3.  |  3.5 | Kaupan koordinaatit näkyvät vain, jos osoite on olemassa, muuten tulee virheilmoitus, rekisteröintilomakkeen bugi-korjauksia |
 | 2.3.  |  1   | Kaupan koordinaatit voi nyt vaihtaa myös kaupan admin-sivujen kautta, rekisteröitymisen jälkeen |
 | 3.3.  |  2   | Lisätty ominaisuus, jolla kauppa voi lisätä monta tuotetta kerralla, karttanäkymässä olevat tuotteet eivät päivittyneet oikein oston jälkeen, korjattu |
+| 3.3.  |  2   | Kaupan liittymisinfo-komponentin tekoa |

@@ -13,6 +13,7 @@ import Checkout from './components/cart/Checkout'
 import PaymentSuccess from './components/cart/PaymentSuccess'
 import PaymentCancel from './components/cart/PaymentCancel'
 import MapBox from './components/MapBox'
+import PartnerInfo from './components/PartnerInfo'
 // import Footer from './components/Footer'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
@@ -33,6 +34,7 @@ const App = (props) => {
                 <Navbar />
                 <Route exact path='/' render={() => <Home />} />
                 <Route path='/products' render={() => <Products />} />
+                <Route path='/partnerinfo' render={() => <PartnerInfo />} />
                 <Route path='/login' render={() => <ShopLogin />} />
                 <Route path='/register' render={() => <ShopRegister />} />
                 <Route path='/cart' render={() => <Cart />} />

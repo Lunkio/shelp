@@ -730,6 +730,97 @@ body {
 }
 /* PaymentCancel ends */
 
+/* These are PartnerInfo style */
+.info-img-container {
+  width: 30rem;
+}
+
+.info-img-container img {
+  max-width: 100%;
+  border-radius: 0.3rem;
+}
+
+.sections {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 3rem;
+  margin-bottom: 4rem;  
+}
+
+.info-first-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-intro {
+  width: 45%;
+}
+
+.info-first-section-header {
+  margin-bottom: 2rem;
+}
+
+.info-signup-btn {
+  margin-bottom: 1.5rem;
+}
+
+.info-signup-btn button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+  padding: 1.1rem !important;
+  width: 7rem;
+}
+
+.info-login-link {
+  color: var(--mainGreen);
+}
+
+.info-login-link:hover {
+  text-decoration: none;
+  color: teal;
+}
+
+.info-intro-img {
+  width: 45%;
+}
+
+.info-second-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.info-benefits {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.benefits {
+  width: 30%;
+}
+
+.benefit-header {
+  color: var(--mainGreen);
+  margin-top: 2rem;
+}
+
+.benefit-image-container {
+  width: 8rem;
+  height: 8rem;
+  background-color: #1bcbab1f;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.benefit-image-container img {
+  width: 5rem;
+  align-self: center;
+}
+/* PartnerInfo ends */
+
 /* These are Footer styles */
 .footer {
   background: #AD887F;

@@ -227,7 +227,7 @@ const ShopRegister = (props) => {
         <div className='container main register-container'>
             <div style={introductionShow}>
                 <div className='goback-login-button'>
-                    <Link to='/login'>
+                    <Link to='/partnerinfo'>
                         <button className='ui grey basic button'>Go back</button>
                     </Link>
                 </div>

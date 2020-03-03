@@ -29,7 +29,7 @@ const Home = (props) => {
                             </p>
                         </div>
                         <div className='button-text'>
-                            <Link to='/register'>
+                            <Link to='/partnerinfo'>
                                 <button className='ui button'>Start selling</button>
                             </Link>
                             <p><b>Selling</b> with Shelp increases your

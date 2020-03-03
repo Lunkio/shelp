@@ -133,9 +133,6 @@ const ShopProduct = (props) => {
                         <h5 className='discount'>-{props.product.discount}%</h5>
                     </div>
                 </div>
-                {/* <div className='col-md-2'>
-                    <p>{props.product.price} €</p>
-                </div> */}
                 <div className='col-md-2'>
                     <div className='shop-product-buttons'>
                         <button className='ui button edit-button' onClick={() => edit(props.product)}>Edit</button>
