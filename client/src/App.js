@@ -14,6 +14,7 @@ import PaymentSuccess from './components/cart/PaymentSuccess'
 import PaymentCancel from './components/cart/PaymentCancel'
 import MapBox from './components/MapBox'
 import PartnerInfo from './components/PartnerInfo'
+import CustomerInfo from './components/CustomerInfo'
 // import Footer from './components/Footer'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
@@ -35,6 +36,7 @@ const App = (props) => {
                 <Route exact path='/' render={() => <Home />} />
                 <Route path='/products' render={() => <Products />} />
                 <Route path='/partnerinfo' render={() => <PartnerInfo />} />
+                <Route path='/customerinfo' render={() => <CustomerInfo />} />
                 <Route path='/login' render={() => <ShopLogin />} />
                 <Route path='/register' render={() => <ShopRegister />} />
                 <Route path='/cart' render={() => <Cart />} />

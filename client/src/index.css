@@ -120,6 +120,10 @@ body {
   margin-bottom: 1rem;
 }
 
+.home-intro {
+  margin-top: 3rem;
+}
+
 .home-span-link {
   color: var(--mainGreen);
 }
@@ -818,6 +822,68 @@ body {
 .benefit-image-container img {
   width: 5rem;
   align-self: center;
+}
+
+.info-third-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.info-workflow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.info-workflow-img {
+  width: 25rem;
+}
+
+.info-workflow-img img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+}
+
+.info-workflow-header-text {
+  width: 45%;
+  margin-top: 2rem;
+}
+
+.info-workflow-header {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-workflow-header h4 {
+  width: 85%;
+}
+
+.info-workflow-nr {
+  background-color: #1bcbab1f;
+  background-color: var(--mainGreen);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.info-sign-up {
+  text-align: center;
+}
+
+.info-sign-up h2 {
+  margin-bottom: 2rem;
+}
+
+.info-sign-up p {
+  margin-bottom: 1.8rem;
 }
 /* PartnerInfo ends */
 

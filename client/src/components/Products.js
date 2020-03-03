@@ -23,7 +23,7 @@ const Products = (props) => {
                     <p>Search shop:</p>
                     <Select 
                         options={allShops}
-                        placeholder='Select shop'
+                        placeholder='Select shop(s)'
                         onChange={setSelectedShops}
                         isMulti
                         isSearchable                    
@@ -48,7 +48,7 @@ const Products = (props) => {
                     <p>Search shop:</p>
                     <Select 
                         options={allShops}
-                        placeholder='Select shop'
+                        placeholder='Select shop(s)'
                         onChange={setSelectedShops}
                         isMulti
                         isSearchable                    
