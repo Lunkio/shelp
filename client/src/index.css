@@ -288,6 +288,10 @@ body {
   background-color: var(--mainGreen) !important;
   color: white !important;
 }
+
+.discounted-price {
+  font-size: 1.2rem;
+}
 /* ShopProduct/ShopAddProduct ends */
 
 /* These are ShopBoughtProduct styles */

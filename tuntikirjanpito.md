@@ -19,7 +19,7 @@
 | 15.2. |  1.5 | Kaupan editointi mahdollisuus lisätty |
 | 15.2. |  3   | Tuotteen editointi mahdollisuus lisätty, kun kuvan vaihtaa, poistuu vanha kuva tietokannasta ja uusi liitetään tilalle |
 | 16.2. |  2   | Lisätty react-select dependency, jotta tuotteita voi selailla kauppojen mukaan, filtteröinti ei toimi vielä |
-| 16.2. |  2   | Usean kaupan yhtaikainen filtteröinti toimii viimein |
+| 16.2. |  2   | Usean kaupan yhtaikainen filtteröinti toimii |
 | 16.2. |  3   | Ostoskoritoimintojen luontia, koko korin voi tyhjentää tai yksittäisiä tuotteita poistaa, backendiin lisätty buyer-model ja controllerit |
 | 17.2. |  10  | PayPal lisätty maksutoiminnaksi, ennen maksua tarkastus että tuotteiden availability=true, maksun jälkeen tuotteen availability=false |
 | 19.2. |  4   | Lisätty komponentit Success ja Cancel riippuen Paypal -maksun onnistumisesta, uusi paymentReducer hallitsemaan ostettuja tuotteita |
@@ -50,3 +50,4 @@
 | 3.3.  |  2   | Lisätty ominaisuus, jolla kauppa voi lisätä monta tuotetta kerralla, karttanäkymässä olevat tuotteet eivät päivittyneet oikein oston jälkeen, korjattu |
 | 3.3.  |  2   | Kaupan liittymisinfo-komponentin tekoa |
 | 3.3.  |  2   | Kaupan liittymisinfon ja kuluttajan osto-info komponenttien teko, molemmissa lyhyt opastus sovelluksen periaatteista |
+| 4.3.  |  2.5 | Tuotteen tietoihin lisätty arvo 'viimeinen käyttöpäivä', alennuslaskuri ei toiminut oikein kun tuotetta muokkaa, tämä korjattu |

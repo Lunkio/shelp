@@ -10,7 +10,9 @@ const ShopProduct = (props) => {
     //console.log(props)
     const [name, setName] = useState('')
     const [price, setPrice] = useState(1)
+    // const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
+    const [date, setDate] = useState('')
     const [uploadedImage, setUploadedImage] = useState(null)
     const [currentProduct, setCurrentProduct] = useState(null)
 
@@ -29,7 +31,10 @@ const ShopProduct = (props) => {
         setShowProducts(false)
         setShowEdit(true)
         setName(product.description)
-        setPrice(product.price)
+        setPrice(product.originalPrice)
+        // setOriginalPrice(product.originalPrice)
+        setDiscount(product.discount / 100)
+        setDate(product.date)
         setCurrentProduct(product)
     }
 
@@ -56,6 +61,7 @@ const ShopProduct = (props) => {
             price: discountedPrice,
             discount: discountToInt,
             originalPrice: price,
+            date: date,
             availability: true,
             shop: props.shopLogin.id
         }
@@ -102,6 +108,19 @@ const ShopProduct = (props) => {
         }
     }
 
+    const handleToday = () => {
+        let currentTime = new Date()
+        let today = currentTime.toISOString().slice(0,10)
+        setDate(today)
+    }
+
+    const handleOneDay = () => {
+        let dateNow = new Date(date)
+        let UNIXdate = dateNow.setDate(dateNow.getDate() +1)
+        let plusDay = new Date(UNIXdate).toISOString().slice(0,10)
+        setDate(plusDay)
+    }
+
     const buttonStyle0 = discount === 0 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
     const buttonStyle1 = discount === 0.1 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
     const buttonStyle2 = discount === 0.2 ? 'ui button selected-btn' : 'ui basic teal button not-selected-btn'
@@ -123,6 +142,7 @@ const ShopProduct = (props) => {
                 </div>
                 <div className='col-md-6'>
                     <h4>{props.product.description}</h4>
+                    <p>{props.product.date}</p>
                 </div>
                 <div className='col-md-2'>
                     <div className='price-container'>
@@ -152,13 +172,13 @@ const ShopProduct = (props) => {
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Price:</label>
+                        <label className='col-md-2 col-form-label'>Original price:</label>
                         <div className='col-md-5'>
                             <input type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col form-label'>Discount %:</label>
+                        <label className='col-md-2 col-form-label'>Discount %:</label>
                         <div className='col-md-5'>
                             <div className='discount-buttons'>
                                 <div onClick={() => setDiscount(0)} className={buttonStyle0}>0 %</div>
@@ -174,10 +194,26 @@ const ShopProduct = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className='form-group row'>
+                    <div className='form-group row product-edit-form'>
+                        <label className='col-md-2 col-form-label'>Discounted price:</label>
+                        <div className='col-md-2'>
+                            <input type='number' className='form-control-plaintext discounted-price' value={props.product.price} readOnly />
+                        </div>
+                    </div>
+                    <div className='form-group row product-edit-form'>
                         <label className='col-md-2 col-form-label'>Select image:</label>
                         <div className='col-md-3'>
                             <input type='file' onChange={editUploadHandler} />
+                        </div>
+                    </div>
+                    <div className='form-group row'>
+                        <label className='col-md-2 col-form-label'>Expiration date:</label>
+                        <div className='col-md-2'>
+                            <input type='date' className='form-control' value={date} onChange={e => setDate(e.target.value)} />
+                        </div>
+                        <div className='col-md-3'>
+                            <div onClick={handleToday} className='ui basic teal button'>Today</div>
+                            <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
                         </div>
                     </div>
                     <div className='edit-product-buttons'>

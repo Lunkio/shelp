@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Loader } from 'semantic-ui-react'
 import { setAlert } from '../../reducers/alertReducer'
@@ -14,9 +14,17 @@ const ShopAddProduct = (props) => {
     const [discount, setDiscount] = useState(0)
     const [amount, setAmount] = useState(1)
     const [uploadedImage, setUploadedImage] = useState(null)
+    const [date, setDate] = useState('')
     //console.log('uploadedimage', uploadedImage)
     const [showLoader, setShowLoader] = useState(false)
     const [showForm, setShowForm] = useState(true)
+
+    let currentTime = new Date()
+    let currentDate = currentTime.toISOString().slice(0,10)
+
+    useEffect(() => {
+        setDate(currentDate)
+    }, [currentDate])
 
     const uploadHandler = (event) => { setUploadedImage(event.target.files[0]) }
 
@@ -41,6 +49,7 @@ const ShopAddProduct = (props) => {
             price: discountedPrice,
             discount: discountToInt,
             originalPrice: price,
+            date: date,
             availability: true,
             shop: props.shopLogin.id
         }
@@ -65,9 +74,9 @@ const ShopAddProduct = (props) => {
             }
             setName('')
             setPrice(1)
-            //setUploadedImage(null)
             setDiscount(0)
             setAmount(1)
+            setDate(currentDate)
             setShowLoader(false)
             setShowForm(true)
             props.initializeProducts()
@@ -95,6 +104,20 @@ const ShopAddProduct = (props) => {
 
     const loaderShow = { display: showLoader ? '' : 'none' }
     const formShow = { display: showForm ? '' : 'none' }
+
+    const handleDateTomorrow = () => {
+        let today = new Date()
+        let UNIXtomorrow = today.setDate(today.getDate() +1)
+        let tomorrow = new Date(UNIXtomorrow).toISOString().slice(0,10)
+        setDate(tomorrow)
+    }
+
+    const handleOneDay = () => {
+        let dateNow = new Date(date)
+        let UNIXdate = dateNow.setDate(dateNow.getDate() +1)
+        let plusDay = new Date(UNIXdate).toISOString().slice(0,10)
+        setDate(plusDay)
+    }
 
     return (
         <div>
@@ -137,10 +160,20 @@ const ShopAddProduct = (props) => {
                         <input type='file' id='img' onChange={uploadHandler} />
                     </div>
                 </div>
-                <div className='form-group row'>
+                <div className='form-group row product-edit-form'>
                     <label className='col-md-2 col-form-label'>How many?</label>
                     <div className='col-md-1'>
                         <input type='number' className='form-control' id='amount' value={amount} onChange={e => setAmount(e.target.value)} />
+                    </div>
+                </div>
+                <div className='form-group row'>
+                    <label className='col-md-2 col-form-label'>Expiration date:</label>
+                    <div className='col-md-2'>
+                        <input type='date' className='form-control' id='date' value={date} onChange={e => setDate(e.target.value)} />
+                    </div>
+                    <div className='col-md-3'>
+                        <div onClick={handleDateTomorrow} className='ui basic teal button'>Tomorrow</div>
+                        <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
                     </div>
                 </div>
                 <div className='add-product-button'>

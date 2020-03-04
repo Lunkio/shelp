@@ -30,6 +30,7 @@ productsRouter.post('/', async (req, res, next) => {
             price: body.price,
             discount: body.discount,
             originalPrice: body.originalPrice,
+            date: body.date,
             availability: true,
             img: img._id,
             shop: shop._id
@@ -63,6 +64,7 @@ productsRouter.put('/:id', async (req, res, next) => {
             price: body.price,
             discount: body.discount,
             originalPrice: body.originalPrice,
+            date: body.date,
             availability: body.availability,
             img: img._id,
             shop: shop._id
