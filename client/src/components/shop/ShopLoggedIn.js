@@ -76,7 +76,7 @@ const ShopLoggedIn = (props) => {
     return (
         <div className='container main'>
             <div className='loggedin-header'>
-                <h5>Shelp Partner pages</h5>
+                <h4>Shelp Partner pages</h4>
                 <h3>Logged in as {props.shopLogin.name}</h3>
                 <button id='logoutBtn' onClick={handleLogout} className='btn btn-danger'>Logout</button>
             </div>

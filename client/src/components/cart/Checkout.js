@@ -19,6 +19,7 @@ const Checkout = (props) => {
 
     const show = { display: showPayPal ? '' : 'none' }
     const totalPrice = props.cart.reduce((a,p) => a + p.price, 0)
+    const totalPriceRounded = Math.round((totalPrice + Number.EPSILON) * 100) / 100
 
     const handleCustomer = async (event) => {
         event.preventDefault()
@@ -146,10 +147,10 @@ const Checkout = (props) => {
                     )}
                     <hr />
                     <div className='checkout-total'>
-                        <p>Total: <b>{totalPrice}</b> €</p>
+                        <p>Total: <b>{totalPriceRounded}</b> €</p>
                     </div>
                     <div style={show}>
-                        <PayPalButton buyer={buyer} totalPrice={totalPrice} products={props.cart} />
+                        <PayPalButton buyer={buyer} totalPrice={totalPriceRounded} products={props.cart} />
                     </div>
                 </div>
             </div>

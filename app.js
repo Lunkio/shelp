@@ -104,6 +104,11 @@ app.use('/api/shops', shopsRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/buyers', buyersRouter)
 
+if (process.env.NODE_ENV === 'test') {
+    const cypressRouter = require('./controllers/cypress')
+    app.use('/api/test', cypressRouter)
+}
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 

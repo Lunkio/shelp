@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { connect } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import Admin from './components/Admin'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -16,6 +15,7 @@ import MapBox from './components/MapBox'
 import PartnerInfo from './components/PartnerInfo'
 import CustomerInfo from './components/CustomerInfo'
 // import Footer from './components/Footer'
+import productsService from './services/productsService'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
 import { initializeShop } from './reducers/shopLoginReducer'
@@ -27,6 +27,30 @@ const App = (props) => {
         props.initializeShops()
         props.initializeShop()
     // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    // poistaa tuotteet, joiden expiration date on vanhempi kuin nykyinen pvm
+    useEffect(() => {
+        async function checkExpirationDates() {
+            const allProducts = await productsService.getAllProducts()
+            console.log('allProducts', allProducts)
+            const currentTime = new Date()
+            console.log(currentTime)
+            let dates = allProducts.map(p => p.date).map(d => new Date(d))
+            for (let i = 0; i < dates.length; i++) {
+                dates[i].setHours(23)
+                dates[i].setMinutes(59)
+                dates[i].setSeconds(59)
+            }
+            console.log('dates', dates)
+
+            for (let i = 0; i < dates.length; i++) {
+                if (currentTime >= dates[i]) {
+                    console.log('old dates', dates[i])
+                }
+            }
+        }
+        checkExpirationDates()
     }, [])
 
     return (
@@ -41,7 +65,6 @@ const App = (props) => {
                 <Route path='/register' render={() => <ShopRegister />} />
                 <Route path='/cart' render={() => <Cart />} />
                 <Route path='/checkout' render={() => <Checkout />} />
-                <Route path='/admin' render={() => <Admin />} />
                 <Route path='/map' render={() => <MapBox />} />
                 <Route path='/success' render={() => <PaymentSuccess />} />
                 <Route path='/cancel' render={() => <PaymentCancel />} />

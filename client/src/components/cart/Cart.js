@@ -65,18 +65,10 @@ const Cart = (props) => {
                         <button className='ui button'>Checkout</button>
                     </Link>
                 </div>
-                {/* <div className='col-md-2'>
-                    <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
-                </div> */}
             </div>
             <div style={{'width': '80%', 'margin': '0 auto'}}>
                 <hr />
             </div>
-            {/* <div className='cart-checkout-button'>
-                <Link to='/checkout'>
-                    <button className='ui button checkout-button'>Checkout</button>
-                </Link>
-            </div> */}
         </div>
     )
 }

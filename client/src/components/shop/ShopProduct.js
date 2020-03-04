@@ -5,12 +5,12 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 import { initializeShops } from '../../reducers/shopsReducer'
 import productsService from '../../services/productsService'
+import { formatDate } from '../../services/shared'
 
 const ShopProduct = (props) => {
     //console.log(props)
     const [name, setName] = useState('')
     const [price, setPrice] = useState(1)
-    // const [originalPrice, setOriginalPrice] = useState(0)
     const [discount, setDiscount] = useState(0)
     const [date, setDate] = useState('')
     const [uploadedImage, setUploadedImage] = useState(null)
@@ -32,7 +32,6 @@ const ShopProduct = (props) => {
         setShowEdit(true)
         setName(product.description)
         setPrice(product.originalPrice)
-        // setOriginalPrice(product.originalPrice)
         setDiscount(product.discount / 100)
         setDate(product.date)
         setCurrentProduct(product)
@@ -134,15 +133,15 @@ const ShopProduct = (props) => {
 
     return (
         <div>
-            <div style={productsShow} className='row'>
+            <div style={productsShow} className='row product-container'>
                 <div className='col-md-2'>
                     <div className='img-container'>
                         <img src={props.product.img.location} alt='product' id='img' />
                     </div>
                 </div>
                 <div className='col-md-6'>
-                    <h4>{props.product.description}</h4>
-                    <p>{props.product.date}</p>
+                    <h4>{props.product.description}</h4><hr className='divider' />
+                    <h6>Expiration date: <b>{formatDate(props.product.date)}</b></h6>
                 </div>
                 <div className='col-md-2'>
                     <div className='price-container'>

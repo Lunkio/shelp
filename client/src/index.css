@@ -48,6 +48,7 @@ body {
 /* These are SingleProduct styles */
 .product-container {
   margin-top: 2rem;
+  margin-bottom: 3rem;
 }
 
 .single-product-img {
@@ -57,6 +58,22 @@ body {
 .product-shop-desc p {
   font-size: 1rem;
   line-height: 1rem;
+}
+
+.product-header-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -1.2rem;
+}
+
+.product-header-date h6 {
+  text-align: right;
+}
+
+.expiration-date {
+  color: var(--mainGreen);
+  text-align: left;
 }
 
 .cart-button {
@@ -592,8 +609,8 @@ body {
 }
 
 .divider {
-  margin-top: -0.3rem;
-  margin-bottom: 0.3rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
 }
 
 .cart-img-container {
@@ -993,6 +1010,15 @@ body {
 .map-discount {
   color: red;
   align-self: flex-start;
+}
+
+.map-shop-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.map-expiration {
+  font-size: 0.9rem;
 }
 
 .map-product-details h5 {

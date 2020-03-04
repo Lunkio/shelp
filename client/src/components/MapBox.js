@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import ReactMapGL, { Marker } from 'react-map-gl'
 import { addToCart } from '../reducers/cartReducer'
+import { formatDate } from '../services/shared'
 
 const MapBox = (props) => {
     //console.log(props)
@@ -95,7 +96,8 @@ const MapBox = (props) => {
                                         <h5><b>{p.description}</b></h5>
                                         <h5 className='map-discount'>-{p.discount}%</h5>
                                     </div>
-                                    <p><i className='fas fa-store'/> {p.shop.name}</p>
+                                    <p className='map-shop-name'><i className='fas fa-store'/> {p.shop.name}</p>
+                                    <h6 className='map-expiration'>Expiration date: <span className='expiration-date'><b>{formatDate(p.date)}</b></span></h6>
                                 </div>
                                 <div className='map-price-cart-button'>
                                     <div className='map-price-container'>
