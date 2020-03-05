@@ -71,6 +71,17 @@ const ShopProduct = (props) => {
             return
         }
 
+        // tarkistaa että tuotteen pvm vähintään nykyinen pvm
+        let currentTime = new Date()
+        let formattedDate = new Date(date)
+        formattedDate.setHours(23)
+        formattedDate.setMinutes(59)
+        formattedDate.setSeconds(59)
+        if (currentTime > formattedDate) {
+            props.setAlert('Expiration date must be at least current date', 5)
+            return
+        }
+
         productsService.setToken(props.shopLogin.token)
         let imageId = currentProduct.img.id
 

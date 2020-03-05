@@ -8,7 +8,7 @@ import { initializeProducts } from '../../reducers/productsReducer'
 import { initializeShops } from '../../reducers/shopsReducer'
 
 const ShopExpiredProduct = (props) => {
-    const [date, setDate] = useState()
+    const [date, setDate] = useState('')
     const [showExpiration, setShowExpiration] = useState(true)
     const [showEditExpiration, setShowEditExpiration] = useState(false)
 
@@ -19,6 +19,43 @@ const ShopExpiredProduct = (props) => {
         setDate(product.date)
         setShowExpiration(false)
         setShowEditExpiration(true)
+    }
+
+    const handleDateEdit = async (product) => {
+        const editedProduct = {
+            description: product.description,
+            price: product.price,
+            discount: product.discount,
+            originalPrice: product.originalPrice,
+            date: date,
+            availability: true,
+            expired: false,
+            img: product.img.id
+        }
+        //console.log('editedProduct', editedProduct)
+
+        // tarkistaa että tuotteen pvm vähintään nykyinen pvm
+        let currentTime = new Date()
+        let formattedDate = new Date(date)
+        formattedDate.setHours(23)
+        formattedDate.setMinutes(59)
+        formattedDate.setSeconds(59)
+        if (currentTime > formattedDate) {
+            props.setAlert('Expiration date must be at least current date', 5)
+            return
+        }
+
+        productsService.setToken(props.shopLogin.token)
+        try {
+            await productsService.updateProduct(product.id, editedProduct)
+            props.initializeProducts()
+            props.initializeShops()
+            props.setConfirm('Product\'s date edited successfully!', 5)
+
+        } catch (error) {
+            console.log('error')
+            props.setAlert('Date was not updated, please try again', 5)
+        }
     }
 
     const remove = async (product) => {
@@ -36,6 +73,18 @@ const ShopExpiredProduct = (props) => {
         }
     }
 
+    const handleCancel = () => {
+        setShowExpiration(true)
+        setShowEditExpiration(false)
+    }
+
+    const handleOneDay = () => {
+        let dateNow = new Date(date)
+        let UNIXdate = dateNow.setDate(dateNow.getDate() +1)
+        let plusDay = new Date(UNIXdate).toISOString().slice(0,10)
+        setDate(plusDay)
+    }
+
     return (
         <div className='row product-container'>
             <div className='col-md-2'>
@@ -46,20 +95,31 @@ const ShopExpiredProduct = (props) => {
             <div className='col-md-6'>
                 <h4>{props.product.description}</h4><hr className='divider' />
                 <h6 style={expirationShow}>Expiration date: <b style={{'color': 'red'}}>{formatDate(props.product.date)}</b></h6>
-                <input style={editExpirationShow} type='date' className='form-control' value={date} onChange={e => setDate(e.target.value)} />
+                <div style={editExpirationShow} className='row expired-edit'>
+                    <input type='date' className='form-control col-md-4' value={date} onChange={e => setDate(e.target.value)} />
+                    <div className='col-md-8 expiry-set-buttons'>
+                        <div>
+                            <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
+                            <div onClick={() => handleDateEdit(props.product)} className='ui button set-date-button'>Set Date</div>
+                        </div>
+                        <div>
+                            <div onClick={handleCancel} className='ui basic red button'>Cancel</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className='col-md-2'>
+            <div className='col-md-1'>
                 <div className='price-container'>
                     <div className='prices'>
-                        <h4>{props.product.price} €</h4>
-                        <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                        <h5>{props.product.price}€</h5>
+                        <h6 className='original-price'>{props.product.originalPrice}€</h6>
                     </div>
                     <h5 className='discount'>-{props.product.discount}%</h5>
                 </div>
             </div>
-            <div className='col-md-2'>
-                <div className='shop-product-buttons'>
-                    <button className='ui button edit-button' onClick={() => edit(props.product)}>Edit Expiration Date</button>
+            <div className='col-md-3'>
+                <div className='shop-expire-edit-button'>
+                    <button className='ui button expire-edit-button' onClick={() => edit(props.product)}>Edit expiration date</button>
                     <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
                 </div>
             </div>

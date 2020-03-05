@@ -261,7 +261,8 @@ body {
 /* These are ShopProduct/ShopAddProduct styles */
 .loader {
   position: absolute;
-  top: 15rem;
+  top: 55%;
+  left: 50%;
 }
 
 .product-edit-form {
@@ -334,6 +335,32 @@ body {
 }
 
 /* ShopBoughtProduct ends */
+
+/* These are ShopExpiredProduct styles */
+.expired-edit {
+  margin: 0 auto;
+}
+
+.expiry-set-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.set-date-button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+
+.shop-expire-edit-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expire-edit-button {
+  background-color: var(--mainGreen) !important;
+  color: white !important;
+}
+/* ShopExpiredProduct ends */
 
 /* These are ShopManage styles */
 .edit-shop-header {
