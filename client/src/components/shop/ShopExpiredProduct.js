@@ -119,7 +119,7 @@ const ShopExpiredProduct = (props) => {
             </div>
             <div className='col-md-3'>
                 <div className='shop-expire-edit-button'>
-                    <button className='ui button expire-edit-button' onClick={() => edit(props.product)}>Edit expiration date</button>
+                    <button className='btn btn-info expire-edit-button' onClick={() => edit(props.product)}>Edit expiration date</button>
                     <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
                 </div>
             </div>

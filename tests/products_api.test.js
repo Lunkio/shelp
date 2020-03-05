@@ -229,8 +229,44 @@ describe('when some products are saved in db', () => {
             expect(editedProduct.availability).toBe(false)
         })
     })
+
+    describe('expired-method', () => {
+        it('expired products changes availability to false', async () => {
+            const productsBefore = await helper.productsInDb()
+            const product = productsBefore[1]
+
+            await api
+                .put(`/api/products/expired/${product.id}`)
+                .send(product)
+                .expect(200)
+
+            const productsAfter = await helper.productsInDb()
+            const availabilites = productsAfter.map(p => p.availability)
+            expect(availabilites).toContain(false)
+
+            const editedProduct = await Product.findById(product.id)
+            expect(editedProduct.availability).toBe(false)
+        })
+
+        it('expired products changes expired-value to true', async () => {
+            const productsBefore = await helper.productsInDb()
+            const product = productsBefore[2]
+
+            await api
+                .put(`/api/products/expired/${product.id}`)
+                .send(product)
+                .expect(200)
+
+            const productsAfter = await helper.productsInDb()
+            const expiredData = productsAfter.map(p => p.expired)
+            expect(expiredData).toContain(true)
+
+            const editedProduct = await Product.findById(product.id)
+            expect(editedProduct.expired).toBe(true)
+        })
+    })
 })
 
-afterAll(() => {
-    mongoose.connection.close()
+afterAll(async () => {
+    await mongoose.disconnect()
 })

@@ -275,9 +275,7 @@ body {
 }
 
 .shop-product-buttons .edit-button {
-  background-color: var(--mainGreen) !important;
-  color: white !important;
-  width: 6rem;
+  width: 5rem;
 }
 
 .edit-product-buttons {
@@ -354,11 +352,6 @@ body {
 .shop-expire-edit-button {
   display: flex;
   justify-content: space-between;
-}
-
-.expire-edit-button {
-  background-color: var(--mainGreen) !important;
-  color: white !important;
 }
 /* ShopExpiredProduct ends */
 

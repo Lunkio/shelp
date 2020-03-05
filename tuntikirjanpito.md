@@ -54,3 +54,4 @@
 | 4.3.  |  4   | Viimeinen käyttöpäivä lisätty tuotteisiin ja sovelluksen näkymään, aloitettu funktio, joka poistaa automaattisesti vanhat tuotteet, pieniä korjauksia |
 | 5.3.  |  2   | Tuotteella expired-arvo joka päivittyy kun tuote vanhenee, päivittyy automaattisesti, kaupan login-sivulla näkymä, jossa näkee vanhentuneet tuotteet |
 | 5.3.  |  1.5 | Tuotetta lisäessä ja muokatessa tarkastetaan että viim. käyttöpäivä on vähintään nykyinen pvm, muuten virheilmoitus, CSS, ulkonäön hiomista |
+| 5.3.  |  1.5 | Backend testejä lisätty/korjailtu, muutamia herjausviestejä (DeprecationWarning yms) korjattu pois, frontin puolella pientä CSS -korjailua |

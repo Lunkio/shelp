@@ -166,7 +166,7 @@ const ShopProduct = (props) => {
                 </div>
                 <div className='col-md-2'>
                     <div className='shop-product-buttons'>
-                        <button className='ui button edit-button' onClick={() => edit(props.product)}>Edit</button>
+                        <button className='btn btn-info edit-button' onClick={() => edit(props.product)}>Edit</button>
                         <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
                     </div>
                 </div>

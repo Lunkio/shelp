@@ -123,6 +123,6 @@ describe('when some buyers are saved in db', () => {
     })
 })
 
-afterAll(() => {
-    mongoose.connection.close()
+afterAll(async () => {
+    await mongoose.disconnect()
 })

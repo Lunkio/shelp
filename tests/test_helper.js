@@ -8,21 +8,27 @@ const testProducts = [
         discount: 50,
         originalPrice: 10,
         description: "Lasagne",
-        availability: true
+        date: '2020-05-05',
+        availability: true,
+        expired: false
     },
     {
         price: 10,
         discount: 50,
         originalPrice: 20,
         description: "Maksalaatikko",
-        availability: true
+        date: '2020-05-05',
+        availability: true,
+        expired: false
     },
     {
         price: 15,
         discount: 50,
         originalPrice: 30,
         description: "Makaronilaatikko",
-        availability: true
+        date: '2020-05-05',
+        availability: true,
+        expired: false
     }
 ]
 

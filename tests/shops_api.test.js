@@ -196,6 +196,6 @@ describe('when some shops are saved in db', () => {
     })
 })
 
-afterAll(() => {
-    mongoose.connection.close()
+afterAll(async () => {
+    await mongoose.disconnect()
 })

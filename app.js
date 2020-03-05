@@ -20,12 +20,17 @@ const Grid = require('gridfs-stream')
 
 app.use(bodyParser.json())
 
-mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.set('useUnifiedTopology', true);
+mongoose.set('useNewUrlParser', true)
+mongoose.set('useCreateIndex', true)
+mongoose.set('useFindAndModify', false)
+
+mongoose.connect(config.MONGODB_URI)
     .then(() => { console.log('Connected to MongoDB') })
     .catch((error) => { console.log('Error', error.message) })
 
 // tarvitaan img uploadiin
-const conn = mongoose.createConnection(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+const conn = mongoose.createConnection(config.MONGODB_URI)
 let gfs
 conn.once('open', () => {
     gfs = Grid(conn.db, mongoose.mongo)
