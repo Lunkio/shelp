@@ -376,7 +376,7 @@ const ShopRegister = (props) => {
                 <div style={registerBtnShow} className='col-md-12 register-submit-button'>
                     <button id='submitBtn' type='submit' className='ui button'>Submit</button>
                 </div>
-                <div className='col-md-10 register-messages'>
+                <div className='info-message'>
                     {props.alert && <Message error header={props.alert} />}
                 </div>
             </form>

@@ -11,16 +11,22 @@ const Navbar = (props) => {
                         <h2 className='nav-link-header'>Shelp</h2>
                     </Link>
                 </div>
-                <div className='shop-login'>
-                    <Link to='login' className='nav-link'>
-                        <div className='nav-link-text'><b>Shop Login</b></div>
-                    </Link>
-                </div>
+                
+                <Link to='login'>
+                    <div className='shop-login'>
+                        <div className='nav-link'>
+                            <div className='nav-link-text'><b>Shop Login</b></div>
+                        </div>
+                    </div>
+                </Link>
+                
             </div>
             <ul className='navbar-nav'>
                 <li>
-                    <Link to='/products' className='nav-link'>
-                        <div className='nav-link-text'><b>All Products</b></div>
+                    <Link to='/products'>
+                        <div className='nav-link'>
+                            <div className='nav-link-text'><b>All Products</b></div>
+                        </div>
                     </Link>
                 </li>
                 <li>

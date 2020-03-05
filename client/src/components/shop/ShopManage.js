@@ -164,7 +164,7 @@ const ShopManage = (props) => {
                 <div style={editShow}>
                     <div className='edit-shop-header'>
                         <h3>Edit shop details</h3>
-                        <div className='ui basic teal button' onClick={close}>Close</div>
+                        <div className='ui basic grey button' onClick={close}>Cancel</div>
                     </div>
                     <form onSubmit={handleEdit} className='row'>
                         <div className='col-md-6'>

@@ -52,7 +52,9 @@ const ShopLogin = (props) => {
                     <button id='loginBtn' type='submit' className='ui button'>Login</button>
                 </div>
             </form>
-            {props.alert && <Message error header={props.alert} />}
+            <div className='info-message'>
+                {props.alert && <Message error header={props.alert} />}
+            </div>
             <div className='signup-container'>
                 <p>Not yet a partner?</p>
                 <Link to='register'>

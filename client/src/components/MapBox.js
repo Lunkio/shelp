@@ -67,6 +67,11 @@ const MapBox = (props) => {
         return props.cart.find(p => p.id === product.id)
     }
 
+    const handleClick = (shop) => {
+        showShopProducts(shop)
+        showShopDetails(shop)
+    }
+
     let backShow = { visibility: showBack ? '' : 'hidden' }
     let shopShow = { display: showShop ? '' : 'none' }
     let listShow = { display: showList ? '' : 'none' }
@@ -91,7 +96,7 @@ const MapBox = (props) => {
                     {showProducts.map(p =>
                         <div key={p.id}>
                             <div className='map-product-container'>
-                                <div className='map-product-details'>
+                                <div onClick={() => handleClick(p.shop)} className='map-product-details'>
                                     <div className='map-name-discount'>
                                         <h5><b>{p.description}</b></h5>
                                         <h5 className='map-discount'>-{p.discount}%</h5>
@@ -161,18 +166,6 @@ const MapBox = (props) => {
                         />
                     </Marker>
                 )}
-
-                {/* {clickedShop &&
-                    <Popup 
-                        latitude={clickedShop.latitude}
-                        longitude={clickedShop.longitude}
-                        onClose={() => setClickedShop(null)}
-                    >
-                        <div>
-                            {clickedShop.name}
-                        </div>
-                    </Popup>
-                } */}
             </ReactMapGL>
         </div>
     )

@@ -104,8 +104,10 @@ const ShopLoggedIn = (props) => {
                 <button className='ui button' id='manage' onClick={handleManage} >Manage Shop</button>
             </div>
 
-            {props.confirm && <Message success header={props.confirm} />}
-            {props.alert && <Message error header={props.alert} />}
+            <div className='info-message'>
+                {props.confirm && <Message success header={props.confirm} />}
+                {props.alert && <Message error header={props.alert} />}
+            </div>
             
             {/* Shows Products on sale */}
             <div style={productsShow}>

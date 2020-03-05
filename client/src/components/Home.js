@@ -6,7 +6,18 @@ import homeImg from '../images/background.jpeg'
 
 const Home = (props) => {
     //console.log(props)
-    const freshProducts = props.products.filter(p => p.availability === true).slice(0, 3)
+
+    // näyttää viisi tuotetta joiden expiration date kauimpana umpeutumisesta
+    const productDatesAndId = props.products
+        .filter(p => p.availability === true)
+        .map(p => { return {date: new Date(p.date), id: p.id} })
+        .sort((a,b) => b.date - a.date)
+        .slice(0,5)
+
+    let freshProducts = []
+    for (let i = 0; i < productDatesAndId.length; i++) {
+        freshProducts = freshProducts.concat(props.products.filter(p => p.id === productDatesAndId[i].id))
+    }
 
     return (
         <div className='main'>

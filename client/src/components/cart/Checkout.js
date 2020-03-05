@@ -77,7 +77,9 @@ const Checkout = (props) => {
 
     return (
         <div className='container main'>
-            {props.alert && <Message error header={props.alert} />}
+            <div className='info-message'>
+                {props.alert && <Message error header={props.alert} />}
+            </div>
             <div className='row'>
                 <div className='col-md-8'>
                     <div className='checkout-header'>
