@@ -33,24 +33,27 @@ const App = (props) => {
     useEffect(() => {
         async function checkExpirationDates() {
             const allProducts = await productsService.getAllProducts()
-            console.log('allProducts', allProducts)
-            const currentTime = new Date()
-            console.log(currentTime)
-            let dates = allProducts.map(p => p.date).map(d => new Date(d))
+            let availableProducts = allProducts.filter(p => p.availability === true)
+            const currentTime = new Date() //hae nykyhetki
+            // aseta tuotteiden pvm samaan muotoon kuin nykyhetki
+            let dates = availableProducts.map(p => {
+                return ({ date: p.date, id: p.id })
+            }).map(p => { return ({ date: new Date(p.date), id: p.id }) })
             for (let i = 0; i < dates.length; i++) {
-                dates[i].setHours(23)
-                dates[i].setMinutes(59)
-                dates[i].setSeconds(59)
+                dates[i].date.setHours(23)
+                dates[i].date.setMinutes(59)
+                dates[i].date.setSeconds(59)
             }
-            console.log('dates', dates)
-
+            // etsi tuotteet joiden viim. käyttöpäivä mennyt ja aseta expired: true
             for (let i = 0; i < dates.length; i++) {
-                if (currentTime >= dates[i]) {
-                    console.log('old dates', dates[i])
+                if (currentTime >= dates[i].date) {
+                    await productsService.productExpired(dates[i].id)
                 }
             }
+            props.initializeProducts()
         }
         checkExpirationDates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

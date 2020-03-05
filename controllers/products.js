@@ -32,6 +32,7 @@ productsRouter.post('/', async (req, res, next) => {
             originalPrice: body.originalPrice,
             date: body.date,
             availability: true,
+            expired: false,
             img: img._id,
             shop: shop._id
         })
@@ -66,6 +67,7 @@ productsRouter.put('/:id', async (req, res, next) => {
             originalPrice: body.originalPrice,
             date: body.date,
             availability: body.availability,
+            expired: false,
             img: img._id,
             shop: shop._id
         }
@@ -110,6 +112,22 @@ productsRouter.put('/availability/:id', async (req, res, next) => {
     try {
         const product = {        
             availability: body.availability
+        }
+
+        const modifiedProduct = await Product.findByIdAndUpdate(req.params.id, product, { new: true })
+            .populate('img').populate('shop')
+        res.json(modifiedProduct.toJSON())
+
+    } catch (exception) {
+        next(exception)
+    }
+})
+
+productsRouter.put('/expired/:id', async (req, res, next) => {
+    try {
+        const product = {
+            availability: false,
+            expired: true
         }
 
         const modifiedProduct = await Product.findByIdAndUpdate(req.params.id, product, { new: true })

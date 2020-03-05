@@ -6,7 +6,7 @@ import homeImg from '../images/background.jpeg'
 
 const Home = (props) => {
     //console.log(props)
-    const freshProducts = props.products.slice(0, 3)
+    const freshProducts = props.products.filter(p => p.availability === true).slice(0, 3)
 
     return (
         <div className='main'>
@@ -54,7 +54,6 @@ const Home = (props) => {
                     <h2><b>Our freshest offers!</b></h2>
                     <div>
                         {freshProducts
-                            .filter(p => p.availability === true)
                             .map(p => <SingleProduct key={p.id} product={p}/>
                         )}
                     </div> <br />

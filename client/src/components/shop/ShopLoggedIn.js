@@ -9,6 +9,7 @@ import ShopProduct from './ShopProduct'
 import ShopAddProduct from './ShopAddProduct'
 import ShopManage from './ShopManage'
 import ShopBoughtProduct from './ShopBoughtProduct'
+import ShopExpiredProduct from './ShopExpiredProduct'
 
 const ShopLoggedIn = (props) => {
     //console.log(props)
@@ -19,6 +20,7 @@ const ShopLoggedIn = (props) => {
     const [showAdd, setShowAdd] = useState(false)
     const [showManage, setShowManage] = useState(false)
     const [showBought, setShowBought] = useState(false)
+    const [showExpired, setShowExpired] = useState(false)
 
     if (selectedProducts === null) {
         setSelectedProducts([])
@@ -29,12 +31,14 @@ const ShopLoggedIn = (props) => {
     const addShow = { display: showAdd ? '' : 'none' }
     const manageShow = { display: showManage ? '' : 'none' }
     const boughtShow = { display: showBought ? '' : 'none' }
+    const expiredShow = { display: showExpired ? '' : 'none' }
 
     const handleProductsShow = () => {
         setShowProducts(true)
         setShowAdd(false)
         setShowManage(false)
         setShowBought(false)
+        setShowExpired(false)
     }
 
     const handleBoughtProduct = () => {
@@ -42,6 +46,15 @@ const ShopLoggedIn = (props) => {
         setShowAdd(false)
         setShowManage(false)
         setShowBought(true)
+        setShowExpired(false)
+    }
+
+    const handleExpired = () => {
+        setShowProducts(false)
+        setShowAdd(false)
+        setShowManage(false)
+        setShowBought(false)
+        setShowExpired(true)
     }
 
     const handleAddShow = () => {
@@ -49,6 +62,7 @@ const ShopLoggedIn = (props) => {
         setShowAdd(true)
         setShowManage(false)
         setShowBought(false)
+        setShowExpired(false)
     }
 
     const handleManage = () => {
@@ -56,6 +70,7 @@ const ShopLoggedIn = (props) => {
         setShowAdd(false)
         setShowManage(true)
         setShowBought(false)
+        setShowExpired(false)
     }
 
     const handleLogout = () => {
@@ -84,6 +99,7 @@ const ShopLoggedIn = (props) => {
             <div className='loggedin-buttons'>
                 <button className='ui button' id='products' onClick={handleProductsShow}>Products on sale</button>
                 <button className='ui button' id='bought' onClick={handleBoughtProduct}>Bought Products</button>
+                <button className='ui button' id='expired' onClick={handleExpired}>Expired Products</button>
                 <button className='ui button' id='add' onClick={handleAddShow}>Add products</button>
                 <button className='ui button' id='manage' onClick={handleManage} >Manage Shop</button>
             </div>
@@ -124,7 +140,6 @@ const ShopLoggedIn = (props) => {
                     </div>
                 }
             </div>
-            
 
             {/* Shows bought Products */}
             <div style={boughtShow}>
@@ -133,8 +148,21 @@ const ShopLoggedIn = (props) => {
                 </div><hr />
                 {props.products
                     .filter(p => p.shop.id === props.shopLogin.id)
+                    .filter(p => p.expired !== true)
                     .filter(p => p.availability === false)
                     .map(p => <ShopBoughtProduct key={p.id} product={p} />
+                )}
+            </div>
+
+            {/* Shows expired Products */}
+            <div style={expiredShow}>
+                <div>
+                    <h3>Expired products:</h3>
+                </div><hr />
+                {props.products
+                    .filter(p => p.shop.id === props.shopLogin.id)
+                    .filter(p => p.expired === true)
+                    .map(p => <ShopExpiredProduct key={p.id} product={p} />
                 )}
             </div>
 

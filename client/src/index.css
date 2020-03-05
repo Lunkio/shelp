@@ -259,6 +259,11 @@ body {
 /* ShopLoggedIn ends */
 
 /* These are ShopProduct/ShopAddProduct styles */
+.loader {
+  position: absolute;
+  top: 15rem;
+}
+
 .product-edit-form {
   margin-bottom: 0rem;
 }

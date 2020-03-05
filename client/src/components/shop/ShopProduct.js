@@ -62,6 +62,7 @@ const ShopProduct = (props) => {
             originalPrice: price,
             date: date,
             availability: true,
+            expired: false,
             shop: props.shopLogin.id
         }
 

@@ -51,6 +51,7 @@ const ShopAddProduct = (props) => {
             originalPrice: price,
             date: date,
             availability: true,
+            expired: false,
             shop: props.shopLogin.id
         }
 
@@ -121,7 +122,7 @@ const ShopAddProduct = (props) => {
 
     return (
         <div>
-            <div style={loaderShow}>
+            <div className='loader' style={loaderShow}>
                 <Loader active size='big' content='Please wait' />
             </div>
             <form onSubmit={handleNewProduct} style={formShow}>

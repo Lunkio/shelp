@@ -7,6 +7,7 @@ const productSchema = new mongoose.Schema({
     description: { type: String, required: true },
     date: { type: String, required: true },
     availability: { type: Boolean, required: true },
+    expired: { type: Boolean, required: true },
     shop: {
         required: true,
         type: mongoose.Schema.Types.ObjectId,

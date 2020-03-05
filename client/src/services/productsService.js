@@ -47,6 +47,12 @@ const productAvailabilityToFalse = async (id, product) => {
     return response.data
 }
 
+const productExpired = async (id) => {
+    // const expiredToTrue = { ...product, expired: true }
+    const response = await axios.put(`${url}/expired/${id}`)
+    return response.data
+}
+
 const uploadImg = async (img) => {
     const response = await axios.post(`${url}/image`, img)
     return response.data
@@ -57,4 +63,4 @@ const removeImg = async (id) => {
     return response.data
 }
 
-export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, productAvailabilityToFalse, uploadImg, removeImg }
+export default { setToken, destroyToken, getAllProducts, addNewProduct, updateProduct, removeProduct, productAvailabilityToFalse, productExpired, uploadImg, removeImg }
