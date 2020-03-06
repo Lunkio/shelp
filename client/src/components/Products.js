@@ -5,7 +5,7 @@ import SingleProduct from './SingleProduct'
 import Footer from './Footer'
 
 const Products = (props) => {
-    console.log(props)
+    //console.log(props)
     const [selectedShops, setSelectedShops] = useState([])
     //console.log(selectedShop)
     if (selectedShops === null) {
@@ -16,8 +16,11 @@ const Products = (props) => {
     if (props.products.length === 0) {
         return (
             <div className='container main'>
+                <div className='products-header'>
+                    <h2>Products on sale:</h2>
+                </div> <hr />
                 <div className='no-products-onsale'>
-                    <h2>There are currently no products on sale, please check again later</h2>
+                    <h3><b>There are currently no products on sale, please check again later</b></h3>
                 </div>
                 <Footer />
             </div>
@@ -31,6 +34,9 @@ const Products = (props) => {
     if (selectedShops.length === 0) {        
         return (
             <div className='container main'>
+                <div className='products-header'>
+                    <h2>Products on sale:</h2>
+                </div> <hr />
                 <div>
                     <p>Search shop:</p>
                     <Select 
@@ -57,6 +63,9 @@ const Products = (props) => {
 
         return (
             <div className='container main'>
+                <div className='products-header'>
+                    <h2>Products on sale:</h2>
+                </div> <hr />
                 <div>
                     <p>Search shop:</p>
                     <Select 

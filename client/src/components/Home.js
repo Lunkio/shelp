@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
@@ -7,6 +7,11 @@ import Footer from './Footer'
 
 const Home = (props) => {
     //console.log(props)
+    const [noProducts, setNoProducts] = useState(false)
+
+    useEffect(() => {
+        props.products.length === 0 ? setNoProducts(true) : setNoProducts(false)
+    }, [props.products])
 
     // näyttää viisi tuotetta joiden expiration date kauimpana umpeutumisesta
     const productDatesAndId = props.products
@@ -63,17 +68,28 @@ const Home = (props) => {
                         around 50% discount and creating a more 
                         sustainable environment while at it.
                     </p> <hr />
-                    <h2><b>Our freshest offers!</b></h2>
-                    <div>
-                        {freshProducts
-                            .map(p => <SingleProduct key={p.id} product={p}/>
-                        )}
-                    </div>
-                    <p><strong>To discover more, see 
-                        <span>
-                            <Link to='/products' className='home-span-link'> "All Products"</Link>
-                        </span>
-                    </strong></p>
+                    {/* Näyttää myynnissä olevat tuotteet */}
+                    {!noProducts &&
+                        <div>
+                            <h2><b>Our freshest offers!</b></h2>
+                            <div>
+                                {freshProducts
+                                    .map(p => <SingleProduct key={p.id} product={p}/>
+                                )}
+                            </div>
+                            <p><strong>To discover more, see 
+                                <span>
+                                    <Link to='/products' className='home-span-link'> "All Products"</Link>
+                                </span>
+                            </strong></p>
+                        </div>
+                    }
+                    {/* Näkymä jos ei tuotteita myynnissä */}
+                    {noProducts &&
+                        <div>
+                            <h4><b>There are currently no products on sale, please check again later</b></h4>
+                        </div>
+                    }
                 </div>
                 <Footer />
             </div>

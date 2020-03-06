@@ -6,6 +6,7 @@ import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
 import { initializeShops } from '../../reducers/shopsReducer'
 import productsService from '../../services/productsService'
+// import defaultImage from '../../images/defaultImage.jpg'
 
 const ShopAddProduct = (props) => {
     //console.log(props)
@@ -30,6 +31,11 @@ const ShopAddProduct = (props) => {
 
     const handleNewProduct = async (event) => {
         event.preventDefault()
+
+        if (uploadedImage === null) {
+            props.setAlert('Please add an image to the product', 5)
+            return
+        }
 
         const productForm = new FormData()
         productForm.append('img', uploadedImage)

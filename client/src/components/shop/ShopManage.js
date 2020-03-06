@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import shopsService from '../../services/shopsService'
 import productsService from '../../services/productsService'
+import loginService from '../../services/loginService'
 import { setAlert } from '../../reducers/alertReducer'
 import { setConfirm } from '../../reducers/confirmReducer'
 import { initializeProducts } from '../../reducers/productsReducer'
@@ -24,6 +25,8 @@ const ShopManage = (props) => {
     const [website, setWebsite] = useState('')
 
     const [showRemoveQuery, setShowRemoveQuery] = useState(false)
+    const [showRemovePassword, setShowRemovePassword] = useState(false)
+    const [passwordReveal, setPasswordReveal] = useState(true)
     const [showButtons, setShowButtons] = useState(true)
     const [showEdit, setShowEdit] = useState(false)
     const [showMap, setShowMap] = useState(false)
@@ -48,6 +51,8 @@ const ShopManage = (props) => {
     const buttonsShow = { display: showButtons ? '' : 'none' }
     const editShow = { display: showEdit ? '' : 'none' }
     const mapShow = { display: showMap ? '' : 'none' }
+    const removeShow = { display: showRemoveQuery ? '' : 'none' }
+    const removePasswordShow = { display: showRemovePassword ? '' : 'none' }
 
     const edit = (shop) => {
         setShowEdit(true)
@@ -102,32 +107,46 @@ const ShopManage = (props) => {
         }
     }
 
-    const testRemove = async () => {
+    const testRemove = () => {
         setShowRemoveQuery(true)
+        setShowRemovePassword(false)
     }
 
-    const remove = async () => {
-        if (window.confirm(`ALERT! This will delete everything, including shop registration, there's no way back. Are you sure?`)) {
-            shopsService.setToken(props.shopLogin.token)
-            productsService.setToken(props.shopLogin.token)
+    const removeCancel = () => {
+        setShowRemoveQuery(false)
+        setShowRemovePassword(false)
+    }
 
-            const shopProducts = props.products.filter(p => p.shop.id === props.shopLogin.id)
-            try {
-                for (let i = 0; i < shopProducts.length; i++) {
-                    await productsService.removeProduct(shopProducts[i].id)
-                    await productsService.removeImg(shopProducts[i].img.id)
-                }
-                await shopsService.removeShop(props.shopLogin.id)
-                props.initializeProducts()
-                props.initializeShops()
-                productsService.destroyToken()
-                shopsService.destroyToken()
-                props.logoutShop()
-            } catch (error) {
-                console.log('error', error)
-                props.setAlert('Deletion was not successful, please try again', 5)
+    const removeHandle = () => {
+        setShowRemovePassword(true)
+    }
+
+    const remove = async (event) => {
+        event.preventDefault()
+
+        let name = props.shopLogin.name
+        let password = event.target.password.value
+
+        shopsService.setToken(props.shopLogin.token)
+        productsService.setToken(props.shopLogin.token)
+
+        const shopProducts = props.products.filter(p => p.shop.id === props.shopLogin.id)
+        try {
+            await loginService.login({ name, password })
+            for (let i = 0; i < shopProducts.length; i++) {
+                await productsService.removeProduct(shopProducts[i].id)
+                await productsService.removeImg(shopProducts[i].img.id)
             }
-        } else { return }
+            await shopsService.removeShop(props.shopLogin.id)
+            props.initializeProducts()
+            props.initializeShops()
+            productsService.destroyToken()
+            shopsService.destroyToken()
+            props.logoutShop()
+        } catch (error) {
+            console.log('error', error)
+            props.setAlert('Deletion was not successful, check your password and please try again', 5)
+        }
     }
 
     const getCoordinates = async () => {
@@ -161,10 +180,43 @@ const ShopManage = (props) => {
         setLongitude('')
     }
 
+    // näyttää salasanan
+    const passwordType = passwordReveal ? 'password' : 'text'
+    const handlePasswordReveal = () => {
+        if (passwordReveal) {
+            setPasswordReveal(false)
+        } else {
+            setPasswordReveal(true)
+        }
+    }
+
     const shop = props.shops.find(s => s.id === props.shopLogin.id)
 
     return (
         <div>
+            <div style={removeShow} className='remove-shop-modal'>
+                <div className='remove-alert-text'>
+                    <p>ALERT! This will delete everything, including shop registration, there's no way back. Are you sure?</p>
+                </div>
+                <div className='remove-alert-buttons'>
+                    <button onClick={removeHandle} className='ui basic red button'>Yes, I'm sure</button>
+                    <button onClick={removeCancel} className='ui basic teal button'>No, take me back</button>
+                </div>
+                <div style={removePasswordShow} className='remove-password-container'>
+                    <div className='remove-confirm-text'>
+                        <p>To confirm, please give your password:</p>
+                    </div>
+                    <form onSubmit={remove}>
+                        <div className='form-group'>
+                            <input name='password' type={passwordType} className='form-control' id='shopRemovePassword' placeholder='Password' />
+                        </div>
+                        <div className='show-password'>
+                            <input type='checkbox' onClick={handlePasswordReveal} />Show password
+                        </div>
+                        <button type='submit' className='ui red button'>Remove everything</button>
+                    </form>
+                </div>
+            </div>
             <div>
                 <div style={editShow}>
                     <div className='edit-shop-header'>
@@ -272,7 +324,7 @@ const ShopManage = (props) => {
                                 its products will be deleted forever.
                             </p>
                         </div>
-                        <button id='deleteShop' className='btn btn-danger' onClick={remove}>Delete Everything</button>
+                        <button id='deleteShop' className='btn btn-danger' onClick={testRemove}>Delete Everything</button>
                     </div>
                 </div>
             </div>

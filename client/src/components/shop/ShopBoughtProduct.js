@@ -39,7 +39,7 @@ const ShopBoughtProduct = (props) => {
         try {
             await productsService.removeProduct(product.id)
             await productsService.removeImg(product.img.id)
-            props.setConfirm('Bought product is now removed from database!', 5)
+            props.setConfirm('Bought product is now removed from this list', 5)
             props.initializeProducts()
         } catch (error) {
             console.log('error', error)
