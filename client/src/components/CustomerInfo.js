@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Footer from './Footer'
 import info2 from '../images/info2.jpg'
 import work1 from '../images/work1.jpg'
 import work2 from '../images/work2.jpg'
@@ -99,7 +100,7 @@ const CustomerInfo = () => {
                     </div>
                 </div>
             </div>
-            <hr />
+            <Footer />
         </div>
     )
 }

@@ -68,15 +68,15 @@ const Home = (props) => {
                         {freshProducts
                             .map(p => <SingleProduct key={p.id} product={p}/>
                         )}
-                    </div> <br />
+                    </div>
                     <p><strong>To discover more, see 
                         <span>
                             <Link to='/products' className='home-span-link'> "All Products"</Link>
                         </span>
                     </strong></p>
                 </div>
+                <Footer />
             </div>
-            <Footer />
         </div>
     )
 }

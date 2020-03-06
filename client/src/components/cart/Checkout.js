@@ -130,6 +130,13 @@ const Checkout = (props) => {
                     </form>
                 </div>
                 <div className='col-md-4'>
+                    <div className='checkout-total'>
+                        <p>Total: <b>{totalPriceRounded}</b> €</p>
+                    </div>
+                    <div style={show}>
+                        <PayPalButton buyer={buyer} totalPrice={totalPriceRounded} products={props.cart} />
+                    </div>
+                    <hr />
                     {props.cart.map(p => 
                         <div key={p.id}>
                             <div className='checkout-product-container'>
@@ -147,13 +154,6 @@ const Checkout = (props) => {
                             </div>
                         </div>
                     )}
-                    <hr />
-                    <div className='checkout-total'>
-                        <p>Total: <b>{totalPriceRounded}</b> €</p>
-                    </div>
-                    <div style={show}>
-                        <PayPalButton buyer={buyer} totalPrice={totalPriceRounded} products={props.cart} />
-                    </div>
                 </div>
             </div>
         </div>

@@ -90,10 +90,12 @@ const ShopLoggedIn = (props) => {
 
     return (
         <div className='container main'>
-            <div className='loggedin-header'>
-                <h4>Shelp Partner pages</h4>
-                <h3>Logged in as {props.shopLogin.name}</h3>
-                <button id='logoutBtn' onClick={handleLogout} className='btn btn-danger'>Logout</button>
+            <div className='loggedin-header row'>
+                <h5 className='col-md-4 partner-pages'>Shelp Partner pages</h5>
+                <h3 className='col-md-4 shopname'>Logged in as {props.shopLogin.name}</h3>
+                <div className='col-md-4 logout-shop'>
+                    <button id='logoutBtn' onClick={handleLogout} className='btn btn-danger'>Logout</button>
+                </div>
             </div>
             <hr />
             <div className='loggedin-buttons'>
@@ -189,7 +191,6 @@ const ShopLoggedIn = (props) => {
                 </div><hr />
                 <ShopManage />
             </div>
-
         </div>
     )
 }

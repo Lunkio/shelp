@@ -57,3 +57,4 @@
 | 5.3.  |  1.5 | Backend testejä lisätty/korjailtu, muutamia herjausviestejä (DeprecationWarning yms) korjattu pois, frontin puolella pientä CSS -korjailua |
 | 5.3.  |  1.5 | CSS: sovelluksessa näkyvät ilmoitukset muutettu aina näkyvään paikkaan (position: fixed), etusivulla näkyvät ensin tuoreimmat tuotteet |
 | 6.3.  |  2   | CSS: pientä hiomista sieltä täältä, kaupan admin-sivun tuotesivulla kehotetaan lisäämään tuotteita jos ei niitä myynnissä, kommentteja lisätty koodiin |
+| 6.3.  |  1.5 | Footer lisätty osalle komponenteista, CSS -korjauksia |

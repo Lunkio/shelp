@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import InCartProducts from './InCartProducts'
 import { emptyCart } from '../../reducers/cartReducer'
+import Footer from '../Footer'
 
 const Cart = (props) => {
     //console.log(props)
@@ -66,9 +67,7 @@ const Cart = (props) => {
                     </Link>
                 </div>
             </div>
-            <div style={{'width': '80%', 'margin': '0 auto'}}>
-                <hr />
-            </div>
+            <Footer />
         </div>
     )
 }

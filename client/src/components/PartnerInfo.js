@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Footer from './Footer'
 import info1 from '../images/info1.jpg'
 import revenue from '../images/revenue.svg'
 import happy from '../images/happy.svg'
@@ -172,7 +173,7 @@ const PartnerInfo = () => {
                     </div>
                 </div>
             </div>
-            <hr />
+            <Footer />
         </div>
     )
 }

@@ -23,6 +23,7 @@ const ShopManage = (props) => {
     const [longitude, setLongitude] = useState('')
     const [website, setWebsite] = useState('')
 
+    const [showRemoveQuery, setShowRemoveQuery] = useState(false)
     const [showButtons, setShowButtons] = useState(true)
     const [showEdit, setShowEdit] = useState(false)
     const [showMap, setShowMap] = useState(false)
@@ -99,6 +100,10 @@ const ShopManage = (props) => {
             console.log('error', error)
             props.setAlert('Shop details were not edited, please try again', 5)
         }
+    }
+
+    const testRemove = async () => {
+        setShowRemoveQuery(true)
     }
 
     const remove = async () => {
@@ -196,7 +201,8 @@ const ShopManage = (props) => {
                             <input type='text' value={website} onChange={e => setWebsite(e.target.value)} className='form-control edit-field' id='editWebsite' />
                         </div>
                         <div className='col-md-12 coordinates-info'>
-                            <h6>If you want your shop to be shown on the map, you need to give latitude and longitude values.
+                            <h6>
+                                If you want your shop to be shown on the map, you need to give latitude and longitude values.
                                 You need to fill at least "address", "zip code" and "city" fields to find the coordinates using 
                                 "Get Coordinates" -button.
                             </h6>
@@ -242,7 +248,7 @@ const ShopManage = (props) => {
                                 }
                             </div>
                         </div>
-                        <div className='edit-submit-button'>
+                        <div className='edit-submit-button col-md-12'>
                             <button id='submitEditBtn' type='submit' className='ui button'>Submit changes</button>
                         </div>
                     </form>
@@ -261,7 +267,8 @@ const ShopManage = (props) => {
                     <div className='danger-zone'>
                         <div>
                             <p><b>Delete everything</b></p>
-                            <p>Once you delete this shop, everything including 
+                            <p>
+                                Once you delete this shop, everything including 
                                 its products will be deleted forever.
                             </p>
                         </div>

@@ -50,6 +50,17 @@ body {
   z-index: 2000;
 }
 
+.no-products-onsale {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 22rem;
+}
+
+.no-shop-results {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+}
 /* These are SingleProduct styles */
 .product-container {
   margin-top: 2rem;
@@ -242,9 +253,19 @@ body {
 
 /* These are ShopLoggedIn styles */
 .loggedin-header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+
+.loggedin-header .partner-pages {
+  text-align: left;
+}
+
+.loggedin-header .shopname {
+  text-align: center;
+}
+
+.loggedin-header .logout-shop {
+  text-align: right;
 }
 
 .loggedin-buttons {
@@ -393,6 +414,7 @@ body {
   margin-left: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .edit-submit-button button {
@@ -945,10 +967,32 @@ body {
   height: 5rem;
   width: 100%;
   margin-top: 3rem;
+  font-size: 1.3rem;
 }
 
-.footer-hr {
-  width: 80%;
+.footer-contact {
+  display: flex;
+  justify-content: space-between;
+  width: 25%;
+  margin: 0 auto;
+  margin-top: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.footer-email {
+  display: flex;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.footer-phone {
+  display: flex;
+  font-size: 0.9rem;
+  align-items: center;
+}
+
+.footer-icon {
+  margin-right: 0.3rem;
 }
 /* Footer ends */
 
