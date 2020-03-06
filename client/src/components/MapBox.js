@@ -63,13 +63,14 @@ const MapBox = (props) => {
         setShowList(false)
     }
 
-    const checkIfInCart = (product) => {
-        return props.cart.find(p => p.id === product.id)
+    const handleClick = (product) => {
+        showShopProducts(product.shop)
+        showShopDetails(product.shop)
+        setShowProducts(props.products.filter(p => p.id === product.id))
     }
 
-    const handleClick = (shop) => {
-        showShopProducts(shop)
-        showShopDetails(shop)
+    const checkIfInCart = (product) => {
+        return props.cart.find(p => p.id === product.id)
     }
 
     let backShow = { visibility: showBack ? '' : 'hidden' }
@@ -96,7 +97,7 @@ const MapBox = (props) => {
                     {showProducts.map(p =>
                         <div key={p.id}>
                             <div className='map-product-container'>
-                                <div onClick={() => handleClick(p.shop)} className='map-product-details'>
+                                <div onClick={() => handleClick(p)} className='map-product-details'>
                                     <div className='map-name-discount'>
                                         <h5><b>{p.description}</b></h5>
                                         <h5 className='map-discount'>-{p.discount}%</h5>

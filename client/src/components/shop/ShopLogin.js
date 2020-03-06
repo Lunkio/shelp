@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import ShopLoggedIn from './ShopLoggedIn'
 import { Link } from 'react-router-dom'
@@ -10,6 +10,7 @@ import { setAlert } from '../../reducers/alertReducer'
 
 const ShopLogin = (props) => {
     //console.log(props)
+    const [passwordReveal, setPasswordReveal] = useState(true)
 
     const login = async (event) => {
         event.preventDefault()
@@ -32,7 +33,17 @@ const ShopLogin = (props) => {
         return (
             <ShopLoggedIn />
         )
-    } 
+    }
+
+    //paljastaa salasanan
+    const passwordType = passwordReveal ? 'password' : 'text'
+    const handlePasswordReveal = () => {
+        if (passwordReveal) {
+            setPasswordReveal(false)
+        } else {
+            setPasswordReveal(true)
+        }
+    }
 
     return (
         <div className='container main login-form'>
@@ -46,7 +57,10 @@ const ShopLogin = (props) => {
                 </div>
                 <div className='form-group'>
                     <label htmlFor='shopPassword'>Password</label>
-                    <input name='password' type='password' className='form-control' id='shopPassword' />
+                    <input name='password' type={passwordType} className='form-control' id='shopPassword' />
+                </div>
+                <div className='show-password'>
+                    <input type='checkbox' onClick={handlePasswordReveal} />Show password
                 </div>
                 <div className='login-button'>
                     <button id='loginBtn' type='submit' className='ui button'>Login</button>

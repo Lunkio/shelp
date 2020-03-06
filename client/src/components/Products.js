@@ -4,7 +4,6 @@ import Select from 'react-select'
 import SingleProduct from './SingleProduct'
 
 const Products = (props) => {
-    //console.log('PrOPS', props)
     const [selectedShops, setSelectedShops] = useState([])
     //console.log(selectedShop)
     if (selectedShops === null) {
@@ -12,9 +11,9 @@ const Products = (props) => {
         return null
     }
 
+    // asettaa kauppojen nimet Select -valikon vaihtoehdoiksi
     let allShops = []
     allShops = props.shops.map(s => { return { value: s.name, label: s.name } })
-    //console.log(allShops)
 
     if (selectedShops.length === 0) {        
         return (

@@ -79,7 +79,7 @@ const ShopLoggedIn = (props) => {
         props.logoutShop()
     }
 
-    //for Show Products Select
+    // asettaa tuotteiden nimet Select -valikon vaihtoehdoiksi
     let allProductsLabel = []
     allProductsLabel = props.products
         .filter(p => p.shop.id === props.shopLogin.id)
@@ -121,6 +121,12 @@ const ShopLoggedIn = (props) => {
                     isMulti
                     isSearchable
                 /> <br />
+                {allProductsLabel.length === 0 &&
+                    <div className='no-products-sale'>
+                        <h1>No products on sale</h1>
+                        <h5 onClick={handleAddShow}>Add products</h5>
+                    </div>
+                }
                 {selectedProducts.length === 0 &&
                     <div>
                         {props.products

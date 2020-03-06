@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setAlert } from '../../reducers/alertReducer'
 import { initializeShops } from '../../reducers/shopsReducer'
+import { logoutShop } from '../../reducers/shopLoginReducer'
 import shopsService from '../../services/shopsService'
+import productsService from '../../services/productsService'
 import ReactMapGL, { Marker } from 'react-map-gl'
 
 const ShopRegister = (props) => {
@@ -84,6 +86,9 @@ const ShopRegister = (props) => {
             setShowRegisterBtn(false)
             setShowIntroduction(false)
             setShowProgress(false)
+            productsService.destroyToken()
+            shopsService.destroyToken()
+            props.logoutShop()
             props.initializeShops()
         } catch (error) {
             console.log('error', error)
@@ -401,7 +406,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     setAlert,
-    initializeShops
+    initializeShops,
+    logoutShop
 }
 
 export default connect(

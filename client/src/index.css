@@ -16,9 +16,6 @@ body {
 .main {
   position: relative;
   top: 7rem;
-  /* Footer helpers?? */
-  /* position: relative; */
-  /* margin-bottom: 5rem; */
 }
 
 .img-container {
@@ -176,7 +173,7 @@ body {
   width: 23%;
 }
 
-.home-link {
+.home-link-container {
   align-self: center;
 }
 
@@ -186,11 +183,7 @@ body {
 
 .shop-login {
   padding: 1.5rem;
-}
-
-.shop-login:hover {
-  background-color: #1bcbab1f;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 .navbar-nav {
@@ -201,11 +194,6 @@ body {
   padding: 1.5rem;
 }
 
-.navbar-nav li:hover {
-  background-color: #1bcbab1f;
-  cursor: pointer;
-}
-
 .nav-link {
   color: var(--mainGreen);
   font-size: 1.2rem;
@@ -213,6 +201,12 @@ body {
 
 .nav-link:hover {
   color: var(--mainGreen);
+  background-color: #1bcbab1f;
+  cursor: pointer;
+}
+
+.home-link:hover {
+  background-color: white;
 }
 /* Navbar ends */
 
@@ -264,6 +258,19 @@ body {
 .loggedin-buttons button {
   background-color: var(--mainGreen) !important;
   color: white !important;
+}
+
+.no-products-sale {
+  text-align: center;
+}
+
+.no-products-sale h5 {
+  color: var(--mainGreen);
+  cursor: pointer;
+}
+
+.no-products-sale h5:hover {
+  color: teal;
 }
 /* ShopLoggedIn ends */
 
@@ -361,6 +368,10 @@ body {
 .shop-expire-edit-button {
   display: flex;
   justify-content: space-between;
+}
+
+.expire-edit-button {
+  margin-left: 0.5rem;
 }
 /* ShopExpiredProduct ends */
 
@@ -492,13 +503,12 @@ body {
   margin-top: -0.3rem;
 }
 
-/* .register-messages {
-  margin-top: 1rem;
-} */
-
 .show-password {
-  margin-top: -1rem;
+  margin-top: -0.7rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .register-success {
@@ -612,22 +622,6 @@ body {
   padding: 1rem !important;
   width: 8rem;
 }
-
-/* .cart-checkout-button {
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-  width: 80%;
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.cart-checkout-button button {
-  background-color: var(--mainGreen) !important;
-  color: white !important;
-  width: 8rem;
-  padding: 1rem !important;
-} */
 /* Cart ends */
 
 /* These are InCartProducts styles */
@@ -944,14 +938,17 @@ body {
 
 /* These are Footer styles */
 .footer {
-  background: #AD887F;
-  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   text-align: center;
   height: 5rem;
   width: 100%;
+  margin-top: 3rem;
+}
+
+.footer-hr {
+  width: 80%;
 }
 /* Footer ends */
 

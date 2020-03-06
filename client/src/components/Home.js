@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SingleProduct from './SingleProduct'
 import homeImg from '../images/background.jpeg'
+import Footer from './Footer'
 
 const Home = (props) => {
     //console.log(props)
@@ -75,6 +76,7 @@ const Home = (props) => {
                     </strong></p>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

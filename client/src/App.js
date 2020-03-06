@@ -14,7 +14,6 @@ import PaymentCancel from './components/cart/PaymentCancel'
 import MapBox from './components/MapBox'
 import PartnerInfo from './components/PartnerInfo'
 import CustomerInfo from './components/CustomerInfo'
-// import Footer from './components/Footer'
 import productsService from './services/productsService'
 import { initializeProducts } from './reducers/productsReducer'
 import { initializeShops } from './reducers/shopsReducer'
@@ -36,9 +35,9 @@ const App = (props) => {
             let availableProducts = allProducts.filter(p => p.availability === true)
             const currentTime = new Date() //hae nykyhetki
             // aseta tuotteiden pvm samaan muotoon kuin nykyhetki
-            let dates = availableProducts.map(p => {
-                return ({ date: p.date, id: p.id })
-            }).map(p => { return ({ date: new Date(p.date), id: p.id }) })
+            let dates = availableProducts
+                .map(p => { return { date: p.date, id: p.id } })
+                .map(p => { return { date: new Date(p.date), id: p.id } })
             for (let i = 0; i < dates.length; i++) {
                 dates[i].date.setHours(23)
                 dates[i].date.setMinutes(59)
@@ -71,7 +70,6 @@ const App = (props) => {
                 <Route path='/map' render={() => <MapBox />} />
                 <Route path='/success' render={() => <PaymentSuccess />} />
                 <Route path='/cancel' render={() => <PaymentCancel />} />
-                {/* <Footer /> */}
             </Router>
         </div>
     )
