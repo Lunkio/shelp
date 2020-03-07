@@ -102,49 +102,48 @@ body {
 /* SingeProduct ends */
 
 /* These are Home styles */
-.home-image {
-  max-width: 100%;
-  display: block;
-  height: auto;
-  margin: auto;
-  position: relative !important;
-  width: 100%;
+.home-container {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.home-image img {
-  max-width: 100%;
-  margin-top: -15rem;
+.home-header-image-container {
+  margin-bottom: 16rem;
+}
+
+.home-image-container img {
+  width: 100vw;
+  margin-top: -1.2rem;
+  height: 602px;
+  object-fit: cover;
 }
 
 .introduction {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
   color: white;
-  font-size: 1rem;
-  margin-top: -5rem;
-  width: 50rem;
+  text-align: center;
+  font-size: 1.3rem;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: -35rem;
 }
 
-.introduction h1 {
+.introduction-header {
   font-size: 5rem;
 }
 
-.introduction p {
+.introduction-text {
   font-size: 1.3rem;
   letter-spacing: 0.06rem;
 }
 
 .home-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 4rem;
 }
 
 .button-text {
-  width: 45%;
+  width: 35%;
 }
 
 .home-buttons .button-text button {
@@ -154,6 +153,10 @@ body {
   padding: 1.1rem !important;
   font-size: 1.2rem !important;
   margin-bottom: 1rem;
+}
+
+.home-intro-container {
+  margin-top: 4rem;
 }
 
 .home-intro {
@@ -167,6 +170,80 @@ body {
 .home-span-link:hover {
   text-decoration: none;
   color: teal;
+}
+
+@media (max-width: 827px) {
+  .home-header-image-container {
+    margin-bottom: 9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-header-image-container {
+    margin-bottom: 9rem;
+  }
+
+  .introduction {
+    margin-top: -40rem;
+  }
+}
+
+@media (max-width: 726px) {
+  .introduction-header {
+    font-size: 3rem;
+  }
+
+  .introduction-text {
+    font-size: 1.2rem;
+  }
+  
+  .home-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-text {
+    width: 50%;
+    margin-bottom: 2rem;
+  }
+
+  .button-text p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 494px) {
+  .introduction-header {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 441px) {
+  .introduction-header {
+    font-size: 2rem;
+  }
+
+  .introduction-text {
+    font-size: 0.9rem;
+  }
+
+  .home-buttons .button-text button {
+    width: 9rem;
+    padding: 0.9rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .button-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .home-header-image-container {
+    margin-bottom: 0rem;
+  }
 }
 /* Home ends */
 
@@ -216,60 +293,6 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-
-/* .navbar-home {
-  margin-left: 3rem;
-  display: flex;
-  justify-content: space-between;
-  width: 23%;
-}
-
-.home-link-container {
-  align-self: center;
-}
-
-.shop-login {
-  padding: 1.5rem;
-  text-decoration: none;
-}
-
-.navbar-nav {
-  margin-right: 3rem;
-}
-
-.navbar-nav li {
-  padding: 1.5rem;
-}
-
-.nav-link {
-  color: var(--mainGreen);
-  font-size: 1.2rem;
-}
-
-.nav-link:hover {
-  color: var(--mainGreen);
-  background-color: #1bcbab1f;
-  cursor: pointer;
-}
-
-.home-link {
-  align-self: center;
-}
-
-.home-link:hover {
-  background-color: white;
-} */
-
-/* @media (min-width: 576px) and (max-width: 768px) {
-  .navbar-nav {
-    width: 50%;
-    align-items: center;
-  }
-
-  .fa-shopping-cart {
-    width: 5rem;
-  }
-} */
 /* Navbar ends */
 
 /* These are ShopLogin styles */

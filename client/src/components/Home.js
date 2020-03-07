@@ -26,17 +26,21 @@ const Home = (props) => {
     }
 
     return (
-        <div className='main'>
-            <div className='home-image'>
-                <img src={homeImg} alt='background' />
+        <div className='main container-fluid home-container'>
+            <div className='home-header-image-container'>
+                <div className='home-image-container'>
+                    <img src={homeImg} alt='background'/>
+                </div>
                 <div className='introduction'>
-                    <h1>Welcome to Shelp!</h1>
-                    <p>
-                        Every month, people like you use Shelp to save 
-                        tens of thousands of food products from ending up 
-                        in the trash bin. Buy cheaper and better,
-                        saving the world has never tasted this good!
-                    </p>
+                    <div>
+                        <h1 className='introduction-header'>Welcome to Shelp!</h1>
+                        <p className='introduction-text'>
+                            Every month, people like you use Shelp to save 
+                            tens of thousands of food products from ending up 
+                            in the trash bin. Buy cheaper and better,
+                            saving the world has never tasted this good!
+                        </p>
+                    </div>
                     <div className='home-buttons'>
                         <div className='button-text'>
                             <Link to='/customerinfo'>
@@ -59,7 +63,7 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-            <div className='container'>
+            <div className='container home-intro-container'>
                 <div className='home-intro'>
                     <h3><b>Save as much as you can eat</b></h3>
                     <p>
