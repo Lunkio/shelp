@@ -65,7 +65,7 @@ const ShopBoughtProduct = (props) => {
             </div>
             <div className='col-md-2'>
                 <div>
-                <button id='deleteBoughtBtn' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
+                    <button id='deleteBoughtBtn' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
                 </div>
             </div>
         </div>

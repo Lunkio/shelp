@@ -49,19 +49,19 @@ const Cart = (props) => {
                 )}
             </div>
             <div className='row cart-buttons'>
-                <div className='col-md-5 cart-continue-empty-buttons'>
+                <div className='col-lg-5 col-md-6 col-sm-8 cart-continue-empty-buttons'>
                     <Link to='/products'>
                         <button className='ui teal basic button'>Continue shopping</button>
                     </Link>
                     <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
                 </div>
-                <div className='col-md-5 cart-price-container'>
+                <div className='col-lg-5 col-md-3 col-sm-4 col-12 cart-price-container'>
                     <div className='cart-prices'>
                         <h4>Total: <b>{Math.round((totalPrice + Number.EPSILON) * 100) / 100}</b> €</h4>
                         <h6>You save {Math.round((savedPrice + Number.EPSILON) * 100) / 100} €</h6>
                     </div>
                 </div>
-                <div className='col-md-2 checkout-button'>
+                <div className='col-lg-2 col-md-3 col-sm-12 checkout-button'>
                     <Link to='/checkout'>
                         <button className='ui button'>Checkout</button>
                     </Link>

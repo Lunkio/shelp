@@ -48,6 +48,8 @@ const ShopManage = (props) => {
         })
     }, [latitude, longitude])
 
+    const shop = props.shops.find(s => s.id === props.shopLogin.id)
+
     const buttonsShow = { display: showButtons ? '' : 'none' }
     const editShow = { display: showEdit ? '' : 'none' }
     const mapShow = { display: showMap ? '' : 'none' }
@@ -190,8 +192,6 @@ const ShopManage = (props) => {
         }
     }
 
-    const shop = props.shops.find(s => s.id === props.shopLogin.id)
-
     return (
         <div>
             <div style={removeShow} className='remove-shop-modal'>
@@ -282,6 +282,7 @@ const ShopManage = (props) => {
                                 </div>
                                 {showMap && 
                                     <ReactMapGL
+                                        style={{'width': '300px !important'}}
                                         className='register-map'
                                         {...view}
                                         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}

@@ -148,15 +148,18 @@ const ShopProduct = (props) => {
             <div style={productsShow} className='row product-container'>
                 <div className='col-md-2'>
                     <div className='img-container'>
-                        <img src={props.product.img.location} alt='product' id='img' />
+                        <img src={props.product.img.location} alt='product' />
                     </div>
                 </div>
-                <div className='col-md-6'>
+                <div className='col-md-6 col-sm-12'>
                     <h4>{props.product.description}</h4><hr className='divider' />
                     <h6>Expiration date: <b>{formatDate(props.product.date)}</b></h6>
                 </div>
-                <div className='col-md-2'>
-                    <div className='price-container'>
+                <div className='img-container-small-screen'>
+                    <img src={props.product.img.location} alt='product' />
+                </div>
+                <div className='col-md-2 col-sm-6'>
+                    <div className='price-container price-container-shop'>
                         <div className='prices'>
                             <h4>{props.product.price} €</h4>
                             <h6 className='original-price'>{props.product.originalPrice} €</h6>
@@ -164,7 +167,7 @@ const ShopProduct = (props) => {
                         <h5 className='discount'>-{props.product.discount}%</h5>
                     </div>
                 </div>
-                <div className='col-md-2'>
+                <div className='col-md-2 col-sm-6'>
                     <div className='shop-product-buttons'>
                         <button className='btn btn-info edit-button' onClick={() => edit(props.product)}>Edit</button>
                         <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>

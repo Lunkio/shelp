@@ -26,27 +26,34 @@ const SingleProduct = (props) => {
             <div className='row product-container'>
                 <div className='col-md-2'>
                     <div className='img-container'>
-                        <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' id='img' />
+                        <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' />
                     </div>
                 </div>
                 <div className='col-md-6 product-shop-desc'>
                     <div className='product-header-date'>
                         <h3>{props.product.description}</h3> <h6>Expiration date: <span className='expiration-date'><b>{formatDate(props.product.date)}</b></span></h6>
                     </div> <hr />
-                    <p><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
-                    <p><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
-                    <p><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
+                    <div className='product-shop-small-screen-container'>
+                        <div className='product-shop-desc-texts'>
+                            <p className='product-shop-desc-text'><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
+                            <p className='product-shop-desc-text'><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
+                            <p className='product-shop-desc-text'><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
+                        </div>
+                        <div className='img-container-small-screen'>
+                            <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' />
+                        </div>
+                    </div>
                 </div>
                 <div className='col-md-2'>
                     <div className='price-container'>
                         <div className='prices'>
-                            <h3>{props.product.price} €</h3>
-                            <h6 className='original-price'>{props.product.originalPrice} €</h6>
+                            <h3>{props.product.price}€</h3>
+                            <h6 className='original-price'>{props.product.originalPrice}€</h6>
                         </div>
                         <h5 className='discount'>-{props.product.discount}%</h5>
                     </div>
                 </div>
-                <div className='col-md-2'>
+                <div className='col-md-2 cart-button-container'>
                     <button
                         className='ui button cart-button'
                         id='buyBtn'

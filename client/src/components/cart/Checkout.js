@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Message } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import PayPalButton from './PayPal'
 import productsService from '../../services/productsService'
 import { setAlert } from '../../reducers/alertReducer'
@@ -12,6 +12,10 @@ const Checkout = (props) => {
     //console.log('PROPS', props)
     const [buyer, setBuyer] = useState({})
     const [showPayPal, setShowPayPal] = useState(false)
+
+    if (props.cart.length === 0) {
+        return <Redirect to='/cart' />
+    }
 
     const checkPayPal = () => {
         return showPayPal
@@ -140,16 +144,18 @@ const Checkout = (props) => {
                     {props.cart.map(p => 
                         <div key={p.id}>
                             <div className='checkout-product-container'>
-                                <div className='checkout-img'>
-                                    <div className='img-container-checkout'>
-                                        <img src={p.img.location} alt='product' />
+                                <div className='checkout-img-desc'>
+                                    <div className='checkout-img'>
+                                        <div className='img-container-checkout'>
+                                            <img src={p.img.location} alt='product' />
+                                        </div>
+                                    </div>
+                                    <div className='checkout-desc'>
+                                        <h6>{p.description}</h6>
                                     </div>
                                 </div>
-                                <div className='checkout-desc'>
-                                    <h6>{p.description}</h6>
-                                </div>
                                 <div className='checkout-price'>
-                                    <p>{p.price} €</p>
+                                    <p>{p.price}€</p>
                                 </div>
                             </div>
                         </div>
