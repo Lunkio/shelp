@@ -347,6 +347,12 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
+@media (max-width: 991px) {
+  .link-nav {
+    padding: 1rem;
+  }
+}
 /* Navbar ends */
 
 /* These are ShopLogin styles */
@@ -1167,6 +1173,14 @@ body {
 /* Modal ends here */
 
 /* These are PaymentSuccess styles */
+.img-container-success {
+  width: 6rem;
+}
+
+.img-container-success img {
+  max-width: 100%;
+}
+
 .success-header {
   text-align: center;
   margin-top: 2rem;
@@ -1607,5 +1621,45 @@ body {
   position: relative;
   bottom: 9px;
   right: 9px;
+}
+
+@media (max-width: 1159px) {
+  .map-side-window {
+    width: 40vw;
+  }
+  
+  .map {
+    width: 60vw !important;
+  }
+}
+
+@media (max-width: 970px) {
+  .map-side-window {
+    width: 50vw;
+  }
+  
+  .map {
+    width: 50vw !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-side-window {
+    width: 60vw;
+  }
+  
+  .map {
+    width: 40vw !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .map-side-window {
+    width: 90vw;
+  }
+  
+  .map {
+    width: 10vw !important;
+  }
 }
 /* MapBox ends */

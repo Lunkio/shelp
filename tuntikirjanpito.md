@@ -63,3 +63,4 @@
 | 7.3.  |  2.5 | Etusivun kuva ja koko etusivu tehty responsiiviseksi, kaikki elementit näkyvät hyvin eri resoluutioilla |
 | 8.3.  |  6.5 | Sovelluksen ulkonäön tekeminen mobiiliystävällisemmäksi |
 | 9.3.  |  1.5 | Sovelluksen mobiiliulkonäön viimeistelyä |
+| 9.3.  |  6   | Testauksen alkua, selvitetty yksikkötestausta React Testing Libraryn ja React-Reduxin kanssa, muutama CSS-bugi korjattu |

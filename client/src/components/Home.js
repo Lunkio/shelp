@@ -29,10 +29,10 @@ const Home = (props) => {
         <div className='main container-fluid home-container'>
             <div className='home-header-image-container'>
                 <div className='home-image-container'>
-                    <img src={homeImg} alt='background'/>
+                    <img src={homeImg} alt='background' data-testid='background-img'/>
                 </div>
                 <div className='introduction'>
-                    <div>
+                    <div data-testid='introduction-texts'>
                         <h1 className='introduction-header'>Welcome to Shelp!</h1>
                         <p className='introduction-text'>
                             Every month, people like you use Shelp to save 
@@ -41,7 +41,7 @@ const Home = (props) => {
                             saving the world has never tasted this good!
                         </p>
                     </div>
-                    <div className='home-buttons'>
+                    <div className='home-buttons' data-testid='homebuttons'>
                         <div className='button-text'>
                             <Link to='/customerinfo'>
                                 <button className='ui button'>Order</button>
@@ -76,7 +76,7 @@ const Home = (props) => {
                     {!noProducts &&
                         <div>
                             <h2><b>Our freshest offers!</b></h2>
-                            <div>
+                            <div data-testid='home-products'>
                                 {freshProducts
                                     .map(p => <SingleProduct key={p.id} product={p}/>
                                 )}
@@ -90,7 +90,7 @@ const Home = (props) => {
                     }
                     {/* Näkymä jos ei tuotteita myynnissä */}
                     {noProducts &&
-                        <div>
+                        <div data-testid='home-no-products'>
                             <h4><b>There are currently no products on sale, please check again later</b></h4>
                         </div>
                     }

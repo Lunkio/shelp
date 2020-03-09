@@ -26,7 +26,7 @@ const PaymentSuccess = (props) => {
                 {props.payment.map(p => 
                     <div key={p.id} className='col-lg-4 col-md-6 col-md-12'>
                         <div className='success-product-container'>
-                            <div className='img-container'>
+                            <div className='img-container-success'>
                                 <img src={p.img.location} alt='product' />
                             </div>
                             <div className='success-product-desc'>

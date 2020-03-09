@@ -26,18 +26,18 @@ const SingleProduct = (props) => {
             <div className='row product-container'>
                 <div className='col-md-2'>
                     <div className='img-container'>
-                        <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' />
+                        <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' data-testid='img' />
                     </div>
                 </div>
                 <div className='col-md-6 product-shop-desc'>
                     <div className='product-header-date'>
-                        <h3>{props.product.description}</h3> <h6>Expiration date: <span className='expiration-date'><b>{formatDate(props.product.date)}</b></span></h6>
+                        <h3 data-testid='desc'>{props.product.description}</h3> <h6>Expiration date: <span data-testid='expiration' className='expiration-date'><b>{formatDate(props.product.date)}</b></span></h6>
                     </div> <hr />
                     <div className='product-shop-small-screen-container'>
                         <div className='product-shop-desc-texts'>
-                            <p className='product-shop-desc-text'><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
-                            <p className='product-shop-desc-text'><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
-                            <p className='product-shop-desc-text'><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
+                            <p className='product-shop-desc-text' data-testid='shopname'><i className='fas fa-store'/> <b>{props.product.shop.name}</b></p>
+                            <p className='product-shop-desc-text' data-testid='shopaddress'><i className='fas fa-map-marker-alt' /> {props.product.shop.address}, {props.product.shop.zip} {props.product.shop.city}</p>
+                            <p className='product-shop-desc-text' data-testid='shopphone'><i className='fas fa-phone' /> {props.product.shop.phone} {props.product.shop.website !== '' && <span><i className='fas fa-globe' /> {props.product.shop.website}</span>}</p>
                         </div>
                         <div className='img-container-small-screen'>
                             <img className='single-product-img' onClick={modalSwitch} src={props.product.img.location} alt='product' />
@@ -47,16 +47,16 @@ const SingleProduct = (props) => {
                 <div className='col-md-2'>
                     <div className='price-container'>
                         <div className='prices'>
-                            <h3>{props.product.price}€</h3>
-                            <h6 className='original-price'>{props.product.originalPrice}€</h6>
+                            <h3 data-testid='price'>{props.product.price}€</h3>
+                            <h6 className='original-price' data-testid='originalprice'>{props.product.originalPrice}€</h6>
                         </div>
-                        <h5 className='discount'>-{props.product.discount}%</h5>
+                        <h5 className='discount' data-testid='discount'>-{props.product.discount}%</h5>
                     </div>
                 </div>
                 <div className='col-md-2 cart-button-container'>
                     <button
                         className='ui button cart-button'
-                        id='buyBtn'
+                        data-testid='cartbutton'
                         disabled={checkIfInCart(props.product)}
                         onClick={() => props.addToCart(props.product)}>
                             {checkIfInCart(props.product) ? <p>In cart</p> : <p>Add to Cart</p>}
