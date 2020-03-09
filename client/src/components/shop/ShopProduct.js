@@ -158,8 +158,8 @@ const ShopProduct = (props) => {
                 <div className='img-container-small-screen'>
                     <img src={props.product.img.location} alt='product' />
                 </div>
-                <div className='col-md-2 col-sm-6'>
-                    <div className='price-container price-container-shop'>
+                <div className='col-md-2 col-sm-12 price-container-shop'>
+                    <div className='price-container shop-prices'>
                         <div className='prices'>
                             <h4>{props.product.price} €</h4>
                             <h6 className='original-price'>{props.product.originalPrice} €</h6>
@@ -167,7 +167,7 @@ const ShopProduct = (props) => {
                         <h5 className='discount'>-{props.product.discount}%</h5>
                     </div>
                 </div>
-                <div className='col-md-2 col-sm-6'>
+                <div className='col-md-2 col-sm-12'>
                     <div className='shop-product-buttons'>
                         <button className='btn btn-info edit-button' onClick={() => edit(props.product)}>Edit</button>
                         <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
@@ -180,20 +180,20 @@ const ShopProduct = (props) => {
                 <form onSubmit={handleProductEdit}>
                     <hr />
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Name/description:</label>
-                        <div className='col-md-5'>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Name/description:</label>
+                        <div className='col-lg-5 col-md-9'>
                             <input type='text' className='form-control' value={name} onChange={e => setName(e.target.value)} />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Original price:</label>
-                        <div className='col-md-5'>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Original price:</label>
+                        <div className='col-lg-5 col-md-9'>
                             <input type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Discount %:</label>
-                        <div className='col-md-5'>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Discount %:</label>
+                        <div className='col-lg-5 col-md-9'>
                             <div className='discount-buttons'>
                                 <div onClick={() => setDiscount(0)} className={buttonStyle0}>0 %</div>
                                 <div onClick={() => setDiscount(0.1)} className={buttonStyle1}>10 %</div>
@@ -209,23 +209,23 @@ const ShopProduct = (props) => {
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Discounted price:</label>
-                        <div className='col-md-2'>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Discounted price:</label>
+                        <div className='col-lg-2 col-md-9'>
                             <input type='number' className='form-control-plaintext discounted-price' value={props.product.price} readOnly />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
-                        <label className='col-md-2 col-form-label'>Select image:</label>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Select image:</label>
                         <div className='col-md-3'>
                             <input type='file' onChange={editUploadHandler} />
                         </div>
                     </div>
                     <div className='form-group row'>
-                        <label className='col-md-2 col-form-label'>Expiration date:</label>
-                        <div className='col-md-2'>
+                        <label className='col-lg-2 col-md-3 col-form-label'>Expiration date:</label>
+                        <div className='col-lg-3 col-md-4'>
                             <input type='date' className='form-control' value={date} onChange={e => setDate(e.target.value)} />
                         </div>
-                        <div className='col-md-3'>
+                        <div className='col-md-4'>
                             <div onClick={handleToday} className='ui basic teal button'>Today</div>
                             <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
                         </div>

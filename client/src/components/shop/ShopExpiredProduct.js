@@ -11,14 +11,17 @@ const ShopExpiredProduct = (props) => {
     const [date, setDate] = useState('')
     const [showExpiration, setShowExpiration] = useState(true)
     const [showEditExpiration, setShowEditExpiration] = useState(false)
+    const [showEditButtons, setShowEditButtons] = useState(true)
 
     const expirationShow = { display: showExpiration ? '' : 'none' }
     const editExpirationShow = { display: showEditExpiration ? '' : 'none' }
+    const editButtonsShow = { visibility: showEditButtons ? 'visible' : 'hidden' }
 
     const edit = (product) => {
         setDate(product.date)
         setShowExpiration(false)
         setShowEditExpiration(true)
+        setShowEditButtons(false)
     }
 
     const handleDateEdit = async (product) => {
@@ -76,6 +79,7 @@ const ShopExpiredProduct = (props) => {
     const handleCancel = () => {
         setShowExpiration(true)
         setShowEditExpiration(false)
+        setShowEditButtons(true)
     }
 
     const handleOneDay = () => {
@@ -89,15 +93,15 @@ const ShopExpiredProduct = (props) => {
         <div className='row product-container'>
             <div className='col-md-2'>
                 <div className='img-container'>
-                    <img src={props.product.img.location} alt='product' id='img' />
+                    <img src={props.product.img.location} alt='product' />
                 </div>
             </div>
-            <div className='col-md-6'>
+            <div className='col-md-6 col-sm-12'>
                 <h4>{props.product.description}</h4><hr className='divider' />
                 <h6 style={expirationShow}>Expiration date: <b style={{'color': 'red'}}>{formatDate(props.product.date)}</b></h6>
                 <div style={editExpirationShow} className='row expired-edit'>
-                    <input type='date' className='form-control col-md-4' value={date} onChange={e => setDate(e.target.value)} />
-                    <div className='col-md-8 expiry-set-buttons'>
+                    <input type='date' className='form-control col-xl-4 col-lg-12 col-md-12' value={date} onChange={e => setDate(e.target.value)} />
+                    <div className='col-xl-8 col-lg-12 col-md-12 expiry-set-buttons'>
                         <div>
                             <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
                             <div onClick={() => handleDateEdit(props.product)} className='ui button set-date-button'>Set Date</div>
@@ -108,8 +112,11 @@ const ShopExpiredProduct = (props) => {
                     </div>
                 </div>
             </div>
-            <div className='col-md-1'>
-                <div className='price-container'>
+            <div className='img-container-small-screen'>
+                <img src={props.product.img.location} alt='product' />
+            </div>
+            <div className='col-md-1 col-sm-12 price-container-shop'>
+                <div className='price-container shop-prices'>
                     <div className='prices'>
                         <h5>{props.product.price}€</h5>
                         <h6 className='original-price'>{props.product.originalPrice}€</h6>
@@ -117,7 +124,7 @@ const ShopExpiredProduct = (props) => {
                     <h5 className='discount'>-{props.product.discount}%</h5>
                 </div>
             </div>
-            <div className='col-md-3'>
+            <div className='col-md-3 col-sm-12' style={editButtonsShow}>
                 <div className='shop-expire-edit-button'>
                     <button className='btn btn-info expire-edit-button' onClick={() => edit(props.product)}>Edit expiration date</button>
                     <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>

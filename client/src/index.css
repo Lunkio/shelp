@@ -504,13 +504,17 @@ body {
 }
 
 @media (max-width: 767px) {
-  .shop-product-buttons {
+  .price-container-shop {
     justify-content: flex-end;
   }
 
-  .price-container-shop {
-    display: flex;
+  .shop-product-buttons {
     justify-content: flex-end;
+    margin-top: -2rem;
+  }
+
+  .shop-prices {
+    margin-top: -4rem;
   }
 }
 /* ShopProduct/ShopAddProduct ends */
@@ -532,6 +536,38 @@ body {
   line-height: 0.6rem;
 }
 
+@media (max-width: 767px) {
+  .bought-product-desc-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .bought-small-screen {
+    align-self: center;
+  }
+
+  .bought-product-price {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .bought-product-desc-container {
+    flex-direction: column;
+  }
+
+  .bought-small-screen {
+    align-self: flex-end;
+  }
+
+  .bought-product-price {
+    margin-top: -3rem;
+  }
+
+  .bought-product-delete-button {
+    margin-top: -1rem;
+  }
+}
 /* ShopBoughtProduct ends */
 
 /* These are ShopExpiredProduct styles */
@@ -556,6 +592,19 @@ body {
 
 .expire-edit-button {
   margin-left: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  .shop-expire-edit-button {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-expire-edit-button {
+    justify-content: flex-end;
+    margin-top: 0rem;
+  }
 }
 /* ShopExpiredProduct ends */
 

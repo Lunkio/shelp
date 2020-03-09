@@ -62,3 +62,4 @@
 | 7.3.  |  3.5 | Navbar tehty kokonaan uudelleen, jotta se toimii myös mobiilissa, Footer korjattu myös näkymään oikein pienemmällä näytöllä |
 | 7.3.  |  2.5 | Etusivun kuva ja koko etusivu tehty responsiiviseksi, kaikki elementit näkyvät hyvin eri resoluutioilla |
 | 8.3.  |  6.5 | Sovelluksen ulkonäön tekeminen mobiiliystävällisemmäksi |
+| 9.3.  |  1.5 | Sovelluksen mobiiliulkonäön viimeistelyä |

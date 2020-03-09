@@ -51,19 +51,24 @@ const ShopBoughtProduct = (props) => {
         <div className='row bought-product-container'>
             <div className='col-md-2'>
                 <div className='img-container'>
-                    <img src={props.product.img.location} alt='product' id='img' />
+                    <img src={props.product.img.location} alt='product' />
                 </div>
             </div>
-            <div className='col-md-6 bought-product-desc'>
-                <h4>{props.product.description}</h4> <hr />
-                <p><b>Buyer:</b> {buyer.firstName} {buyer.lastName}, {buyer.email} {buyer.phone}</p>
-                <p><b>Payment ID:</b> {buyer.paymentID}</p>
-                <p><b>Purchase time:</b> {buyer.timeOfPurchase}</p>
+            <div className='col-md-6 bought-product-desc-container'>
+                <div className='bought-product-desc'>
+                    <h4>{props.product.description}</h4> <hr />
+                    <p><b>Buyer:</b> {buyer.firstName} {buyer.lastName}, {buyer.email} {buyer.phone}</p>
+                    <p><b>Payment ID:</b> {buyer.paymentID}</p>
+                    <p><b>Purchase time:</b> {buyer.timeOfPurchase}</p>
+                </div>
+                <div className='img-container-small-screen bought-small-screen'>
+                    <img src={props.product.img.location} alt='product' />
+                </div>
             </div>
-            <div className='col-md-2'>
-                <p>{props.product.price} €</p>
+            <div className='col-md-2 bought-product-price'>
+                <p><b>{props.product.price} €</b></p>
             </div>
-            <div className='col-md-2'>
+            <div className='col-md-2 bought-product-delete-button'>
                 <div>
                     <button id='deleteBoughtBtn' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
                 </div>
