@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "cypress": "^4.1.0",
+    "cypress-file-upload": "^3.5.3",
     "deep-freeze": "0.0.1",
     "json-server": "^0.15.1"
   },

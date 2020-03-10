@@ -17,7 +17,7 @@ const PaymentSuccess = (props) => {
     return (
         <div className='container main'>
             <div className='success-header' data-testid='success'>
-                <h1>Thank you for your purchace!</h1>
+                <h1>Thank you for your purchase!</h1>
                 <p>Order ref-nro: <span><b>{props.payment[0].id}</b></span></p>
                 <p>Order's total sum: <span><b>{props.payment.reduce((a, p) => a + p.price, 0)}</b> €</span></p>
                 <h5>You bought the following product(s):</h5> <br /> <hr />

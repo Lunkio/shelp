@@ -328,7 +328,7 @@ const ShopRegister = (props) => {
                         </div>
                     </div>
                     <div style={addressBtnShow} className='register-continue-button col-md-12'>
-                        <div onClick={handleAddressCheck} className='ui basic teal button'>Continue</div>
+                        <div onClick={handleAddressCheck} className='ui basic teal button' data-testid='first-continue'>Continue</div>
                     </div>
                 </div>
                 {/* Login details */}
@@ -353,7 +353,7 @@ const ShopRegister = (props) => {
                     </div>
                     <div style={loginDetailsBtnShow} className='register-continue-button col-md-12'>
                         <div onClick={goBackToAddress} className='ui basic grey button'>Back</div>
-                        <div onClick={handleLoginDetails} className='ui basic teal button'>Continue</div>
+                        <div onClick={handleLoginDetails} className='ui basic teal button' data-testid='second-continue'>Continue</div>
                     </div>
                 </div>
                 {/* Shop details */}
@@ -375,7 +375,7 @@ const ShopRegister = (props) => {
                     </div>
                     <div style={detailsBtnShow} className='register-continue-button col-md-12'>
                         <div onClick={goBackToDetails} className='ui basic grey button'>Back</div>
-                        <div onClick={handleDetailsCheck} className='ui basic teal button'>Continue</div>
+                        <div onClick={handleDetailsCheck} className='ui basic teal button' data-testid='third-continue'>Continue</div>
                     </div>
                 </div>
                 <div style={registerBtnShow} className='col-md-12 register-submit-button'>
