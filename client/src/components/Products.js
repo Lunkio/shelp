@@ -47,7 +47,7 @@ const Products = (props) => {
                         isSearchable                    
                     />
                 </div>
-                <div>
+                <div data-testid='products'>
                     {props.products
                         .filter(p => p.availability === true)
                         .map(p => <SingleProduct key={p.id} product={p}/>

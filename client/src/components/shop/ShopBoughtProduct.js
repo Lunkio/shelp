@@ -51,7 +51,7 @@ const ShopBoughtProduct = (props) => {
         <div className='row bought-product-container'>
             <div className='col-md-2'>
                 <div className='img-container'>
-                    <img src={props.product.img.location} alt='product' />
+                    <img src={props.product.img.location} alt='product' data-testid='bought-img'/>
                 </div>
             </div>
             <div className='col-md-6 bought-product-desc-container'>
@@ -70,7 +70,7 @@ const ShopBoughtProduct = (props) => {
             </div>
             <div className='col-md-2 bought-product-delete-button'>
                 <div>
-                    <button id='deleteBoughtBtn' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
+                    <button data-testid='remove-bought' className='btn btn-danger' onClick={() => handleRemove(props.product)}>Picked up/Remove</button>
                 </div>
             </div>
         </div>

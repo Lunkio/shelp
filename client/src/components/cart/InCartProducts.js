@@ -14,7 +14,7 @@ const InCartProducts = (props) => {
         <div className='row cart-product-container'>
             <div className='col-md-2'>
                 <div className='cart-img-container'>
-                    <img src={props.product.img.location} alt='cart product' />
+                    <img src={props.product.img.location} alt='cart product' data-testid='incart-img' />
                 </div>
             </div>
             <div className='col-md-6 cart-product-desc'>
@@ -40,7 +40,7 @@ const InCartProducts = (props) => {
                 <h5 className='discount'>-{props.product.discount}%</h5>
             </div>
             <div className='col-md-2 cart-remove-item-icon'>
-                <div className='cart-remove-button' onClick={() => remove(props.product)}><Icon name='remove circle' size='large' /></div>
+                <div className='cart-remove-button' onClick={() => remove(props.product)} data-testid='remove-from-cart'><Icon name='remove circle' size='large' /></div>
                 <div className='cart-remove-text-small-screen'>Remove</div>
             </div>
         </div>

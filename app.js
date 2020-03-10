@@ -104,6 +104,18 @@ app.use(cors())
 
 app.use(middleware.tokenExtractor)
 
+app.use(express.static('build'))
+app.use('/products', express.static('build'))
+app.use('/partnerinfo', express.static('build'))
+app.use('/customerinfo', express.static('build'))
+app.use('/login', express.static('build'))
+app.use('/register', express.static('build'))
+app.use('/cart', express.static('build'))
+app.use('/checkout', express.static('build'))
+app.use('/map', express.static('build'))
+app.use('/success', express.static('build'))
+app.use('/cancel', express.static('build'))
+
 app.use('/api/products', productsRouter)
 app.use('/api/shops', shopsRouter)
 app.use('/api/login', loginRouter)

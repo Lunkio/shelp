@@ -175,7 +175,7 @@ const ShopAddProduct = (props) => {
                 <div className='form-group row product-edit-form'>
                     <label className='col-lg-2 col-md-3 col-form-label'>Select image:</label>
                     <div className='col-md-3'>
-                        <input type='file' id='img' onChange={uploadHandler} />
+                        <input type='file' id='add-img' onChange={uploadHandler} />
                     </div>
                 </div>
                 <div className='form-group row product-edit-form'>
@@ -190,12 +190,12 @@ const ShopAddProduct = (props) => {
                         <input type='date' className='form-control' id='date' value={date} onChange={e => setDate(e.target.value)} />
                     </div>
                     <div className='col-md-4'>
-                        <div onClick={handleDateTomorrow} className='ui basic teal button'>Tomorrow</div>
-                        <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
+                        <div onClick={handleDateTomorrow} className='ui basic teal button' data-testid='tomorrow'>Tomorrow</div>
+                        <div onClick={handleOneDay} className='ui basic teal button' data-testid='+1Day'>+1 Day</div>
                     </div>
                 </div>
                 <div className='add-product-button'>
-                    <button id='submitBtn' className='ui button' type='submit'>Upload</button>
+                    <button className='ui button' type='submit' data-testid='upload'>Upload</button>
                 </div>
             </form>
         </div>

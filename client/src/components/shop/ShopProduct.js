@@ -169,8 +169,8 @@ const ShopProduct = (props) => {
                 </div>
                 <div className='col-md-2 col-sm-12'>
                     <div className='shop-product-buttons'>
-                        <button className='btn btn-info edit-button' onClick={() => edit(props.product)}>Edit</button>
-                        <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
+                        <button className='btn btn-info edit-button' onClick={() => edit(props.product)} data-testid='shop-product-edit'>Edit</button>
+                        <button className='btn btn-danger' onClick={() => remove(props.product)} data-testid='shop-product-remove'>Remove</button>
                     </div>
                 </div>
             </div>
@@ -182,13 +182,13 @@ const ShopProduct = (props) => {
                     <div className='form-group row product-edit-form'>
                         <label className='col-lg-2 col-md-3 col-form-label'>Name/description:</label>
                         <div className='col-lg-5 col-md-9'>
-                            <input type='text' className='form-control' value={name} onChange={e => setName(e.target.value)} />
+                            <input data-testid='name' type='text' className='form-control' value={name} onChange={e => setName(e.target.value)} />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
                         <label className='col-lg-2 col-md-3 col-form-label'>Original price:</label>
                         <div className='col-lg-5 col-md-9'>
-                            <input type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
+                            <input data-testid='originalPrice' type='number' className='form-control' value={price} onChange={e => setPrice(e.target.value)} />
                         </div>
                     </div>
                     <div className='form-group row product-edit-form'>
@@ -217,22 +217,22 @@ const ShopProduct = (props) => {
                     <div className='form-group row product-edit-form'>
                         <label className='col-lg-2 col-md-3 col-form-label'>Select image:</label>
                         <div className='col-md-3'>
-                            <input type='file' onChange={editUploadHandler} />
+                            <input data-testid='file' type='file' onChange={editUploadHandler} />
                         </div>
                     </div>
                     <div className='form-group row'>
                         <label className='col-lg-2 col-md-3 col-form-label'>Expiration date:</label>
                         <div className='col-lg-3 col-md-4'>
-                            <input type='date' className='form-control' value={date} onChange={e => setDate(e.target.value)} />
+                            <input data-testid='date' type='date' className='form-control' value={date} onChange={e => setDate(e.target.value)} />
                         </div>
                         <div className='col-md-4'>
-                            <div onClick={handleToday} className='ui basic teal button'>Today</div>
-                            <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
+                            <div onClick={handleToday} className='ui basic teal button' data-testid='product-today'>Today</div>
+                            <div onClick={handleOneDay} className='ui basic teal button' data-testid='product-1Day'>+1 Day</div>
                         </div>
                     </div>
                     <div className='edit-product-buttons'>
-                        <div className='ui basic red button' onClick={close}>Cancel</div>
-                        <button className='ui button' type='submit'>Edit Product</button>
+                        <div className='ui basic red button' onClick={close} data-testid='shop-product-cancel'>Cancel</div>
+                        <button className='ui button' type='submit' data-testid='shop-product-edit-product'>Edit Product</button>
                     </div>
                     <hr />
                 </form>

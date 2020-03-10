@@ -121,7 +121,7 @@ const Checkout = (props) => {
                         </div>
                         <div className='checkout-apply-button'>
                             <Link to='/cart' className='back-cart-link'>
-                                <div className='text'>{`< Back to cart`}</div>
+                                <div className='text' data-testid='back-to-cart'>{`< Back to cart`}</div>
                             </Link>
                             <button
                                 className='ui button'

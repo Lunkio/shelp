@@ -60,7 +60,7 @@ const ShopLogin = (props) => {
                     <input name='password' type={passwordType} className='form-control' id='shopPassword' />
                 </div>
                 <div className='show-password'>
-                    <input type='checkbox' onClick={handlePasswordReveal} />Show password
+                    <input type='checkbox' onClick={handlePasswordReveal} id='showPassword'/>Show password
                 </div>
                 <div className='login-button'>
                     <button id='loginBtn' type='submit' className='ui button'>Login</button>
@@ -72,7 +72,7 @@ const ShopLogin = (props) => {
             <div className='signup-container'>
                 <p>Not yet a partner?</p>
                 <Link to='register'>
-                    <button className='ui grey basic button'>Sign up</button>
+                    <button className='ui grey basic button' data-testid='signup'>Sign up</button>
                 </Link>
             </div>
         </div>

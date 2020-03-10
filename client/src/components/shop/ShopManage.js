@@ -199,8 +199,8 @@ const ShopManage = (props) => {
                     <p>ALERT! This will delete everything, including shop registration, there's no way back. Are you sure?</p>
                 </div>
                 <div className='remove-alert-buttons'>
-                    <button onClick={removeHandle} className='ui basic red button'>Yes, I'm sure</button>
-                    <button onClick={removeCancel} className='ui basic teal button'>No, take me back</button>
+                    <button onClick={removeHandle} className='ui basic red button' data-testid='remove-yes'>Yes, I'm sure</button>
+                    <button onClick={removeCancel} className='ui basic teal button' data-testid='remove-no'>No, take me back</button>
                 </div>
                 <div style={removePasswordShow} className='remove-password-container'>
                     <div className='remove-confirm-text'>
@@ -213,7 +213,7 @@ const ShopManage = (props) => {
                         <div className='show-password'>
                             <input type='checkbox' onClick={handlePasswordReveal} />Show password
                         </div>
-                        <button type='submit' className='ui red button'>Remove everything</button>
+                        <button type='submit' className='ui red button' data-testid='remove'>Remove everything</button>
                     </form>
                 </div>
             </div>
@@ -221,7 +221,7 @@ const ShopManage = (props) => {
                 <div style={editShow}>
                     <div className='edit-shop-header'>
                         <h3>Edit shop details</h3>
-                        <div className='ui basic grey button' onClick={close}>Cancel</div>
+                        <div className='ui basic grey button' onClick={close} data-testid='manage-cancel'>Cancel</div>
                     </div>
                     <form onSubmit={handleEdit} className='row'>
                         <div className='col-md-6'>
@@ -272,12 +272,12 @@ const ShopManage = (props) => {
                             </div>
                             <div className='get-coordinates-map-container'>
                                 <div className='left-of-register-map'>
-                                    <div onClick={getCoordinates} className='ui teal button'>Get Coordinates</div>
+                                    <div onClick={getCoordinates} className='ui teal button' data-testid='manage-coordinates'>Get Coordinates</div>
                                     <div className='clear-coordinates-container' style={mapShow}>
                                         <p className='coordinates-text'>If the location is not correct on the map, clear the coordinates and 
                                         leave both latitude and longitude fields empty. Please contact us at <b>support@shelp.fi</b> for help.
                                         </p>
-                                        <div onClick={clearCoordinates} className='ui basic red button'>Clear coordinates</div>
+                                        <div onClick={clearCoordinates} className='ui basic red button' data-testid='manage-clear-coordinates'>Clear coordinates</div>
                                     </div>
                                 </div>
                                 {showMap && 
@@ -302,7 +302,7 @@ const ShopManage = (props) => {
                             </div>
                         </div>
                         <div className='edit-submit-button col-md-12'>
-                            <button id='submitEditBtn' type='submit' className='ui button'>Submit changes</button>
+                            <button data-testid='manage-submit' type='submit' className='ui button'>Submit changes</button>
                         </div>
                     </form>
                 </div>
@@ -313,7 +313,7 @@ const ShopManage = (props) => {
                         <p><b>Edit shop details</b></p>
                         <p>Change and update your shop details</p>
                     </div>
-                    <button id='editShop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
+                    <button data-testid='manage-edit-shop' className='btn btn-info' onClick={() => edit(shop)}>Edit Shop Details</button>
                 </div> <hr />
                 <div>
                     <h3>Danger Zone</h3>
@@ -325,7 +325,7 @@ const ShopManage = (props) => {
                                 its products will be deleted forever.
                             </p>
                         </div>
-                        <button id='deleteShop' className='btn btn-danger' onClick={testRemove}>Delete Everything</button>
+                        <button data-testid='manage-delete-shop' className='btn btn-danger' onClick={testRemove}>Delete Everything</button>
                     </div>
                 </div>
             </div>

@@ -16,11 +16,11 @@ describe('SingleProduct -component', () => {
 
     it('should display product details', () => {
         expect(component.getByTestId('img')).toBeDefined()
-        expect(component.getByTestId('desc')).toHaveTextContent('Lihamakaronilaatikko 400g')
+        expect(component.getByTestId('desc')).toHaveTextContent('Kasvismakaronilaatikko 400g')
         expect(component.getByTestId('expiration')).toHaveTextContent('01.01.2020')
         expect(component.getByTestId('shopname')).toHaveTextContent('Test Shop')
-        expect(component.getByTestId('shopaddress')).toHaveTextContent('Street 1, 00100 Helsinki')
-        expect(component.getByTestId('shopphone')).toHaveTextContent('05012345678')
+        expect(component.getByTestId('shopaddress')).toHaveTextContent('Street, 00100 Helsinki')
+        expect(component.getByTestId('shopphone')).toHaveTextContent('0505647382')
         expect(component.getByTestId('price')).toHaveTextContent(10)
         expect(component.getByTestId('originalprice')).toHaveTextContent(20)
         expect(component.getByTestId('discount')).toHaveTextContent(50)

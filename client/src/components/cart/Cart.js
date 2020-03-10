@@ -13,7 +13,7 @@ const Cart = (props) => {
             <div className='container main empty-cart'>
                 <h1>Cart is empty</h1>
                 <Link to='/products'>
-                    <button className='ui button'>Discover offers</button>
+                    <button className='ui button' data-testid='cart-empty-back-to-products'>Discover offers</button>
                 </Link>
             </div>
         )
@@ -32,7 +32,7 @@ const Cart = (props) => {
             <div className='cart-header'>
                 <h1>Shopping Cart</h1> <hr />
             </div>
-            <div className='row cart-descriptions'>
+            <div className='row cart-descriptions' data-testid='cart-desc'>
                 <div className='col-md-8'>
                     <p><b>Product</b></p> <hr />
                 </div>
@@ -43,7 +43,7 @@ const Cart = (props) => {
                     <p><b>Remove</b></p> <hr />
                 </div>
             </div>
-            <div>
+            <div data-testid='cart-products'>
                 {props.cart.map(product =>
                     <InCartProducts key={product.id} product={product} />    
                 )}
@@ -51,9 +51,9 @@ const Cart = (props) => {
             <div className='row cart-buttons'>
                 <div className='col-lg-5 col-md-6 col-sm-8 cart-continue-empty-buttons'>
                     <Link to='/products'>
-                        <button className='ui teal basic button'>Continue shopping</button>
+                        <button className='ui teal basic button' data-testid='continue-shopping'>Continue shopping</button>
                     </Link>
-                    <button id='emptyCart' className='btn btn-danger' onClick={handleEmptyCart}>Empty Cart</button>
+                    <button className='btn btn-danger' onClick={handleEmptyCart} data-testid='empty-cart'>Empty Cart</button>
                 </div>
                 <div className='col-lg-5 col-md-3 col-sm-4 col-12 cart-price-container'>
                     <div className='cart-prices'>
@@ -63,7 +63,7 @@ const Cart = (props) => {
                 </div>
                 <div className='col-lg-2 col-md-3 col-sm-12 checkout-button'>
                     <Link to='/checkout'>
-                        <button className='ui button'>Checkout</button>
+                        <button className='ui button' data-testid='cart-checkout-button'>Checkout</button>
                     </Link>
                 </div>
             </div>

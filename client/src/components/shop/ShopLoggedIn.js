@@ -94,16 +94,16 @@ const ShopLoggedIn = (props) => {
                 <h5 className='col-md-4 col-sm-12 partner-pages'><b>Shelp Partner pages</b></h5>
                 <h3 className='col-md-4 col-sm-12 shopname'>Logged in as {props.shopLogin.name}</h3>
                 <div className='col-md-4 col-sm-12 logout-shop'>
-                    <button id='logoutBtn' onClick={handleLogout} className='btn btn-danger'>Logout</button>
+                    <button data-testid='logout' onClick={handleLogout} className='btn btn-danger'>Logout</button>
                 </div>
             </div>
             <hr />
             <div className='loggedin-buttons'>
-                <button className='ui button' id='products' onClick={handleProductsShow}>Products on sale</button>
-                <button className='ui button' id='bought' onClick={handleBoughtProduct}>Bought Products</button>
-                <button className='ui button' id='expired' onClick={handleExpired}>Expired Products</button>
-                <button className='ui button' id='add' onClick={handleAddShow}>Add products</button>
-                <button className='ui button' id='manage' onClick={handleManage} >Manage Shop</button>
+                <button className='ui button' data-testid='products' onClick={handleProductsShow}>Products on sale</button>
+                <button className='ui button' data-testid='bought' onClick={handleBoughtProduct}>Bought Products</button>
+                <button className='ui button' data-testid='expired' onClick={handleExpired}>Expired Products</button>
+                <button className='ui button' data-testid='add' onClick={handleAddShow}>Add products</button>
+                <button className='ui button' data-testid='manage' onClick={handleManage} >Manage Shop</button>
             </div>
 
             <div className='info-message'>

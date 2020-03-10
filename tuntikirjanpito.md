@@ -64,3 +64,4 @@
 | 8.3.  |  6.5 | Sovelluksen ulkonäön tekeminen mobiiliystävällisemmäksi |
 | 9.3.  |  1.5 | Sovelluksen mobiiliulkonäön viimeistelyä |
 | 9.3.  |  6   | Testauksen alkua, selvitetty yksikkötestausta React Testing Libraryn ja React-Reduxin kanssa, muutama CSS-bugi korjattu |
+| 10.3. |  4   | React Testing Library -testien tekoa, ensimmäinen build, sovellus herokuun |

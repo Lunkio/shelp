@@ -10,7 +10,7 @@ const PaymentCancel = (props) => {
 
     return (
         <div className='container main'>
-            <div className='cancel-container'>
+            <div className='cancel-container' data-testid='cancel'>
                 <h1>Oops! Something went wrong</h1>
                 <h3>Payment was cancelled/interrupted</h3>
                 <h3>Please try again</h3>

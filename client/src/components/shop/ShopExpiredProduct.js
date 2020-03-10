@@ -93,7 +93,7 @@ const ShopExpiredProduct = (props) => {
         <div className='row product-container'>
             <div className='col-md-2'>
                 <div className='img-container'>
-                    <img src={props.product.img.location} alt='product' />
+                    <img src={props.product.img.location} alt='product' data-testid='expired-img' />
                 </div>
             </div>
             <div className='col-md-6 col-sm-12'>
@@ -103,11 +103,11 @@ const ShopExpiredProduct = (props) => {
                     <input type='date' className='form-control col-xl-4 col-lg-12 col-md-12' value={date} onChange={e => setDate(e.target.value)} />
                     <div className='col-xl-8 col-lg-12 col-md-12 expiry-set-buttons'>
                         <div>
-                            <div onClick={handleOneDay} className='ui basic teal button'>+1 Day</div>
-                            <div onClick={() => handleDateEdit(props.product)} className='ui button set-date-button'>Set Date</div>
+                            <div onClick={handleOneDay} className='ui basic teal button' data-testid='expired-1Day'>+1 Day</div>
+                            <div onClick={() => handleDateEdit(props.product)} className='ui button set-date-button' data-testid='expired-set-date'>Set Date</div>
                         </div>
                         <div>
-                            <div onClick={handleCancel} className='ui basic red button'>Cancel</div>
+                            <div onClick={handleCancel} className='ui basic red button' data-testid='expired-cancel'>Cancel</div>
                         </div>
                     </div>
                 </div>
@@ -126,8 +126,8 @@ const ShopExpiredProduct = (props) => {
             </div>
             <div className='col-md-3 col-sm-12' style={editButtonsShow}>
                 <div className='shop-expire-edit-button'>
-                    <button className='btn btn-info expire-edit-button' onClick={() => edit(props.product)}>Edit expiration date</button>
-                    <button className='btn btn-danger' onClick={() => remove(props.product)}>Remove</button>
+                    <button className='btn btn-info expire-edit-button' onClick={() => edit(props.product)} data-testid='expired-edit'>Edit expiration date</button>
+                    <button className='btn btn-danger' onClick={() => remove(props.product)} data-testid='expired-remove'>Remove</button>
                 </div>
             </div>
         </div>
