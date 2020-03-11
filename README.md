@@ -10,7 +10,7 @@ Tämän projektin idea/esikuva on lähtöisin ResQ Clubin sovelluksesta.
 
 ### `Käyttöohjeet / ominaisuudet`
 
-
+https://github.com/Lunkio/shelp/blob/master/instructions.md
 
 ### `Live`
 
