@@ -137,7 +137,7 @@ const Checkout = (props) => {
                     <div className='checkout-total'>
                         <p>Total: <b>{totalPriceRounded}</b> €</p>
                     </div>
-                    <div style={show}>
+                    <div style={show} data-testid='paypal-button'>
                         <PayPalButton buyer={buyer} totalPrice={totalPriceRounded} products={props.cart} />
                     </div>
                     <hr />

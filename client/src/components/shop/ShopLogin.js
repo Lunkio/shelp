@@ -69,6 +69,12 @@ const ShopLogin = (props) => {
             <div className='info-message'>
                 {props.alert && <Message error header={props.alert} />}
             </div>
+            <div className='test-login-credentials'>
+                <p className='test-credential-intro'>You can login with test credentials:</p>
+                <p><i>Shop Name: <b>Test Shop</b></i></p>
+                <p><i>Password: <b>bigsecret</b></i></p>
+                <p>...or register your own shop by clicking <b>"Sign up"</b>.</p>
+            </div>
             <div className='signup-container'>
                 <p>Not yet a partner?</p>
                 <Link to='register'>

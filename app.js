@@ -100,6 +100,40 @@ app.get('/api/products/image/:filename', (req, res, next) => {
         .catch(error => next(error))
 })
 
+app.get('/products/api/products/image/:filename', (req, res, next) => {
+    Image.findOne({ filename: req.params.filename })
+        .then(image => {
+            if (image) {
+                if (image.contentType === 'image/jpeg' || image.contentType === 'image/png') {
+                    const readstream = gfs.createReadStream(image.filename)
+                    readstream.pipe(res)
+                } else {
+                    res.status(404).json({ err: 'Not an image' })
+                }
+            } else {
+                res.status(404).end()
+            }
+        })
+        .catch(error => next(error))
+})
+
+app.get('/login/api/products/image/:filename', (req, res, next) => {
+    Image.findOne({ filename: req.params.filename })
+        .then(image => {
+            if (image) {
+                if (image.contentType === 'image/jpeg' || image.contentType === 'image/png') {
+                    const readstream = gfs.createReadStream(image.filename)
+                    readstream.pipe(res)
+                } else {
+                    res.status(404).json({ err: 'Not an image' })
+                }
+            } else {
+                res.status(404).end()
+            }
+        })
+        .catch(error => next(error))
+})
+
 app.use(cors())
 
 app.use(middleware.tokenExtractor)

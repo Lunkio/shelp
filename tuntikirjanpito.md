@@ -66,3 +66,5 @@
 | 9.3.  |  6   | Testauksen alkua, selvitetty yksikkötestausta React Testing Libraryn ja React-Reduxin kanssa, muutama CSS-bugi korjattu |
 | 10.3. |  4   | React Testing Library -testien tekoa, ensimmäinen build, sovellus herokuun |
 | 10.3. |  2   | Cypress -testejä lisätty |
+| 11.3. |  4   | Cypress -testejä lisätty, viimeisiä silauksia ja bugien korjauksia palautusta varten |
+| YHT:  |176.5 | |
