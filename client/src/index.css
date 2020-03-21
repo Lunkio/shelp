@@ -1671,12 +1671,18 @@ body {
 }
 
 @media (max-width: 576px) {
+  /* .map-container {
+    flex-direction: column-reverse;
+  }
+
   .map-side-window {
-    width: 90vw;
+    width: 100vw;
+    height: 15rem;
   }
   
   .map {
-    width: 10vw !important;
-  }
+    width: 100vw !important;
+    height: 5vh !important;
+  } */
 }
 /* MapBox ends */
